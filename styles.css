@@ -5,31 +5,32 @@ body {
     color: #ffffff;
 }
 
-/* Header Section */
+/* Adjustments for the header and navigation */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #1f1f1f;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    background-color: #333; /* Or any background color you prefer */
 }
 
-.logo h1 {
+/* Logo styling */
+.header .logo h1 {
     margin: 0;
     font-size: 24px;
-    color: #e6e6e6;
 }
 
+/* Default navigation styling */
 .nav ul {
-    list-style: none;
+    list-style: none; /* Remove bullet points */
     margin: 0;
     padding: 0;
-    display: flex;
+    display: flex; /* Align items horizontally */
 }
 
 .nav ul li {
     margin-left: 20px;
+    display: inline-block; /* Ensure items stay inline */
 }
 
 .nav ul li a {
@@ -42,6 +43,47 @@ body {
 .nav ul li a:hover {
     color: #ff5722;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        display: none; /* Hide the menu initially */
+    }
+
+    .nav ul li {
+        margin-left: 0; /* Remove left margin for mobile */
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        display: block; /* Stack items vertically */
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px 0;
+        transition: 0.4s;
+    }
+
+    /* Show the menu when the toggle is active */
+    .nav.active ul {
+        display: block; /* Display menu on click */
+    }
+}
+
 
 /* Search Bar Section */
 .search-section {
@@ -92,25 +134,25 @@ body {
 }
 
 /* Featured Content Section */
-.featured-section {
+.services-section {
     padding: 40px 20px;
     background-color: #1f1f1f;
 }
 
-.featured-section h2 {
+.services-section h2 {
     text-align: center;
     font-size: 32px;
     color: #e6e6e6;
     margin-bottom: 40px;
 }
 
-.featured-grid {
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.featured-item {
+.service-item {
     background-color: #282828;
     padding: 20px;
     border-radius: 8px;
@@ -118,42 +160,42 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.featured-item:hover {
+.service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-.featured-item h3 {
+.service-item h3 {
     font-size: 24px;
     color: #ff5722;
     margin-bottom: 15px;
 }
 
-.featured-item p {
+.service-item p {
     font-size: 16px;
     color: #cccccc;
 }
 
 /* Categories Section */
-.categories-section {
+.departments-section {
     padding: 40px 20px;
     background-color: #181818;
 }
 
-.categories-section h2 {
+.departments-section h2 {
     text-align: center;
     font-size: 32px;
     color: #e6e6e6;
     margin-bottom: 40px;
 }
 
-.categories-grid {
+.departments-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
-.category-item {
+.department-item {
     background-color: #282828;
     padding: 20px;
     border-radius: 8px;
@@ -161,12 +203,12 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.category-item:hover {
+.department-item:hover {
     background-color: #333333;
     transform: translateY(-5px);
 }
 
-.category-item h3 {
+.department-item h3 {
     font-size: 20px;
     color: #ffffff;
 }
@@ -197,15 +239,20 @@ body {
 }
 
 .social-links li a {
-    color: #ff5722;
+    color: #fcfcfb;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease;
 }
 
 .social-links li a:hover {
-    color: #e64a19;
+    color: #fafafa;
 }
+.social-links i {
+    margin-right: 8px; /* Adjust space between icon and text */
+    font-size: 18px; /* Set icon size */
+}
+
 /* Signup and Login Form Section */
 .auth-container {
     max-width: 400px;
