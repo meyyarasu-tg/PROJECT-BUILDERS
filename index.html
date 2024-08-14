@@ -13,7 +13,7 @@
     <header class="header">
         <div class="logo">
             <h1>
-                <a href="http://prjctbuilds.unaux.com/?i=1" style="text-decoration: none;color:#ff5722;">PROJECT BUILDERS</a>
+                <a href="index.html">PROJECT BUILDERS</a>
             </h1>
         </div>
         <nav class="nav">
@@ -23,7 +23,7 @@
                 <span></span>
             </div>
             <ul id="nav-menu">
-                <li><a href="http://prjctbuilds.unaux.com/?i=1">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="project-reports.html">Project Reports</a></li>
                 <li><a href="mini-project-reports.html">Mini Project Reports</a></li>
                 <li><a href="ppts.html">PPTs</a></li>
@@ -32,11 +32,6 @@
             </ul>
         </nav>
     </header>
-<script>document.getElementById('menu-toggle').addEventListener('click', function() {
-    document.querySelector('.nav').classList.toggle('active');
-});
-</script>   
-
     <!-- Search Bar Section -->
     <section class="search-section">
         <div class="container">
@@ -46,26 +41,33 @@
             </form>
         </div>
     </section>
-
+<!-- Request New Project and Others Section -->
+<section class="request-section">
+    <div class="container">
+        <h2>Request New Project and Others</h2>
+        <p>If you have a new project or other request, please click the button below to fill out the detailed form.</p>
+        <a href="request-form.html" class="request-btn">Go to Request Form</a>
+    </div>
+</section>
     <!-- Services Section -->
 <section class="services-section">
     <div class="container">
         <h2>Services</h2>
         <div class="services-grid">
             <div class="service-item">
-                <h3><a href="project-reports.html"style="text-decoration: none;color:#ff5722;">Projects & PPTs</a></h3>
+                <h3><a href="project-reports.html">Projects & PPTs</a></h3>
                 <p>All departments end sem and Naan Mudhalvan projects and PPTs.</p>
             </div>
             <div class="service-item">
-                <h3><a href="mini-projects.html"style="text-decoration: none;color:#ff5722;">Mini Project</a></h3>
+                <h3><a href="mini-projects.html">Mini Project</a></h3>
                 <p>All departments semester mini projects.</p>
             </div>
             <div class="service-item">
-                <h3><a href="ppts.html"style="text-decoration: none;color:#ff5722;">PPTs</a></h3>
+                <h3><a href="ppts.html">PPTs</a></h3>
                 <p>All departments PPTs.</p>
             </div>
             <div class="service-item">
-                <h3><a href="notes.html"style="text-decoration: none;color:#ff5722;">Notes</a></h3>
+                <h3><a href="notes.html">Notes</a></h3>
                 <p>All departments notes.</p>
             </div>
         </div>
@@ -78,35 +80,49 @@
             <h2>Departments</h2>
             <div class="departments-grid">
                 <div class="department-item">
-                    <h3><a href="cvil.html"style="text-decoration: none;color:#ff5722;">CIVIL</h3></a>
+                    <h3><a href="cvil.html">CIVIL</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="mech.html"style="text-decoration: none;color:#ff5722;">MECHANICAL</h3></a>
+                    <h3><a href="mech.html">MECHANICAL</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="cse.html"style="text-decoration: none;color:#ff5722;">CSE</h3></a>
+                    <h3><a href="cse.html">CSE</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="eee.html"style="text-decoration: none;color:#ff5722;">EEE</h3></a>
+                    <h3><a href="eee.html">EEE</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="ece"style="text-decoration: none;color:#ff5722;">ECE</h3></a>
+                    <h3><a href="ece.html">ECE</a></h3>
+                </div>
+                <div class="department-item">
+                    <h3><a href="nm.html">NAAN MUDHALVAN</a></h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Project Builders. All rights reserved.</p>
-            <ul class="social-links">
-                <li><a href="http://wa.me/917603846096"><i class="fab fa-whatsapp"style="color: #25D366;"></i>WhatsApp</a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=61563886725041&is_tour_dismissed"><i class="fab fa-instagram" style="color: #d62976;"></i> Instagram</a></li>
-                <li><a href="https://www.instagram.com/project_builders_24/"><i class="fab fa-facebook" style="color: #1877F2;"></i> Facebook</a></li>
-                <li><a href="https://x.com/prjct_builds"><i class="fab fa-twitter" style="color: #1DA1F2;"></i> X</a></li>
-            </ul>
-        </div>
-    </footer>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <p>Contact us</p> 
+        <ul class="social-links">
+            <li><a href="http://wa.me/917603846096"><i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61563886725041&is_tour_dismissed"><i class="fab fa-instagram" style="color: #d62976;"></i> Instagram</a></li>
+            <li><a href="https://www.instagram.com/project_builders_24/"><i class="fab fa-facebook" style="color: #1877F2;"></i> Facebook</a></li>
+            <li><a href="https://x.com/prjct_builds"><i class="fab fa-twitter" style="color: #1DA1F2;"></i> X</a></li>
+        </ul>
+    </div>
+    <div class="footer-text">
+        <p>&copy; 2024 Project Builders. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+
+
+
 </body>
 </html>
