@@ -42,15 +42,22 @@
 </head>
 <body>
     <div class="payment-container">
-        <h2>Select Payment for Report</h2>
+        <h2 id="project-name">Select Payment for Report</h2>
         <div class="payment-options">
-            <button class="payment-btn" onclick="payNow(100)">Project Report - ₹100</button>
-            <button class="payment-btn" onclick="payNow(50)">Mini Project Report - ₹50</button>
+            <button class="payment-btn" onclick="payNow()">Pay Now</button>
         </div>
     </div>
 
     <script>
-        function payNow(amount) {
+        // Get project details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('projectId');
+        const amount = urlParams.get('amount');
+
+        // Update the project name in the payment page
+        document.getElementById('project-name').innerText = `${projectId} - ₹${amount}`;
+
+        function payNow() {
             // Replace with your backend URL that handles the PhonePe payment request
             fetch('/create-payment', {
                 method: 'POST',
