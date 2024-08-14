@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Projects</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+        .project-container {
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .project-item {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .project-item:hover {
+            background-color: #444;
+        }
+        .project-title {
+            flex: 1;
+            font-size: 18px;
+            color: #ffffff;
+        }
+        .project-img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            margin-left: 20px;
+            border-radius: 4px;
+        }
+        .download-link {
+            display: none;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+        .download-link a {
+            color: #ff5722;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .download-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Civil Projects</h1>
+    <div class="project-container">
+        <h2>Available Projects</h2>
+        <div class="project-item" onclick="payForProject('civil-project-1', 100)">
+            <span class="project-title">Civil Project 1 - ₹100</span>
+            <img src="images/civil-project-1.jpg" alt="Civil Project 1" class="project-img">
+        </div>
+        <div class="project-item" onclick="payForProject('civil-project-2', 100)">
+            <span class="project-title">Civil Project 2 - ₹100</span>
+            <img src="images/civil-project-2.jpg" alt="Civil Project 2" class="project-img">
+        </div>
+        <!-- Add more projects as needed -->
+        <div id="download-link" class="download-link">
+            <p>Your payment was successful! Click the link below to download your project:</p>
+            <a id="download-url" href="#" download>Download</a>
+        </div>
+    </div>
+
+    <script>
+        function payForProject(projectId, amount) {
+            var options = {
+                "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
+                "amount": amount * 100, // Amount in paise
+                "currency": "INR",
+                "name": "Project Purchase",
+                "description": "Purchase of " + projectId,
+                "handler": function (response) {
+                    // Handle the payment response here
+                    document.getElementById('download-link').style.display = 'block'; // Show the download link
+                    document.getElementById('download-url').href = 'files/' + projectId + '.pdf'; // Update the download link
+                },
+                "prefill": {
+                    "name": "",
+                    "email": "",
+                    "contact": ""
+                },
+                "theme": {
+                    "color": "#ff5722"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+        }
+    </script>
+</body>
+</html>

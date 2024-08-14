@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Reports</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1><a href="index.html">PROJECT BUILDERS</a></h1>
+        </div>
+        <nav class="nav">
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project-reports.html">Project Reports</a></li>
+                <li><a href="mini-project-reports.html">Mini Project Reports</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 id="dept-title">Department</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><a id="projects-link" href="#">Projects & PPTs</a></h3>
+                </div>
+                <div class="service-item">
+                    <h3><a id="mini-projects-link" href="#">Mini Project Reports</a></h3>
+                </div>
+                <div class="service-item">
+                    <h3><a id="ppts-link" href="#">PPTs</a></h3>
+                </div>
+                <div class="service-item">
+                    <h3><a id="notes-link" href="#">Notes</a></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Project Builders. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get department from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const dept = urlParams.get('dept');
+
+        // Update the page based on the department
+        const deptTitle = document.getElementById('dept-title');
+        deptTitle.textContent = `${dept.toUpperCase()} Department`;
+
+        // Update links to include the department in the URL
+        document.getElementById('projects-link').href = `projects.html?dept=${dept}`;
+        document.getElementById('mini-projects-link').href = `mini-projects.html?dept=${dept}`;
+        document.getElementById('ppts-link').href = `ppts.html?dept=${dept}`;
+        document.getElementById('notes-link').href = `notes.html?dept=${dept}`;
+    </script>
+</body>
+</html>
