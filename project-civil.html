@@ -13,35 +13,36 @@
             color: #ffffff;
             padding: 20px;
         }
-        .project-container {
-            background-color: #282828;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        ol {
+            counter-reset: item;
+            padding-left: 20px;
         }
         .project-item {
             display: flex;
             align-items: center;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            padding: 10px 0;
+            list-style: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: color 0.3s ease;
+        }
+        .project-item:before {
+            counter-increment: item;
+            content: counter(item) ". ";
+            color: #ff5722;
+            font-weight: bold;
         }
         .project-item:hover {
-            background-color: #444;
+            color: #ff5722;
         }
         .project-title {
             flex: 1;
             font-size: 18px;
-            color: #ffffff;
+            margin-right: 20px;
         }
         .project-img {
             width: 80px;
             height: 60px;
             object-fit: cover;
-            margin-left: 20px;
             border-radius: 4px;
         }
         .download-link {
@@ -63,15 +64,17 @@
     <h1>Civil Projects</h1>
     <div class="project-container">
         <h2>Available Projects</h2>
-        <div class="project-item" onclick="payForProject('civil-project-1', 100)">
-            <span class="project-title">Civil Project 1 - ₹100</span>
-            <img src="images/civil-project-1.jpg" alt="Civil Project 1" class="project-img">
-        </div>
-        <div class="project-item" onclick="payForProject('civil-project-2', 100)">
-            <span class="project-title">Civil Project 2 - ₹100</span>
-            <img src="images/civil-project-2.jpg" alt="Civil Project 2" class="project-img">
-        </div>
-        <!-- Add more projects as needed -->
+        <ol>
+            <li class="project-item" onclick="payForProject('civil-project-1', 100)">
+                <span class="project-title">Civil Project 1 - ₹100</span>
+                <img src="images/civil-project-1.jpg" alt="Civil Project 1" class="project-img">
+            </li>
+            <li class="project-item" onclick="payForProject('civil-project-2', 100)">
+                <span class="project-title">Civil Project 2 - ₹100</span>
+                <img src="images/civil-project-2.jpg" alt="Civil Project 2" class="project-img">
+            </li>
+            <!-- Add more projects as needed -->
+        </ol>
         <div id="download-link" class="download-link">
             <p>Your payment was successful! Click the link below to download your project:</p>
             <a id="download-url" href="#" download>Download</a>
