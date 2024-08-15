@@ -4,6 +4,20 @@ body {
     background-color: #121212;
     color: #ffffff;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.project-container {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+}
+
 
 /* Adjustments for the header and navigation */
 .header {
@@ -335,4 +349,43 @@ body {
     width: 100%;
     box-sizing: border-box;
     margin-top: 20px;
+}
+
+
+/* Style for Project */
+.project-container {
+    flex: 1;
+}
+ol {
+    counter-reset: item;
+    padding-left: 20px;
+}
+.project-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    list-style: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #ffffff;
+}
+.project-item:before {
+    counter-increment: item;
+    content: counter(item) ". ";
+    color: #ff5722;
+    font-weight: bold;
+}
+.project-item:hover {
+    color: #ff5722;
+}
+.project-title {
+    flex: 1;
+    font-size: 18px;
+    margin-right: 20px;
+}
+.project-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
 }

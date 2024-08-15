@@ -3,49 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civil Projects</title>
+    <title>Mini Civil Projects</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            padding: 20px;
-        }
-        ol {
-            counter-reset: item;
-            padding-left: 20px;
-        }
-        .project-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 0;
-            list-style: none;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .project-item:before {
-            counter-increment: item;
-            content: counter(item) ". ";
-            color: #ff5722;
-            font-weight: bold;
-        }
-        .project-item:hover {
-            color: #ff5722;
-        }
-        .project-title {
-            flex: 1;
-            font-size: 18px;
-            margin-right: 20px;
-        }
-        .project-img {
-            width: 80px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -72,19 +32,19 @@
         </nav>
     </header>
 
-    <h1>Civil Projects</h1>
+    <h1>Mini Civil Projects</h1>
     <div class="project-container">
-        <h2>Available Projects</h2>
+        <h2>Available Mini Projects</h2>
         <ol>
-            <li class="project-item" onclick="payForProject('civil-project-1', 100)">
-                <span class="project-title">Civil Project 1 - ₹100</span>
-                <img src="images/civil-project-1.jpg" alt="Civil Project 1" class="project-img">
+            <li class="project-item" onclick="payForProject('mini-civil-project-1', 'mini-project')">
+                <span class="project-title">Mini Civil Project 1 - ₹50</span>
+                <img src="images/mini-civil-project-1.jpg" alt="Mini Civil Project 1" class="project-img">
             </li>
-            <li class="project-item" onclick="payForProject('civil-project-2', 100)">
-                <span class="project-title">Civil Project 2 - ₹100</span>
-                <img src="images/civil-project-2.jpg" alt="Civil Project 2" class="project-img">
+            <li class="project-item" onclick="payForProject('mini-civil-project-2', 'mini-project')">
+                <span class="project-title">Mini Civil Project 2 - ₹50</span>
+                <img src="images/mini-civil-project-2.jpg" alt="Mini Civil Project 2" class="project-img">
             </li>
-            <!-- Add more projects as needed -->
+            <!-- Add more mini projects as needed -->
         </ol>
     </div>
 
@@ -109,8 +69,9 @@
             document.querySelector('.nav').classList.toggle('active');
         });
 
-        function payForProject(projectId, amount) {
-            window.location.href = `payment.html?projectId=${projectId}&amount=${amount}`;
+        function payForProject(projectId, type) {
+            var amount = type === 'project' ? 100 : 50;
+            window.location.href = `payment.html?projectId=${projectId}&amount=${amount}&type=${type}`;
         }
     </script>
 </body>

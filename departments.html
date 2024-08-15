@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - Choose Department</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1><a href="index.html">PROJECT BUILDERS</a></h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="departments.html?service=project-reports">Project Reports</a></li>
+                <li><a href="departments.html?service=mini-project-reports">Mini Project Reports</a></li>
+                <li><a href="departments.html?service=ppts">PPTs</a></li>
+                <li><a href="departments.html?service=notes">Notes</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="departments-section">
+        <div class="container">
+            <h2>Select Your Department</h2>
+            <div class="departments-grid">
+                <div class="department-item">
+                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="civil">CIVIL</a></h3>
+                </div>
+                <div class="department-item">
+                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="mechanical">MECHANICAL</a></h3>
+                </div>
+                <div class="department-item">
+                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="cse">CSE</a></h3>
+                </div>
+                <div class="department-item">
+                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="eee">EEE</a></h3>
+                </div>
+                <div class="department-item">
+                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="ece">ECE</a></h3>
+                </div>
+                <div class="department-item">
+                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="naan-mudhalvan">NAAN MUDHALVAN</a></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Project Builders. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.department-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const service = this.getAttribute('data-service');
+                const department = this.getAttribute('data-department');
+                window.location.href = `${service}-${department}.html`;
+            });
+        });
+    </script>
+</body>
+</html>

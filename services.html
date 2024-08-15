@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Choose Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1><a href="index.html">PROJECT BUILDERS</a></h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project-reports.html">Project Reports</a></li>
+                <li><a href="mini-project-reports.html">Mini Project Reports</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 id="dept-title">Select Your Service</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><a id="projects-link" href="#">Projects & PPTs</a></h3>
+                </div>
+                <div class="service-item">
+                    <h3><a id="mini-projects-link" href="#">Mini Project Reports</a></h3>
+                </div>
+                <div class="service-item">
+                    <h3><a id="ppts-link" href="#">PPTs</a></h3>
+                </div>
+                <div class="service-item">
+                    <h3><a id="notes-link" href="#">Notes</a></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Project Builders. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const department = urlParams.get('department');
+
+        // Define base URLs for different services
+        const baseUrls = {
+            'project': 'project',
+            'mini-project': 'mini-project',
+            'ppts': 'ppts',
+            'notes': 'notes'
+        };
+
+        // Define department URLs
+        const departmentUrls = {
+            'civil': 'civil',
+            'mechanical': 'mechanical',
+            'cse': 'cse',
+            'eee': 'eee',
+            'ece': 'ece',
+            'naan-mudhalvan': 'naan-mudhalvan'
+        };
+
+        // Update links based on department and service
+        if (department && departmentUrls[department]) {
+            document.getElementById('dept-title').textContent = `Select Service for ${department.toUpperCase()}`;
+
+            document.getElementById('projects-link').href = `${baseUrls['project']}-${departmentUrls[department]}.html`;
+            document.getElementById('mini-projects-link').href = `${baseUrls['mini-project']}-${departmentUrls[department]}.html`;
+            document.getElementById('ppts-link').href = `${baseUrls['ppts']}-${departmentUrls[department]}.html`;
+            document.getElementById('notes-link').href = `${baseUrls['notes']}-${departmentUrls[department]}.html`;
+        } else {
+            // Default behavior or handle error
+            document.getElementById('dept-title').textContent = 'Select Your Service';
+            document.getElementById('projects-link').href = '#';
+            document.getElementById('mini-projects-link').href = '#';
+            document.getElementById('ppts-link').href = '#';
+            document.getElementById('notes-link').href = '#';
+        }
+    </script>
+</body>
+</html>
