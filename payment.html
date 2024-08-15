@@ -1,11 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        /* Payment Page Styling */
+        .payment-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .qr-code-img {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Payment Success Message Styling */
+        #payment-success-message {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            color: #ff5722;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer Section */
+        .footer {
+            padding: 20px;
+            background-color: #1f1f1f;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .footer p {
+            margin: 0;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        /* Social Links Styling */
+        .social-links {
+            list-style: none;
+            padding: 25px;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links li {
+            margin: 0 10px;
+        }
+
+        .social-links li a {
+            color: #fcfcfb;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links li a:hover {
+            color: #fafafa;
+        }
+
+        .social-links i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        /* Style for the copyright text */
+        .footer-text {
+            background-color: #181818;
+            color: #cccccc;
+            font-size: 14px;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="payment-container">
         <img src="path/to/qr-code-image.jpg" alt="QR Code" class="qr-code-img">
@@ -29,7 +130,7 @@
             document.getElementById('payment-success-message').style.display = 'block';
 
             // Automatically redirect to the download section after 3 seconds
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = "path/to/download/file.pdf";  // Add your actual download file URL
             }, 3000);  // Adjust delay time (in milliseconds) as needed
         }
@@ -38,5 +139,15 @@
         // Replace this with your actual payment verification logic
         simulatePaymentSuccess();
     </script>
+
+    <div class="footer">
+        <p>© 2024 Project Builders. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+        </ul>
+    </div>
 </body>
+
 </html>
