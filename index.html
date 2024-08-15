@@ -86,18 +86,17 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        // Function to load the header and footer
-        function loadComponent(url, placeholderId) {
-            fetch(url)
+        // Function to load HTML content
+        function loadHTML(elementId, filePath) {
+            fetch(filePath)
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById(placeholderId).innerHTML = data;
+                    document.getElementById(elementId).innerHTML = data;
                 });
         }
 
-        // Load header and footer
-        loadComponent('header.html', 'header-placeholder');
-        loadComponent('footer.html', 'footer-placeholder');
+        // Load header
+        loadHTML('header-container', 'header.html');
     </script>
 </body>
 </html>
