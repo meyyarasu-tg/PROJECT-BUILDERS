@@ -3,83 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Builders - Payment</title>
+    <title>Payment Page</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .payment-container {
-            background-color: #282828;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            width: 300px;
-        }
-        .payment-btn {
-            background-color: #ff5722;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .payment-btn:hover {
-            background-color: #e64a19;
-        }
-    </style>
 </head>
 <body>
     <div class="payment-container">
-        <h2 id="project-name">Select Payment for Report</h2>
-        <div class="payment-options">
-            <button class="payment-btn" onclick="payNow()">Pay Now</button>
+        <img src="path/to/qr-code-image.jpg" alt="QR Code" class="qr-code-img">
+        <h2>Pay using QR code</h2>
+        <p>Please scan the QR code with your preferred payment app.</p>
+
+        <div id="payment-success-message" style="display: none;">
+            <p>Payment successful! Redirecting to download...</p>
         </div>
     </div>
 
     <script>
-        // Get project details from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectId = urlParams.get('projectId');
-        const amount = urlParams.get('amount');
+        // Simulate payment success function
+        function simulatePaymentSuccess() {
+            // Hide QR code section
+            document.querySelector('.qr-code-img').style.display = 'none';
+            document.querySelector('h2').style.display = 'none';
+            document.querySelector('p').style.display = 'none';
 
-        // Update the project name in the payment page
-        document.getElementById('project-name').innerText = `${projectId} - ₹${amount}`;
+            // Show success message
+            document.getElementById('payment-success-message').style.display = 'block';
 
-        function payNow() {
-            // Replace with your backend URL that handles the PhonePe payment request
-            fetch('/create-payment', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ amount: amount })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Redirect to PhonePe payment URL
-                    window.location.href = data.paymentUrl;
-                } else {
-                    alert('Payment initialization failed. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            });
+            // Automatically redirect to the download section after 3 seconds
+            setTimeout(function() {
+                window.location.href = "path/to/download/file.pdf";  // Add your actual download file URL
+            }, 3000);  // Adjust delay time (in milliseconds) as needed
         }
+
+        // Call the simulatePaymentSuccess function after payment confirmation
+        // Replace this with your actual payment verification logic
+        simulatePaymentSuccess();
     </script>
 </body>
 </html>
