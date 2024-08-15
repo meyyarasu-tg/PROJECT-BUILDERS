@@ -9,28 +9,7 @@
 </head>
 <body>
     <!-- Header Section -->
-    <header class="header">
-        <div class="logo">
-            <h1>
-                <a href="index.html">PROJECT BUILDERS</a>
-            </h1>
-        </div>
-        <nav class="nav">
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="departments.html?service=project-reports">Project Reports</a></li>
-                <li><a href="departments.html?service=mini-project-reports">Mini Project Reports</a></li>
-                <li><a href="departments.html?service=ppts">PPTs</a></li>
-                <li><a href="departments.html?service=notes">Notes</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Search Bar Section -->
     <section class="search-section">
@@ -104,10 +83,13 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer">
-        <p>&copy; 2024 Project Builders. All rights reserved.</p>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script>
+        // Load header and footer
+        document.getElementById('header-placeholder').innerHTML = '<object type="text/html" data="header.html" ></object>';
+        document.getElementById('footer-placeholder').innerHTML = '<object type="text/html" data="footer.html" ></object>';
+    </script>
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav').classList.toggle('active');
