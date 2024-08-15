@@ -56,8 +56,8 @@
 
         // Define base URLs for different services
         const baseUrls = {
-            'project': 'project',
-            'mini-project': 'mini-project',
+            'project-reports': 'project-reports',
+            'mini-project-reports': 'mini-project',
             'ppts': 'ppts',
             'notes': 'notes'
         };
@@ -72,12 +72,13 @@
             'naan-mudhalvan': 'naan-mudhalvan'
         };
 
-        // Update links based on department and service
+        // Update links based on department
         if (department && departmentUrls[department]) {
             document.getElementById('dept-title').textContent = `Select Service for ${department.toUpperCase()}`;
 
-            document.getElementById('projects-link').href = `${baseUrls['project']}-${departmentUrls[department]}.html`;
-            document.getElementById('mini-projects-link').href = `${baseUrls['mini-project']}-${departmentUrls[department]}.html`;
+            // Set hrefs for links
+            document.getElementById('projects-link').href = `${baseUrls['project-reports']}-${departmentUrls[department]}.html`;
+            document.getElementById('mini-projects-link').href = `${baseUrls['mini-project-reports']}-${departmentUrls[department]}.html`;
             document.getElementById('ppts-link').href = `${baseUrls['ppts']}-${departmentUrls[department]}.html`;
             document.getElementById('notes-link').href = `${baseUrls['notes']}-${departmentUrls[department]}.html`;
         } else {
