@@ -4,29 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Page</title>
+    <title>Custom Payment Page</title>
     <style>
-        /* General Styling */
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #121212;
             color: #ffffff;
-        }
-
-        /* Payment Page Styling */
-        .payment-container {
+            text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
         }
 
-        .qr-code-img {
-            max-width: 250px;
-            height: auto;
+        #qr-code {
             margin-bottom: 20px;
         }
 
@@ -40,7 +33,6 @@
             margin-bottom: 20px;
         }
 
-        /* Payment Success Message Styling */
         #payment-success-message {
             background-color: #333;
             padding: 20px;
@@ -48,106 +40,60 @@
             color: #ff5722;
             font-size: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer Section */
-        .footer {
-            padding: 20px;
-            background-color: #1f1f1f;
-            text-align: center;
-            margin-bottom: 0;
-        }
-
-        .footer p {
-            margin: 0;
-            color: #cccccc;
-            font-size: 14px;
-        }
-
-        /* Social Links Styling */
-        .social-links {
-            list-style: none;
-            padding: 25px;
-            margin: 10px 0 0 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .social-links li {
-            margin: 0 10px;
-        }
-
-        .social-links li a {
-            color: #fcfcfb;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links li a:hover {
-            color: #fafafa;
-        }
-
-        .social-links i {
-            margin-right: 8px;
-            font-size: 18px;
-        }
-
-        /* Style for the copyright text */
-        .footer-text {
-            background-color: #181818;
-            color: #cccccc;
-            font-size: 14px;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 20px;
+            display: none;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 </head>
 
 <body>
-    <div class="payment-container">
-        <img src="path/to/qr-code-image.jpg" alt="QR Code" class="qr-code-img">
-        <h2>Pay using QR code</h2>
-        <p>Please scan the QR code with your preferred payment app.</p>
+    <div id="qr-code"></div>
+    <h2>Pay using QR code</h2>
+    <p>Please scan the QR code with your preferred payment app.</p>
 
-        <div id="payment-success-message" style="display: none;">
-            <p>Payment successful! Redirecting to download...</p>
-        </div>
+    <div id="payment-success-message">
+        <p>Payment successful! Redirecting to download...</p>
     </div>
 
     <script>
-        // Simulate payment success function
-        function simulatePaymentSuccess() {
-            // Hide QR code section
-            document.querySelector('.qr-code-img').style.display = 'none';
-            document.querySelector('h2').style.display = 'none';
-            document.querySelector('p').style.display = 'none';
+        $(document).ready(function () {
+            var upiAddress = 'projectbuilders@upi';
+            $('#qr-code').qrcode({
+                text: upiAddress,
+                width: 250,
+                height: 250
+            });
 
-            // Show success message
-            document.getElementById('payment-success-message').style.display = 'block';
+            // Simulate checking payment status
+            function checkPaymentStatus() {
+                fetch('/verify-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ transactionId: 'example-transaction-id' }) // Replace with actual transaction data
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        $('#payment-success-message').show();
+                        setTimeout(() => {
+                            window.location.href = 'path/to/your-download-file.pdf'; // Update this URL
+                        }, 3000);
+                    } else {
+                        alert('Payment verification failed. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
 
-            // Automatically redirect to the download section after 3 seconds
-            setTimeout(function () {
-                window.location.href = "path/to/download/file.pdf";  // Add your actual download file URL
-            }, 3000);  // Adjust delay time (in milliseconds) as needed
-        }
-
-        // Call the simulatePaymentSuccess function after payment confirmation
-        // Replace this with your actual payment verification logic
-        simulatePaymentSuccess();
+            // Simulate payment completion
+            setTimeout(checkPaymentStatus, 5000); // Simulate a delay before checking payment status
+        });
     </script>
-
-    <div class="footer">
-        <p>© 2024 Project Builders. All rights reserved.</p>
-        <ul class="social-links">
-            <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
-            <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
-        </ul>
-    </div>
 </body>
 
 </html>
