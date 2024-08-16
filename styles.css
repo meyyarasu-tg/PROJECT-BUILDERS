@@ -67,31 +67,58 @@ body {
 .nav ul li a:hover {
     color: #ff5722;
 }
-
 /* Mobile Styles */
 @media (max-width: 768px) {
     .nav ul {
+        display: flex;
         flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the left */
-        width: 100%;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        width: 250px; /* Set a fixed width for the menu */
         background-color: #333;
         position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 10px 0;
-        display: none; /* Hide the menu initially */
+        top: 60px; /* Adjust top to position below header */
+        right: 0; /* Align the menu to the right side */
+        padding: 20px; /* Add padding around the content */
+        border-radius: 8px; /* Rounded corners for a button-like appearance */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a lifted effect */
+        height: auto; /* Fit the content height */
+        z-index: 1000; /* Ensure the menu is above other elements */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+        transform: translateX(100%); /* Hide the menu off-screen initially */
+        opacity: 0; /* Hide the menu initially */
+    }
+
+    .nav.active ul {
+        transform: translateX(0); /* Slide the menu into view */
+        opacity: 1; /* Show the menu */
     }
 
     .nav ul li {
-        margin-left: 0; /* Remove left margin for mobile */
         margin-bottom: 10px; /* Add bottom margin for spacing */
         display: block; /* Stack items vertically */
+        text-align: center; /* Center text within each item */
+    }
+
+    .nav ul li a {
+        text-decoration: none;
+        color: #e6e6e6;
+        font-size: 18px;
+        transition: color 0.3s ease;
+        padding: 10px 20px; /* Add padding to make links look like buttons */
+        border-radius: 5px; /* Rounded corners for the links */
+    }
+
+    .nav ul li a:hover {
+        color: #ff5722;
+        background-color: #444; /* Darker background on hover */
     }
 
     .menu-toggle {
         display: flex;
         flex-direction: column;
         cursor: pointer;
+        z-index: 1000; /* Ensure the menu toggle is above other elements */
     }
 
     .menu-toggle span {
@@ -101,12 +128,8 @@ body {
         margin: 4px 0;
         transition: 0.4s;
     }
-
-    /* Show the menu when the nav has the active class */
-    .nav.active ul {
-        display: block; /* Display menu on click */
-    }
 }
+
 
 
 /* Search Bar Section */
