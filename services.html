@@ -25,20 +25,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Function to load HTML content
-        function loadHTML(elementId, filePath) {
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => console.error('Error loading HTML:', error));
-        }
-
-        // Load header and footer
-        loadHTML('header-container', 'header.html');
-        loadHTML('footer-container', 'footer.html');
-
         // Function to get URL parameter
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -78,4 +64,20 @@
         });
     </script>
 </body>
+    <!-- JavaScript -->
+    <script>
+        // Function to load HTML content
+        function loadHTML(elementId, filePath) {
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        // Load header and footer
+        loadHTML('header-container', 'header.html');
+        loadHTML('footer-container', 'footer.html');
+</script>
 </html>
