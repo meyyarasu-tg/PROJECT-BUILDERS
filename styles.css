@@ -9,6 +9,9 @@ body {
     min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
 /* Ensure all elements fit within the viewport */
 * {
