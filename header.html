@@ -1,47 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Builders - Home</title>
-    <link rel="stylesheet" href="styles.css">
-   
-</head>
-<body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <h1><a href="index.html">PROJECT BUILDERS</a></h1>
+<!-- header.html -->
+<header class="header">
+    <div class="logo">
+        <h1><a href="index.html">PROJECT BUILDERS</a></h1>
+    </div>
+    <nav class="nav">
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <nav class="nav">
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="departments.html?service=project-reports">Project Reports</a></li>
-                <li><a href="departments.html?service=mini-project-reports">Mini Project Reports</a></li>
-                <li><a href="departments.html?service=ppts">PPTs</a></li>
-                <li><a href="departments.html?service=notes">Notes</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-
-<script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-
-            menuToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('show');
-            });
-        });
-
-</script>
-
-</body>
-</html>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html?service=project-reports">Project Reports</a></li>
+            <li><a href="departments.html?service=mini-project-reports">Mini Project Reports</a></li>
+            <li><a href="departments.html?service=ppts">PPTs</a></li>
+            <li><a href="departments.html?service=notes">Notes</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>

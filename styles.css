@@ -102,7 +102,7 @@ body {
         transition: 0.4s;
     }
 
-    /* Show the menu when the toggle is active */
+    /* Show the menu when the nav has the active class */
     .nav.active ul {
         display: block; /* Display menu on click */
     }
