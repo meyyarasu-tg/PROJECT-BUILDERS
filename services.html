@@ -35,6 +35,8 @@
         .nav ul {
             list-style: none;
             display: flex;
+            margin: 0;
+            padding: 0;
         }
 
         .nav ul li {
@@ -124,21 +126,6 @@
             bottom: 0;
             width: 100%;
         }
-
-        /* Button Styles */
-        .request-btn, .search-btn {
-            background-color: #03a9f4;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .request-btn:hover, .search-btn:hover {
-            background-color: #0288d1;
-        }
     </style>
 </head>
 <body>
@@ -215,15 +202,4 @@
                 { name: 'Notes', file: `${department}-notes.html` }
             ];
 
-            services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = 'service-item';
-                div.innerHTML = `
-                    <h3><a href="${service.file}">${service.name}</a></h3>
-                `;
-                servicesList.appendChild(div);
-            });
-        });
-    </script>
-</body>
-</html>
+            services.forEach
