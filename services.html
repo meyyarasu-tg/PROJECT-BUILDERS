@@ -7,25 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-       <!-- Header Section -->
-       <div id="header-container"></div>
+    <!-- Header Section -->
+    <div id="header-container"></div>
 
     <section class="services-section">
         <div class="container">
-            <h2 id="dept-title">Select Your Service</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <h3><a id="projects-link" href="#">Projects & PPTs</a></h3>
-                </div>
-                <div class="service-item">
-                    <h3><a id="mini-projects-link" href="#">Mini Project Reports</a></h3>
-                </div>
-                <div class="service-item">
-                    <h3><a id="ppts-link" href="#">PPTs</a></h3>
-                </div>
-                <div class="service-item">
-                    <h3><a id="notes-link" href="#">Notes</a></h3>
-                </div>
+            <h2>Select Your Service</h2>
+            <div class="services-grid" id="services-list">
+                <!-- Services will be populated here by JavaScript -->
             </div>
         </div>
     </section>
@@ -33,78 +22,48 @@
     <!-- Footer Section -->
     <div id="footer-container"></div>
 
- <!-- JavaScript -->
- <script>
-    // Function to load HTML content
-    function loadHTML(elementId, filePath) {
-        fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-                // Initialize menu toggle after header is loaded
-                if (elementId === 'header-container') {
-                    const menuToggle = document.getElementById('menu-toggle');
-                    const nav = document.querySelector('.nav');
-
-                    if (menuToggle && nav) {
-                        menuToggle.addEventListener('click', function () {
-                            nav.classList.toggle('active');
-                        });
-                    } else {
-                        console.error('Menu toggle or nav element not found');
-                    }
-                }
-            })
-            .catch(error => console.error('Error loading HTML:', error));
-    }
-
-    // Load header
-    loadHTML('header-container', 'header.html');
-
-    // Load footer
-    loadHTML('footer-container', 'footer.html');
-</script>
-
+    <!-- JavaScript -->
     <script>
-        // Get query parameters from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const department = urlParams.get('department');
-
-        // Define base URLs for different services
-        const baseUrls = {
-            'project-reports': 'project-reports',
-            'mini-project-reports': 'mini-project',
-            'ppts': 'ppts',
-            'notes': 'notes'
-        };
-
-        // Define department URLs
-        const departmentUrls = {
-            'civil': 'civil',
-            'mechanical': 'mechanical',
-            'cse': 'cse',
-            'eee': 'eee',
-            'ece': 'ece',
-            'naan-mudhalvan': 'naan-mudhalvan'
-        };
-
-        // Update links based on department
-        if (department && departmentUrls[department]) {
-            document.getElementById('dept-title').textContent = `Select Service for ${department.toUpperCase()}`;
-
-            // Set hrefs for links
-            document.getElementById('projects-link').href = `${baseUrls['project-reports']}-${departmentUrls[department]}.html`;
-            document.getElementById('mini-projects-link').href = `${baseUrls['mini-project-reports']}-${departmentUrls[department]}.html`;
-            document.getElementById('ppts-link').href = `${baseUrls['ppts']}-${departmentUrls[department]}.html`;
-            document.getElementById('notes-link').href = `${baseUrls['notes']}-${departmentUrls[department]}.html`;
-        } else {
-            // Default behavior or handle error
-            document.getElementById('dept-title').textContent = 'Select Your Service';
-            document.getElementById('projects-link').href = '#';
-            document.getElementById('mini-projects-link').href = '#';
-            document.getElementById('ppts-link').href = '#';
-            document.getElementById('notes-link').href = '#';
+        // Function to load HTML content
+        function loadHTML(elementId, filePath) {
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading HTML:', error));
         }
+
+        // Load header and footer
+        loadHTML('header-container', 'header.html');
+        loadHTML('footer-container', 'footer.html');
+
+        // Function to get URL parameter
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get department from URL
+        const department = getQueryParam('department');
+
+        // Populate services based on department
+        const servicesList = document.getElementById('services-list');
+        const services = [
+            { name: 'Project Reports', file: `${department}-project-reports.html` },
+            { name: 'Mini Project Reports', file: `${department}-mini-project-reports.html` },
+            { name: 'PPTs', file: `${department}-ppts.html` },
+            { name: 'Notes', file: `${department}-notes.html` }
+        ];
+
+        services.forEach(service => {
+            const div = document.createElement('div');
+            div.className = 'service-item';
+            div.innerHTML = `
+                <h3><a href="${service.file}">${service.name}</a></h3>
+            `;
+            servicesList.appendChild(div);
+        });
     </script>
 </body>
 </html>

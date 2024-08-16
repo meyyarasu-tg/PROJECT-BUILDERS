@@ -47,19 +47,6 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(elementId).innerHTML = data;
-                    // Initialize menu toggle after header is loaded
-                    if (elementId === 'header-container') {
-                        const menuToggle = document.getElementById('menu-toggle');
-                        const nav = document.querySelector('.nav');
-
-                        if (menuToggle && nav) {
-                            menuToggle.addEventListener('click', function () {
-                                nav.classList.toggle('active');
-                            });
-                        } else {
-                            console.error('Menu toggle or nav element not found');
-                        }
-                    }
                 })
                 .catch(error => console.error('Error loading HTML:', error));
         }
@@ -77,9 +64,8 @@
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const department = this.getAttribute('data-department');
-                // Determine the service based on the department or other logic if needed
-                const service = new URLSearchParams(window.location.search).get('service') || 'project-reports';
-                window.location.href = `${department}-${service}.html`;
+                // Redirect to the services page for the selected department
+                window.location.href = `services.html?department=${department}`;
             });
         });
     </script>
