@@ -56,16 +56,16 @@
 
         // Load footer
         loadHTML('footer-container', 'footer.html');
-    </script>
 
-    <script>
         // Handle department link clicks
         document.querySelectorAll('.department-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const department = this.getAttribute('data-department');
-                // Redirect to the services page for the selected department
-                window.location.href = `services.html?department=${department}`;
+                const params = new URLSearchParams(window.location.search);
+                const service = params.get('service') || 'project-reports'; // Default to 'project-reports' if not specified
+                // Redirect to the specific service page for the selected department
+                window.location.href = `${department}-${service}.html`;
             });
         });
     </script>
