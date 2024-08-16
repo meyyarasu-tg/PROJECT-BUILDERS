@@ -24,25 +24,69 @@
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeServiceSelection(); // Initialize service and department selection
-        });
+        // Define services per department
+        const services = {
+            civil: [
+                { name: "Project Reports", link: "civil-project-reports.html" },
+                { name: "Mini Project Reports", link: "civil-mini-project-reports.html" },
+                { name: "PPTs", link: "civil-ppts.html" },
+                { name: "Notes", link: "civil-notes.html" }
+            ],
+            mechanical: [
+                { name: "Project Reports", link: "mechanical-project-reports.html" },
+                { name: "Mini Project Reports", link: "mechanical-mini-project-reports.html" },
+                { name: "PPTs", link: "mechanical-ppts.html" },
+                { name: "Notes", link: "mechanical-notes.html" }
+            ],
+            cse: [
+                { name: "Project Reports", link: "cse-project-reports.html" },
+                { name: "Mini Project Reports", link: "cse-mini-project-reports.html" },
+                { name: "PPTs", link: "cse-ppts.html" },
+                { name: "Notes", link: "cse-notes.html" }
+            ],
+            eee: [
+                { name: "Project Reports", link: "eee-project-reports.html" },
+                { name: "Mini Project Reports", link: "eee-mini-project-reports.html" },
+                { name: "PPTs", link: "eee-ppts.html" },
+                { name: "Notes", link: "eee-notes.html" }
+            ],
+            ece: [
+                { name: "Project Reports", link: "ece-project-reports.html" },
+                { name: "Mini Project Reports", link: "ece-mini-project-reports.html" },
+                { name: "PPTs", link: "ece-ppts.html" },
+                { name: "Notes", link: "ece-notes.html" }
+            ],
+            'naan-mudhalvan': [
+                { name: "Project Reports", link: "naan-mudhalvan-project-reports.html" },
+                { name: "Mini Project Reports", link: "naan-mudhalvan-mini-project-reports.html" },
+                { name: "PPTs", link: "naan-mudhalvan-ppts.html" },
+                { name: "Notes", link: "naan-mudhalvan-notes.html" }
+            ]
+        };
 
-        function initializeServiceSelection() {
-    // Get the department and service from the URL
-            const params = new URLSearchParams(window.location.search);
-            const department = params.get('department');
-            const service = params.get('service');
+        // Get the department from the URL query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const department = urlParams.get('department');
 
-    // Listen for department link clicks
-            if (department && service) {
-        // Redirect to the department-specific file based on the service type
-                const fileName = `${department}-${service}.html`;
-                window.location.href = fileName;
-            }
+        // Populate services based on the selected department
+        function populateServices() {
+            const servicesList = document.getElementById('services-list');
+            const departmentServices = services[department] || [];
+
+            // Clear previous services
+            servicesList.innerHTML = '';
+
+            // Add service items
+            departmentServices.forEach(service => {
+                const serviceItem = document.createElement('div');
+                serviceItem.classList.add('service-item');
+                serviceItem.innerHTML = `<h3><a href="${service.link}">${service.name}</a></h3>`;
+                servicesList.appendChild(serviceItem);
+            });
         }
 
+        // Populate the services on page load
+        window.onload = populateServices;
     </script>
 </body>
-<script src="header-footer.js"></script>
 </html>
