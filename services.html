@@ -24,60 +24,25 @@
 
     <!-- JavaScript -->
     <script>
-        // Function to load HTML content
-        function loadHTML(elementId, filePath, callback = null) {
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                    if (callback) callback();
-                })
-                .catch(error => console.error('Error loading HTML:', error));
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeServiceSelection(); // Initialize service and department selection
+        });
 
-        // Function to initialize the mobile menu toggle
-        function initializeMenuToggle() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const nav = document.querySelector('.nav');
-            if (menuToggle && nav) {
-                menuToggle.addEventListener('click', function() {
-                    nav.classList.toggle('active');
-                });
+        function initializeServiceSelection() {
+    // Get the department and service from the URL
+            const params = new URLSearchParams(window.location.search);
+            const department = params.get('department');
+            const service = params.get('service');
+
+    // Listen for department link clicks
+            if (department && service) {
+        // Redirect to the department-specific file based on the service type
+                const fileName = `${department}-${service}.html`;
+                window.location.href = fileName;
             }
         }
 
-        // Load header and initialize menu toggle
-        loadHTML('header-container', 'header.html', initializeMenuToggle);
-
-        // Load footer
-        loadHTML('footer-container', 'footer.html');
-
-        // Function to get URL parameter
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Populate services based on department
-        document.addEventListener('DOMContentLoaded', function() {
-            const department = getQueryParam('department');
-            const servicesList = document.getElementById('services-list');
-            const services = [
-                { name: 'Project Reports', file: `${department}-project-reports.html` },
-                { name: 'Mini Project Reports', file: `${department}-mini-project-reports.html` },
-                { name: 'PPTs', file: `${department}-ppts.html` },
-                { name: 'Notes', file: `${department}-notes.html` }
-            ];
-
-            services.forEach(service => {
-                const div = document.createElement('div');
-                div.className = 'service-item';
-                div.innerHTML = `
-                    <h3><a href="${service.file}">${service.name}</a></h3>
-                `;
-                servicesList.appendChild(div);
-            });
-        });
     </script>
 </body>
+<script src="header-footer.js"></script>
 </html>

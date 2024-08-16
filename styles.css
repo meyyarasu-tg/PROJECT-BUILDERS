@@ -7,28 +7,37 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-body ::after {
-    content: '';
-    display: block;
+
+/* Ensure all elements fit within the viewport */
+* {
+    box-sizing: border-box;
 }
-main {
-    height: 500px;
-    flex: 1;
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    /* Mobile-specific adjustments */
+    .nav ul {
+        width: 100%; /* Ensure mobile menu takes full width */
+    }
 }
 
 .project-container {
     flex: 1;
 }
 
-/* Adjustments for the header and navigation */
+/* Header Styling */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 20px;
-    background-color: #221f1f; /* Or any background color you prefer */
+    padding: 20px; /* Adjusted for better mobile fit */
+    background-color: #221f1f;
 }
 
 /* Logo styling */
@@ -132,7 +141,10 @@ main {
         transition: 0.4s;
     }
 }
-
+/* Prevent body scrolling when menu is open */
+.no-scroll {
+    overflow: hidden;
+}
 
 
 /* Search Bar Section */
@@ -143,7 +155,7 @@ main {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -327,24 +339,15 @@ main {
     padding: 20px;
     background-color: #1f1f1f;
     text-align: center;
-    margin-top: auto;
+    margin-top: auto; /* Push footer to the bottom */
     width: 100%;
-    bottom: 0;
-    left: 0;
-    position: absolute;
 }
 
-.footer-text {
-    background-color: #181818;
-    color: #cccccc;
-    font-size: 14px;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 20px;
+/* Ensure there is no extra margin or padding below the footer */
+html, body {
+    margin: 0;
+    padding: 0;
 }
-
 /* Social Links Styling */
 .social-links {
     list-style: none;
@@ -385,7 +388,6 @@ main {
     box-sizing: border-box;
     margin-top: 20px;
 }
-
 
 /* Style for Project */
 .project-container {

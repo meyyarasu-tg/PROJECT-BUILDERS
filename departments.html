@@ -65,28 +65,7 @@
                 });
             });
         }
-
-        // Function to initialize the mobile menu toggle
-        function initializeMenuToggle() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const nav = document.querySelector('.nav');
-            if (menuToggle && nav) {
-                menuToggle.addEventListener('click', function() {
-                    nav.classList.toggle('active');
-                });
-            }
-        }
-
-        // Load header and initialize menu toggle
-        loadHTML('header-container', 'header.html', initializeMenuToggle);
-
-        // Load footer
-        loadHTML('footer-container', 'footer.html');
-
-        // Ensure the DOM is fully loaded before initializing department links
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeDepartmentLinks();
-        });
     </script>
 </body>
+<script src="header-footer.js"></script>
 </html>

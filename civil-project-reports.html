@@ -23,9 +23,9 @@
     <!-- JavaScript -->
     <script>
         // Load header and footer
-        loadHTML('header-container', 'header.html', initializeMenuToggle);
-        loadHTML('footer-container', 'footer.html');
-
+        loadHTML('header-container', '../../header.html', initializeMenuToggle);
+        loadHTML('footer-container', '../../footer.html');
+    
         function loadHTML(elementId, filePath, callback = null) {
             fetch(filePath)
                 .then(response => response.text())
@@ -35,16 +35,34 @@
                 })
                 .catch(error => console.error('Error loading HTML:', error));
         }
-
+    
         function initializeMenuToggle() {
             const menuToggle = document.getElementById('menu-toggle');
             const nav = document.querySelector('.nav');
+    
             if (menuToggle && nav) {
-                menuToggle.addEventListener('click', function () {
+                // Toggle menu visibility on click
+                menuToggle.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Prevent the click from propagating to document
                     nav.classList.toggle('active');
                 });
+    
+                // Close the menu when clicking outside
+                document.addEventListener('click', function (event) {
+                    if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                        nav.classList.remove('active');
+                    }
+                });
+            } else {
+                console.error('Menu toggle or nav element not found');
             }
         }
-    </script>
+    
+        function payForProject(projectId, type) {
+            const amount = type === 'project' ? 100 : 50;
+            window.location.href = `payment.html?projectId=${projectId}&amount=${amount}&type=${type}`;
+        }
+    </script>   
 </body>
+<script src="header-footer.js"></script>
 </html>
