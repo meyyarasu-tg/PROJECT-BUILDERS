@@ -41,7 +41,7 @@
 
     <!-- JavaScript -->
     <script>
-        // Function to load HTML content
+        // Function to load HTML content for header and footer
         function loadHTML(elementId, filePath, callback = null) {
             fetch(filePath)
                 .then(response => response.text())
@@ -52,20 +52,34 @@
                 .catch(error => console.error('Error loading HTML:', error));
         }
 
-        // Function to initialize the department links
-        function initializeDepartmentLinks() {
-            document.querySelectorAll('.department-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
+        // Load header and footer
+        loadHTML('header-container', 'header.html', initializeMenuToggle);
+        loadHTML('footer-container', 'footer.html');
+
+        // Add event listener to department links
+        document.addEventListener('DOMContentLoaded', function () {
+            const departmentLinks = document.querySelectorAll('.department-link');
+
+            departmentLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the default link behavior
                     const department = this.getAttribute('data-department');
-                    const params = new URLSearchParams(window.location.search);
-                    const service = params.get('service') || 'project-reports'; // Default to 'project-reports' if not specified
-                    // Redirect to the specific service page for the selected department
-                    window.location.href = `${department}-${service}.html`;
+                    // Redirect to services.html with the selected department as a query parameter
+                    window.location.href = `services.html?department=${department}`;
                 });
             });
+        });
+
+        // Function to initialize the mobile menu toggle (if needed)
+        function initializeMenuToggle() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const nav = document.querySelector('.nav');
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function () {
+                    nav.classList.toggle('active');
+                });
+            }
         }
     </script>
 </body>
-<script src="header-footer.js"></script>
 </html>
