@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Civil Project Reports</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Adjust path if necessary -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
     <div id="header-container"></div>
-
-    <section class="content-section">
-        <div class="container">
-            <h2>Civil Project Reports</h2>
-            <p>Here you can find project reports for the Civil department. Click on the links below to download the reports.</p>
+    <main>
+        <section class="content-section">
+            <div class="container">
+                <h2>Civil Project Reports</h2>
+                <p>Here you can find project reports for the Civil department. Click on the links below to download the reports.</p>
             <!-- Add links or content here -->
-        </div>
-    </section>
-
+            </div>
+        </section>
+    </main>
     <!-- Footer Section -->
     <div id="footer-container"></div>
 
     <!-- JavaScript -->
     <script>
-        // Function to load HTML content
-        function loadHTML(elementId, filePath) {
+        // Load header and footer
+        loadHTML('header-container', 'header.html', initializeMenuToggle);
+        loadHTML('footer-container', 'footer.html');
+
+        function loadHTML(elementId, filePath, callback = null) {
             fetch(filePath)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(elementId).innerHTML = data;
+                    if (callback) callback();
                 })
                 .catch(error => console.error('Error loading HTML:', error));
         }
 
-        // Load header
-        loadHTML('header-container', 'header.html');
-
-        // Load footer
-        loadHTML('footer-container', 'footer.html');
+        function initializeMenuToggle() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const nav = document.querySelector('.nav');
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function () {
+                    nav.classList.toggle('active');
+                });
+            }
+        }
     </script>
 </body>
 </html>

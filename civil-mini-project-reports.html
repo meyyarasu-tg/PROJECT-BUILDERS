@@ -23,52 +23,40 @@
                 <span class="project-title">Mini Civil Project 2 - ₹50</span>
                 <img src="images/mini-civil-project-2.jpg" alt="Mini Civil Project 2" class="project-img">
             </li>
-            <!-- Add more mini projects as needed -->
         </ol>
     </div>
 
     <!-- Footer Section -->
     <div id="footer-container"></div>
 
- <!-- JavaScript -->
- <script>
-    // Function to load HTML content
-    function loadHTML(elementId, filePath) {
-        fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-                // Initialize menu toggle after header is loaded
-                if (elementId === 'header-container') {
-                    const menuToggle = document.getElementById('menu-toggle');
-                    const nav = document.querySelector('.nav');
-
-                    if (menuToggle && nav) {
-                        menuToggle.addEventListener('click', function () {
-                            nav.classList.toggle('active');
-                        });
-                    } else {
-                        console.error('Menu toggle or nav element not found');
-                    }
-                }
-            })
-            .catch(error => console.error('Error loading HTML:', error));
-    }
-
-    // Load header
-    loadHTML('header-container', '../../header.html');
-
-    // Load footer
-    loadHTML('footer-container', '../../footer.html');
-</script>
-
+    <!-- JavaScript -->
     <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav').classList.toggle('active');
-        });
+        // Load header and footer
+        loadHTML('header-container', '../../header.html', initializeMenuToggle);
+        loadHTML('footer-container', '../../footer.html');
+
+        function loadHTML(elementId, filePath, callback = null) {
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                    if (callback) callback();
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        function initializeMenuToggle() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const nav = document.querySelector('.nav');
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function () {
+                    nav.classList.toggle('active');
+                });
+            }
+        }
 
         function payForProject(projectId, type) {
-            var amount = type === 'project' ? 100 : 50;
+            const amount = type === 'project' ? 100 : 50;
             window.location.href = `payment.html?projectId=${projectId}&amount=${amount}&type=${type}`;
         }
     </script>
