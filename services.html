@@ -7,21 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <h1><a href="index.html">PROJECT BUILDERS</a></h1>
-        </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="project-reports.html">Project Reports</a></li>
-                <li><a href="mini-project-reports.html">Mini Project Reports</a></li>
-                <li><a href="ppts.html">PPTs</a></li>
-                <li><a href="notes.html">Notes</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+       <!-- Header Section -->
+       <div id="header-container"></div>
 
     <section class="services-section">
         <div class="container">
@@ -43,11 +30,40 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Project Builders. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Footer Section -->
+    <div id="footer-container"></div>
+
+ <!-- JavaScript -->
+ <script>
+    // Function to load HTML content
+    function loadHTML(elementId, filePath) {
+        fetch(filePath)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+                // Initialize menu toggle after header is loaded
+                if (elementId === 'header-container') {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const nav = document.querySelector('.nav');
+
+                    if (menuToggle && nav) {
+                        menuToggle.addEventListener('click', function () {
+                            nav.classList.toggle('active');
+                        });
+                    } else {
+                        console.error('Menu toggle or nav element not found');
+                    }
+                }
+            })
+            .catch(error => console.error('Error loading HTML:', error));
+    }
+
+    // Load header
+    loadHTML('header-container', 'header.html');
+
+    // Load footer
+    loadHTML('footer-container', 'footer.html');
+</script>
 
     <script>
         // Get query parameters from the URL
