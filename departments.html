@@ -15,22 +15,22 @@
             <h2>Select Your Department</h2>
             <div class="departments-grid">
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="civil">CIVIL</a></h3>
+                    <h3><a href="#" class="department-link" data-department="civil">CIVIL</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="mechanical">MECHANICAL</a></h3>
+                    <h3><a href="#" class="department-link" data-department="mechanical">MECHANICAL</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="cse">CSE</a></h3>
+                    <h3><a href="#" class="department-link" data-department="cse">CSE</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="eee">EEE</a></h3>
+                    <h3><a href="#" class="department-link" data-department="eee">EEE</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="ece">ECE</a></h3>
+                    <h3><a href="#" class="department-link" data-department="ece">ECE</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-service="project-reports" data-department="naan-mudhalvan">NAAN MUDHALVAN</a></h3>
+                    <h3><a href="#" class="department-link" data-department="naan-mudhalvan">NAAN MUDHALVAN</a></h3>
                 </div>
             </div>
         </div>
@@ -76,9 +76,10 @@
         document.querySelectorAll('.department-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const service = this.getAttribute('data-service');
                 const department = this.getAttribute('data-department');
-                window.location.href = `${service}-${department}.html`;
+                // Determine the service based on the department or other logic if needed
+                const service = new URLSearchParams(window.location.search).get('service') || 'project-reports';
+                window.location.href = `${department}-${service}.html`;
             });
         });
     </script>
