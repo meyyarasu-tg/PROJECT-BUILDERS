@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +22,8 @@
 
     <!-- Footer Section -->
     <div id="footer-container"></div>
-</body>
-<!-- JavaScript -->
+
+    <!-- JavaScript -->
     <script>
         // Function to load HTML content
         function loadHTML(elementId, filePath) {
@@ -44,25 +45,37 @@
             return urlParams.get(param);
         }
 
-        // Get department from URL
-        const department = getQueryParam('department');
+        // Ensure the DOM is fully loaded before executing the script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get department from URL
+            const department = getQueryParam('department');
+            console.log('Selected department:', department);  // Debugging log
 
-        // Populate services based on department
-        const servicesList = document.getElementById('services-list');
-        const services = [
-            { name: 'Project Reports', file: `${department}-project-reports.html` },
-            { name: 'Mini Project Reports', file: `${department}-mini-project-reports.html` },
-            { name: 'PPTs', file: `${department}-ppts.html` },
-            { name: 'Notes', file: `${department}-notes.html` }
-        ];
+            if (!department) {
+                // Handle the case where department is not provided
+                alert('Department not selected! Redirecting...');
+                window.location.href = 'departments.html';  // Redirect to departments page
+                return;
+            }
 
-        services.forEach(service => {
-            const div = document.createElement('div');
-            div.className = 'service-item';
-            div.innerHTML = `
-                <h3><a href="${service.file}">${service.name}</a></h3>
-            `;
-            servicesList.appendChild(div);
+            // Populate services based on department
+            const servicesList = document.getElementById('services-list');
+            const services = [
+                { name: 'Project Reports', file: `${department}-project-reports.html` },
+                { name: 'Mini Project Reports', file: `${department}-mini-project-reports.html` },
+                { name: 'PPTs', file: `${department}-ppts.html` },
+                { name: 'Notes', file: `${department}-notes.html` }
+            ];
+
+            services.forEach(service => {
+                const div = document.createElement('div');
+                div.className = 'service-item';
+                div.innerHTML = `
+                    <h3><a href="${service.file}">${service.name}</a></h3>
+                `;
+                servicesList.appendChild(div);
+            });
         });
     </script>
+</body>
 </html>
