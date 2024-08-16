@@ -41,20 +41,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Function to load HTML content for header and footer
-        function loadHTML(elementId, filePath, callback = null) {
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                    if (callback) callback();
-                })
-                .catch(error => console.error('Error loading HTML:', error));
-        }
-
-        // Load header and footer
-        loadHTML('header-container', 'header.html', initializeMenuToggle);
-        loadHTML('footer-container', 'footer.html');
 
         // Add event listener to department links
         document.addEventListener('DOMContentLoaded', function () {
@@ -69,17 +55,7 @@
                 });
             });
         });
-
-        // Function to initialize the mobile menu toggle (if needed)
-        function initializeMenuToggle() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const nav = document.querySelector('.nav');
-            if (menuToggle && nav) {
-                menuToggle.addEventListener('click', function () {
-                    nav.classList.toggle('active');
-                });
-            }
-        }
     </script>
 </body>
+<script src="header-footer.js"></script>
 </html>
