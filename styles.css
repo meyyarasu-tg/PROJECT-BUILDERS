@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding-bottom: 60px; /* Ensure space for the fixed footer */
 }
 html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -82,6 +83,7 @@ html, body {
 .nav ul li a:hover {
     color: #ff5722;
 }
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .nav ul {
@@ -144,11 +146,11 @@ html, body {
         transition: 0.4s;
     }
 }
+
 /* Prevent body scrolling when menu is open */
 .no-scroll {
     overflow: hidden;
 }
-
 
 /* Search Bar Section */
 .search-section {
@@ -255,7 +257,6 @@ html, body {
     transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
-
 /* Service Section */
 .services-section {
     padding: 40px 20px;
@@ -319,113 +320,106 @@ html, body {
 }
 
 .department-item {
-    background-color: #282828;
+    background-color: #2a2a2a;
     padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .department-item:hover {
-    background-color: #333333;
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .department-item h3 {
-    font-size: 20px;
-    color: #ffffff;
+    font-size: 24px;
+    color: #ff5722;
+    margin-bottom: 15px;
 }
 
+.department-item p {
+    font-size: 16px;
+    color: #cccccc;
+}
 
 /* Footer Styling */
 .footer {
-    padding: 20px;
     background-color: #1f1f1f;
-    text-align: center;
-    margin-top: auto; /* Push footer to the bottom */
-    width: 100%;
-}
-
-/* Ensure there is no extra margin or padding below the footer */
-html, body {
-    margin: 0;
-    padding: 0;
-}
-/* Social Links Styling */
-.social-links {
-    list-style: none;
-    padding: 25px;
-    margin: 10px 0 0 0; /* Remove bottom margin */
-    display: flex;
-    justify-content: center;
-}
-
-.social-links li {
-    margin: 0 10px;
-}
-
-.social-links li a {
-    color: #fcfcfb;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.social-links li a:hover {
-    color: #fafafa;
-}
-
-.social-links i {
-    margin-right: 8px; /* Adjust space between icon and text */
-    font-size: 18px; /* Set icon size */
-}
-
-/* Style for the copyright text */
-.footer-text {
-    background-color: #181818;
     color: #cccccc;
-    font-size: 14px;
-    padding: 10px 0;
     text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 20px;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Full viewport width */
+    box-sizing: border-box; /* Include padding and border in width */
+    z-index: 1000; /* Ensure footer is above other content */
 }
 
-/* Style for Project */
-.project-container {
-    flex: 1;
+.footer p {
+    margin: 0;
 }
-ol {
-    counter-reset: item;
-    padding-left: 20px;
+
+/* Footer social links styling */
+.footer .social-links {
+    margin: 20px 0;
 }
-.project-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    list-style: none;
-    cursor: pointer;
+
+.footer .social-links a {
+    color: #cccccc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
     transition: color 0.3s ease;
-    color: #ffffff;
 }
-.project-item:before {
-    counter-increment: item;
-    content: counter(item) ". ";
+
+.footer .social-links a:hover {
     color: #ff5722;
+}
+
+/* Payment Page Specific */
+.payment-section {
+    padding: 40px 20px;
+    background-color: #2a2a2a;
+}
+
+.payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
+    color: #333;
 }
-.project-item:hover {
-    color: #ff5722;
-}
-.project-title {
-    flex: 1;
-    font-size: 18px;
-    margin-right: 20px;
-}
-.project-img {
-    width: 80px;
-    height: 60px;
-    object-fit: cover;
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.payment-form button {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.payment-form button:hover {
+    background-color: #e64a19;
 }
