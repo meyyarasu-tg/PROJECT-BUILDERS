@@ -23,13 +23,6 @@
             margin: 20px 0;
         }
 
-        /* Container */
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-
         /* Header Styles */
         .nav {
             display: flex;
@@ -146,28 +139,6 @@
         .request-btn:hover, .search-btn:hover {
             background-color: #0288d1;
         }
-
-        /* Search Section */
-        .search-section {
-            padding: 40px 0;
-        }
-
-        .search-form {
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-input {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
-            width: 300px;
-        }
-
-        .search-btn {
-            padding: 10px 20px;
-        }
     </style>
 </head>
 <body>
@@ -194,6 +165,7 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(elementId).innerHTML = data;
+
                     // Initialize menu toggle after header is loaded
                     if (elementId === 'header-container') {
                         const menuToggle = document.getElementById('menu-toggle');
