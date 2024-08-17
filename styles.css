@@ -9,13 +9,27 @@ body {
     min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
 /* Ensure all elements fit within the viewport */
 * {
     box-sizing: border-box;
 }
 
-/* Project Container */
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    /* Mobile-specific adjustments */
+    .nav ul {
+        width: 100%; /* Ensure mobile menu takes full width */
+    }
+}
+
 .project-container {
     flex: 1;
 }
@@ -33,10 +47,16 @@ body {
 /* Logo styling */
 .header .logo h1 {
     margin: 0;
-    font-size: 1.5rem; /* Scalable font size */
+    font-size: 24px;
 }
 
 .logo a {
+    text-decoration: none;
+    color: #ff5722;
+}
+
+.service-item h3 a,
+.department-item h3 a {
     text-decoration: none;
     color: #ff5722;
 }
@@ -50,14 +70,14 @@ body {
 }
 
 .nav ul li {
-    margin-left: 1rem; /* Use rem for responsive spacing */
+    margin-left: 20px;
     display: inline-block; /* Ensure items stay inline */
 }
 
 .nav ul li a {
     text-decoration: none;
     color: #e6e6e6;
-    font-size: 1.125rem; /* Scalable font size */
+    font-size: 18px;
     transition: color 0.3s ease;
 }
 
@@ -65,71 +85,65 @@ body {
     color: #ff5722;
 }
 
-/* Responsive Mobile Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
-        padding: 20px;
-    }
-
-    /* Mobile Navigation Menu */
     .nav ul {
         display: flex;
         flex-direction: column; /* Stack items vertically */
-        align-items: center;
-        justify-content: flex-start; /* Align to the top */
-        width: 100%; /* Adjust to fit the full width of the screen */
-        max-width: calc(100% - 40px); /* Take full width with padding */
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        width: 250px; /* Set a fixed width for the menu */
         background-color: #333;
         position: absolute;
-        top: 60px; /* Position below header */
-        right: 0;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        height: auto;
-        z-index: 1000;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        transform: translateX(100%); /* Initially off-screen */
-        opacity: 0;
+        top: 60px; /* Adjust top to position below header */
+        right: 0; /* Align the menu to the right side */
+        padding: 20px; /* Add padding around the content */
+        border-radius: 8px; /* Rounded corners for a button-like appearance */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a lifted effect */
+        height: auto; /* Fit the content height */
+        z-index: 1000; /* Ensure the menu is above other elements */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+        transform: translateX(100%); /* Hide the menu off-screen initially */
+        opacity: 0; /* Hide the menu initially */
+        overflow-x: hidden; /* Ensure no overflow */
     }
 
     .nav.active ul {
-        transform: translateX(0); /* Slide in menu */
-        opacity: 1;
+        transform: translateX(0); /* Slide the menu into view */
+        opacity: 1; /* Show the menu */
     }
 
     .nav ul li {
-        margin-bottom: 10px;
-        display: block;
-        text-align: center;
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        display: block; /* Stack items vertically */
+        text-align: center; /* Center text within each item */
     }
 
     .nav ul li a {
-        padding: 10px 20px;
-        border-radius: 5px;
+        text-decoration: none;
         color: #e6e6e6;
+        font-size: 18px;
+        transition: color 0.3s ease;
+        padding: 10px 20px; /* Add padding to make links look like buttons */
+        border-radius: 5px; /* Rounded corners for the links */
     }
 
     .nav ul li a:hover {
         color: #ff5722;
-        background-color: #444;
+        background-color: #444; /* Darker background on hover */
     }
 
-    /* Menu Toggle Button */
     .menu-toggle {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
         cursor: pointer;
-        z-index: 1001;
-        position: relative;
-        margin-left: auto;
+        z-index: 1001; /* Ensure the menu toggle is above the menu */
+        position: relative; /* Ensure it doesn’t affect layout flow */
+        margin-left: auto; /* Align to the right */
     }
 
     .menu-toggle span {
-        width: 100%;
+        width: 25px;
         height: 3px;
         background-color: #fff;
         margin: 4px 0;
@@ -163,7 +177,7 @@ body {
 .search-input {
     width: 70%;
     padding: 10px 15px;
-    font-size: 1.125rem;
+    font-size: 18px;
     border: none;
     border-radius: 4px 0 0 4px;
     outline: none;
@@ -177,7 +191,7 @@ body {
 
 .search-btn {
     padding: 10px 20px;
-    font-size: 1.125rem;
+    font-size: 18px;
     border: none;
     border-radius: 0 4px 4px 0;
     background-color: #ff5722;
@@ -190,29 +204,30 @@ body {
     background-color: #e64a19;
 }
 
-/* Request Section */
+/* Request New Project and Others Section */
 .request-section {
     display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    background-color: #333;
+    justify-content: center; /* Center horizontally */
+    padding: 40px 20px; /* Adjust padding as needed */
+    background-color: #333; /* Dark background color */
 }
 
 .request-form {
-    max-width: 600px;
+    max-width: 600px; /* Adjust width as needed */
     width: 100%;
-    background-color: #fff;
+    background-color: #fff; /* White background for the form */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin: 0 auto; /* Center the form horizontally */
 }
 
 .request-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: #333; /* Darker text color for readability */
 }
 
 .request-form input,
@@ -222,11 +237,12 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background-color: #fafafa;
+    background-color: #fafafa; /* Light background for input fields */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 .request-form textarea {
-    resize: vertical;
+    resize: vertical; /* Allow vertical resizing for textarea */
 }
 
 .request-btn {
@@ -236,13 +252,13 @@ body {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .request-btn:hover {
     background-color: #e64a19;
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
 /* Service Section */
@@ -253,7 +269,7 @@ body {
 
 .services-section h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 32px;
     color: #cb9c9c;
     margin-bottom: 40px;
 }
@@ -278,13 +294,13 @@ body {
 }
 
 .service-item h3 {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: #ff5722;
     margin-bottom: 15px;
 }
 
 .service-item p {
-    font-size: 1rem;
+    font-size: 16px;
     color: #cccccc;
 }
 
@@ -296,7 +312,7 @@ body {
 
 .departments-section h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 32px;
     color: #e6e6e6;
     margin-bottom: 40px;
 }
@@ -321,7 +337,7 @@ body {
 }
 
 .department-item h3 {
-    font-size: 1.25rem;
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -330,10 +346,11 @@ body {
     padding: 20px;
     background-color: #1f1f1f;
     text-align: center;
-    margin-top: auto;
+    margin-top: auto; /* Push footer to the bottom */
     width: 100%;
 }
 
+/* Ensure there is no extra margin or padding below the footer */
 html, body {
     margin: 0;
     padding: 0;
@@ -343,7 +360,7 @@ html, body {
 .social-links {
     list-style: none;
     padding: 25px;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 0; /* Remove bottom margin */
     display: flex;
     justify-content: center;
 }
@@ -355,7 +372,7 @@ html, body {
 .social-links li a {
     color: #fcfcfb;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 16px;
     transition: color 0.3s ease;
 }
 
@@ -364,21 +381,23 @@ html, body {
 }
 
 .social-links i {
-    margin-right: 8px;
-    font-size: 1.125rem;
+    margin-right: 8px; /* Adjust space between icon and text */
+    font-size: 18px; /* Set icon size */
 }
 
-/* Copyright Footer Text */
+/* Style for the copyright text */
 .footer-text {
     background-color: #181818;
     color: #cccccc;
-    font-size: 0.875rem;
+    font-size: 14px;
     padding: 10px 0;
     text-align: center;
     width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
-/* Project Styling */
+/* Style for Project */
 .project-container {
     flex: 1;
 }
@@ -411,7 +430,7 @@ ol {
 
 .project-title {
     flex: 1;
-    font-size: 1.125rem;
+    font-size: 18px;
     margin-right: 20px;
 }
 
