@@ -8,13 +8,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
-        padding: 20px; /* Adjust padding for mobile */
-    }
-
+/* Ensure all elements fit within the viewport */
+* {
+    box-sizing: border-box;
+}
 
 .project-container {
     flex: 1;
