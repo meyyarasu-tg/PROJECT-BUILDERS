@@ -92,13 +92,13 @@ html, body {
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center items horizontally */
         justify-content: center; /* Center items vertically */
-        width: 250px; /* Set a fixed width for the menu */
+        width: 100%; /* Set width to full screen */
         background-color: #333;
         position: absolute;
         top: 60px; /* Adjust top to position below header */
-        right: 0; /* Align the menu to the right side */
-        padding: 20px; /* Add padding around the content */
-        border-radius: 8px; /* Rounded corners for a button-like appearance */
+        left: 0; /* Align the menu to the left side */
+        padding: 20px 0; /* Adjust padding around the content */
+        border-radius: 0; /* Remove rounded corners */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a lifted effect */
         height: auto; /* Fit the content height */
         z-index: 1000; /* Ensure the menu is above other elements */
@@ -124,7 +124,7 @@ html, body {
         color: #e6e6e6;
         font-size: 18px;
         transition: color 0.3s ease;
-        padding: 10px 20px; /* Add padding to make links look like buttons */
+        padding: 10px 0; /* Adjust padding for links */
         border-radius: 5px; /* Rounded corners for the links */
     }
 
@@ -150,6 +150,7 @@ html, body {
         transition: 0.4s;
     }
 }
+
 
 /* Prevent body scrolling when menu is open */
 .no-scroll {
