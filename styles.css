@@ -448,3 +448,46 @@ html, body {
 .project-list li button:hover {
     background-color: #e64a19;
 }
+/* Custom styles for alternating rows */
+        .project-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .project-table tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        .project-image {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .content-section {
+            padding: 20px;
+        }
+
+        .container {
+            margin: auto;
+            max-width: 900px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+        }
+
+        td {
+            text-align: center;
+        }
