@@ -33,43 +33,43 @@
                 <tbody>
                     <tr>
                         <td>1. DESIGN AND ESTIMATION OF HOSTEL BUILDING</td>
-                        <td><button onclick="downloadProject('project1', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project1')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL')">Download</button></td>
+                        <td><button onclick="orderProject('DESIGN AND ESTIMATION OF HOSTEL BUILDING')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>2. EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN</td>
-                        <td><button onclick="downloadProject('project2', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project2')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project2')">Download</button></td>
+                        <td><button onclick="orderProject('EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>3. EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING</td>
-                        <td><button onclick="downloadProject('project3', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project3')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project3')">Download</button></td>
+                        <td><button onclick="orderProject('EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>4. EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER</td>
-                        <td><button onclick="downloadProject('project4', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project4')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project4')">Download</button></td>
+                        <td><button onclick="orderProject('EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>5. EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA</td>
-                        <td><button onclick="downloadProject('project5', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project5')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project5')">Download</button></td>
+                        <td><button onclick="orderProject('EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>6. EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT</td>
-                        <td><button onclick="downloadProject('project6', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project6')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project6')">Download</button></td>
+                        <td><button onclick="orderProject('EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>7. EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE</td>
-                        <td><button onclick="downloadProject('project7', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project7')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project7')">Download</button></td>
+                        <td><button onclick="orderProject('EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>8. PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE</td>
-                        <td><button onclick="downloadProject('project8', 'ppt')">Download</button></td>
-                        <td><button onclick="orderProject('project8')">Order Project</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project8')">Download</button></td>
+                        <td><button onclick="orderProject('PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE')">Order Project</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -81,13 +81,15 @@
 
     <!-- JavaScript -->
     <script>
-        function downloadProject(projectId, type) {
-            const amount = type === 'ppt' ? 50 : 100;
-            window.location.href = `download.html?projectId=${projectId}&amount=${amount}&type=${type}`;
+        function downloadProject(projectUrl) {
+            // Redirect to the specific download URL
+            window.location.href = projectUrl;
         }
 
-        function orderProject(projectId) {
-            window.location.href = `order.html?projectId=${projectId}&amount=500&type=order`;
+        function orderProject(projectTitle) {
+            // Generate WhatsApp URL with the project title
+            const whatsappUrl = `https://wa.me/9360438998?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
+            window.location.href = whatsappUrl;
         }
     </script>
 
