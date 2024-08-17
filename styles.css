@@ -459,14 +459,14 @@ html, body {
     font-size: 24px; /* Larger font size */
     font-weight: bold;
     margin-bottom: 20px; /* Space below the contact section */
-    color: #FFFFFF; /* Green text */
+    color: #ffffff; /* White text */
 }
 
 .contact-section a {
-    color: ##FFFFFF; /* Green link color to match the text */
+    color: #ffffff; /* White link color to match the text */
     text-decoration: none;
 }
 
 .contact-section a:hover {
-    color: #FFFFFF; /* Darker green on hover */
+    color: #f8f9fa; /* Slightly lighter white on hover */
 }
