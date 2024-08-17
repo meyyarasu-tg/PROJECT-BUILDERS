@@ -10,23 +10,54 @@
 <body>
     <!-- Header Section -->
     <div id="header-container"></div>
+
+    <!-- Main Content Section -->
     <section class="content-section">
         <div class="container">
             <h2>Civil Project Reports</h2>
-            <p>Here you can find project reports for the Civil department. Click on the links below to download the reports.</p>
-            <!-- Add links or content here -->
+            <p>Here you can find project reports for the Civil department. Click on the links below to download the reports or view details.</p>
+
+            <!-- Project List -->
+            <div class="project-list">
+                <div class="project-item">
+                    <h3>1. Experimental Study on Increasing Soil Stabilization Using Crumb Rubber and Cement</h3>
+                    <button onclick="payForProject(1, 'project')">View Project</button>
+                </div>
+                <div class="project-item">
+                    <h3>2. Experimental Study on Clay Brick by Partial Replacement of Clay with Dolomite Powder</h3>
+                    <button onclick="payForProject(2, 'project')">View Project</button>
+                </div>
+                <div class="project-item">
+                    <h3>3. Experimental Study on High-Performance Concrete by Partial Replacement of Cement with Silica Fume and Nano Silica</h3>
+                    <button onclick="payForProject(3, 'project')">View Project</button>
+                </div>
+                <div class="project-item">
+                    <h3>4. Planning, Analysis, Designing, and Estimation of Prestressed Concrete Railway Bridge</h3>
+                    <button onclick="payForProject(4, 'project')">View Project</button>
+                </div>
+                <div class="project-item">
+                    <h3>5. Experimental Investigation on Coconut Fiber Reinforced Self-Compacting Concrete Incorporating Flyash and Metakaolin</h3>
+                    <button onclick="payForProject(5, 'project')">View Project</button>
+                </div>
+                <div class="project-item">
+                    <h3>6. Experimental Study on Strength Improvement of Structural Concrete Using Granite Slurry Waste as Fine Aggregate</h3>
+                    <button onclick="payForProject(6, 'project')">View Project</button>
+                </div>
+            </div>
         </div>
     </section>
+
     <!-- Footer Section -->
     <div id="footer-container"></div>
 
     <!-- JavaScript -->
-    <script>    
+    <script>
         function payForProject(projectId, type) {
             const amount = type === 'project' ? 100 : 50;
             window.location.href = `payment.html?projectId=${projectId}&amount=${amount}&type=${type}`;
         }
-    </script>   
+    </script>
+
+    <script src="header-footer.js"></script>
 </body>
-<script src="header-footer.js"></script>
-</html>
+</
