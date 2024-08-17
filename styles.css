@@ -84,7 +84,7 @@ body {
 /* Mobile Styles */
 @media (max-width: 768px) {
     .nav ul {
-        display: flex;
+        display: none;
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center items horizontally */
         justify-content: center; /* Center items vertically */
@@ -99,6 +99,7 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a lifted effect */
         height: auto; /* Fit the content height */
         z-index: 1000; /* Ensure the menu is above other elements */
+        visibility: hidden;
         transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
         transform: translateX(100%); /* Hide the menu off-screen initially */
         opacity: 0; /* Hide the menu initially */
@@ -106,7 +107,8 @@ body {
     }
 
     .nav.active ul {
-        transform: translateY(0);
+        display: flex; /* Show the nav list */
+        visibility: visible;
         transform: translateX(0); /* Slide the menu into view */
         opacity: 1; /* Show the menu */
     }
