@@ -13,7 +13,7 @@ body {
     flex: 1;
 }
 
-/* Header Styling */
+/* General Header Styling */
 .header {
     display: flex;
     justify-content: space-between;
@@ -23,8 +23,7 @@ body {
     width: 100%;
 }
 
-/* Logo styling */
-.header .logo h1 {
+.logo h1 {
     margin: 0;
     font-size: 24px;
 }
@@ -34,13 +33,7 @@ body {
     color: #ff5722;
 }
 
-.service-item h3 a,
-.department-item h3 a {
-    text-decoration: none;
-    color: #ff5722;
-}
-
-/* Default navigation styling */
+/* Default navigation styling (desktop view) */
 .nav ul {
     list-style: none;
     margin: 0;
@@ -66,49 +59,52 @@ body {
 
 /* Mobile Menu Toggle */
 .menu-toggle {
-    display: none; /* Initially hidden, only shown on mobile */
+    display: none; /* Initially hidden on larger screens */
     flex-direction: column;
+    justify-content: space-between;
+    width: 30px; /* Width of the button */
+    height: 21px; /* Height for 3 stacked spans */
     cursor: pointer;
-    z-index: 1001;
-    position: relative;
-    margin-left: auto;
+    z-index: 1001; /* Ensure it stays above the menu */
 }
 
 .menu-toggle span {
-    width: 25px;
+    width: 100%;
     height: 3px;
     background-color: #fff;
-    margin: 4px 0;
-    transition: 0.4s;
+    transition: all 0.3s ease;
 }
 
-/* Display menu toggle on mobile */
+/* Show the mobile menu button on screens smaller than 768px */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
     }
 
+    /* Initially hide the nav menu on mobile */
     .nav {
+        display: none;
         position: absolute;
+        top: 60px; /* Position below the header */
         right: 0;
-        top: 60px;
         width: 100%;
         background-color: #333;
+        flex-direction: column;
+        align-items: center;
         padding: 20px;
         border-radius: 8px;
-        transform: translateX(100%); /* Hide menu by default */
-        opacity: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
+    /* When active class is applied, show the nav menu */
     .nav.active {
-        transform: translateX(0); /* Slide the menu into view */
-        opacity: 1; /* Show the menu */
+        display: flex;
     }
 
     .nav ul {
-        display: flex;
         flex-direction: column;
+        width: 100%;
         align-items: center;
     }
 
@@ -117,37 +113,20 @@ body {
     }
 
     .nav ul li a {
+        display: block;
         padding: 10px 20px;
+        text-align: center;
+        background-color: transparent;
         border-radius: 5px;
+        color: #e6e6e6;
     }
 
     .nav ul li a:hover {
+        color: #ff5722;
         background-color: #444;
     }
-
-    /* Prevent body scroll when menu is open */
-    .no-scroll {
-        overflow: hidden;
-    }
 }
 
-
-    .menu-toggle {
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 1001;
-        position: relative;
-        margin-left: auto;
-    }
-
-    .menu-toggle span {
-        width: 25px;
-        height: 3px;
-        background-color: #fff;
-        margin: 4px 0;
-        transition: 0.4s;
-    }
-}
 
 /* Search Bar Section */
 .search-section {
