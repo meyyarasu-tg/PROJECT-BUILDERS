@@ -91,7 +91,7 @@ body {
         width: 250px; /* Set a fixed width for the menu */
         background-color: #333;
         position: absolute;
-        top: 60px; /* Adjust top to position below header */
+        top: 70px; /* Adjust top to position below header */
         right: 0; /* Align the menu to the right side */
         padding: 20px 0; /* Add padding around the content */
         border-radius: 8px; /* Rounded corners for a button-like appearance */
