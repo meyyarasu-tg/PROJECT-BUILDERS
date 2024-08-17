@@ -10,9 +10,6 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
     padding-bottom: 60px; /* Ensure space for the fixed footer */
 }
-html, body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
 
 /* Ensure all elements fit within the viewport */
 * {
@@ -21,15 +18,29 @@ html, body {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
-        padding: 20px; /* Adjust padding for mobile */
+.footer, .header, .nav, .search-section, .request-section, .services-section, .departments-section {
+    width: 100vw;
+    overflow-x: hidden;
+}
+/* Mobile Specific Overrides */
+@media (max-width: 768px) {
+    body, html {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        margin: 0;
+        padding: 0;
     }
 
-    /* Mobile-specific adjustments */
-    .nav ul {
-        width: 100%; /* Ensure mobile menu takes full width */
+    .nav ul, .footer {
+        width: 100vw; /* Ensure full viewport width */
+    }
+
+    /* Footer fix */
+    .footer {
+        position: relative; /* Change from fixed to relative */
+        padding-bottom: 20px;
     }
 }
+
 
 .project-container {
     flex: 1;
