@@ -41,6 +41,7 @@ html, body {
     align-items: center;
     padding: 20px; /* Adjusted for better mobile fit */
     background-color: #221f1f;
+    width: 100%; /* Ensure header takes full width */
 }
 
 /* Logo styling */
@@ -48,6 +49,7 @@ html, body {
     margin: 0;
     font-size: 24px;
 }
+
 .logo a {
     text-decoration: none;
     color: #ff5722;
@@ -103,6 +105,7 @@ html, body {
         transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
         transform: translateX(100%); /* Hide the menu off-screen initially */
         opacity: 0; /* Hide the menu initially */
+        overflow-x: hidden; /* Ensure no overflow */
     }
 
     .nav.active ul {
@@ -134,7 +137,9 @@ html, body {
         display: flex;
         flex-direction: column;
         cursor: pointer;
-        z-index: 1000; /* Ensure the menu toggle is above other elements */
+        z-index: 1001; /* Ensure the menu toggle is above the menu */
+        position: relative; /* Ensure it doesn’t affect layout flow */
+        margin-left: auto; /* Align to the right */
     }
 
     .menu-toggle span {
