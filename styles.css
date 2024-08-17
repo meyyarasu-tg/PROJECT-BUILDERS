@@ -7,23 +7,42 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Ensure all elements fit within the viewport */
+* {
+    box-sizing: border-box;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    /* Mobile-specific adjustments */
+    .nav ul {
+        width: 100%; /* Ensure mobile menu takes full width */
+    }
 }
 
 .project-container {
     flex: 1;
 }
 
-/* General Header Styling */
+/* Header Styling */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px; /* Adjusted for better mobile fit */
     background-color: #221f1f;
-    width: 100%;
+    width: 100%; /* Ensure header takes full width */
 }
 
-.logo h1 {
+/* Logo styling */
+.header .logo h1 {
     margin: 0;
     font-size: 24px;
 }
@@ -33,17 +52,23 @@ body {
     color: #ff5722;
 }
 
-/* Default navigation styling (desktop view) */
+.service-item h3 a,
+.department-item h3 a {
+    text-decoration: none;
+    color: #ff5722;
+}
+
+/* Default navigation styling */
 .nav ul {
-    list-style: none;
+    list-style: none; /* Remove bullet points */
     margin: 0;
     padding: 0;
-    display: flex;
+    display: flex; /* Align items horizontally */
 }
 
 .nav ul li {
     margin-left: 20px;
-    display: inline-block;
+    display: inline-block; /* Ensure items stay inline */
 }
 
 .nav ul li a {
@@ -57,76 +82,76 @@ body {
     color: #ff5722;
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none; /* Initially hidden on larger screens */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px; /* Width of the button */
-    height: 21px; /* Height for 3 stacked spans */
-    cursor: pointer;
-    z-index: 1001; /* Ensure it stays above the menu */
-}
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    transition: all 0.3s ease;
-}
-
-/* Show the mobile menu button on screens smaller than 768px */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    /* Initially hide the nav menu on mobile */
-    .nav {
-        display: none;
-        position: absolute;
-        top: 60px; /* Position below the header */
-        right: 0;
-        width: 100%;
-        background-color: #333;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    /* When active class is applied, show the nav menu */
-    .nav.active {
-        display: flex;
-    }
-
     .nav ul {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        width: 250px; /* Set a fixed width for the menu */
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Adjust top to position below header */
+        right: 0; /* Align the menu to the right side */
+        padding: 20px; /* Add padding around the content */
+        border-radius: 8px; /* Rounded corners for a button-like appearance */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a lifted effect */
+        height: auto; /* Fit the content height */
+        z-index: 1000; /* Ensure the menu is above other elements */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+        transform: translateX(100%); /* Hide the menu off-screen initially */
+        opacity: 0; /* Hide the menu initially */
+        overflow-x: hidden; /* Ensure no overflow */
+    }
+
+    .nav.active ul {
+        transform: translateX(0); /* Slide the menu into view */
+        opacity: 1; /* Show the menu */
     }
 
     .nav ul li {
-        margin-bottom: 10px;
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        display: block; /* Stack items vertically */
+        text-align: center; /* Center text within each item */
     }
 
     .nav ul li a {
-        display: block;
-        padding: 10px 20px;
-        text-align: center;
-        background-color: transparent;
-        border-radius: 5px;
+        text-decoration: none;
         color: #e6e6e6;
+        font-size: 18px;
+        transition: color 0.3s ease;
+        padding: 10px 20px; /* Add padding to make links look like buttons */
+        border-radius: 5px; /* Rounded corners for the links */
     }
 
     .nav ul li a:hover {
         color: #ff5722;
-        background-color: #444;
+        background-color: #444; /* Darker background on hover */
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 1001; /* Ensure the menu toggle is above the menu */
+        position: relative; /* Ensure it doesn’t affect layout flow */
+        margin-left: auto; /* Align to the right */
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px 0;
+        transition: 0.4s;
     }
 }
 
+/* Prevent body scrolling when menu is open */
+.no-scroll {
+    overflow: hidden;
+}
 
 /* Search Bar Section */
 .search-section {
@@ -179,27 +204,27 @@ body {
 /* Request New Project and Others Section */
 .request-section {
     display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    background-color: #333;
+    justify-content: center; /* Center horizontally */
+    padding: 40px 20px; /* Adjust padding as needed */
+    background-color: #333; /* Dark background color */
 }
 
 .request-form {
-    max-width: 600px;
+    max-width: 600px; /* Adjust width as needed */
     width: 100%;
-    background-color: #fff;
+    background-color: #fff; /* White background for the form */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin: 0 auto; /* Center the form horizontally */
 }
 
 .request-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: #333; /* Darker text color for readability */
 }
 
 .request-form input,
@@ -209,12 +234,12 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background-color: #fafafa;
-    box-sizing: border-box;
+    background-color: #fafafa; /* Light background for input fields */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 .request-form textarea {
-    resize: vertical;
+    resize: vertical; /* Allow vertical resizing for textarea */
 }
 
 .request-btn {
@@ -230,7 +255,7 @@ body {
 
 .request-btn:hover {
     background-color: #e64a19;
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
 /* Service Section */
@@ -318,10 +343,11 @@ body {
     padding: 20px;
     background-color: #1f1f1f;
     text-align: center;
-    margin-top: auto;
+    margin-top: auto; /* Push footer to the bottom */
     width: 100%;
 }
 
+/* Ensure there is no extra margin or padding below the footer */
 html, body {
     margin: 0;
     padding: 0;
@@ -331,7 +357,7 @@ html, body {
 .social-links {
     list-style: none;
     padding: 25px;
-    margin: 10px 0 0;
+    margin: 10px 0 0 0; /* Remove bottom margin */
     display: flex;
     justify-content: center;
 }
@@ -352,11 +378,11 @@ html, body {
 }
 
 .social-links i {
-    margin-right: 8px;
-    font-size: 18px;
+    margin-right: 8px; /* Adjust space between icon and text */
+    font-size: 18px; /* Set icon size */
 }
 
-/* Footer text */
+/* Style for the copyright text */
 .footer-text {
     background-color: #181818;
     color: #cccccc;
@@ -368,9 +394,14 @@ html, body {
     margin-top: 20px;
 }
 
-/* Project Styling */
+/* Style for Project */
 .project-container {
     flex: 1;
+}
+
+ol {
+    counter-reset: item;
+    padding-left: 20px;
 }
 
 .project-item {
