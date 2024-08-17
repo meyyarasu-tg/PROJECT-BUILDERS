@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,81 +8,133 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header Section -->
     <div id="header-container"></div>
-    
-    <!-- Content Section -->
+
     <section class="content-section">
         <div class="container">
             <h2>Civil Project Reports</h2>
-            <p>Here you can find project reports for the Civil department. Choose your preferred option below:</p>
-
-            <!-- Descriptions and Sample Images -->
-            <div class="description-container">
-                <div class="description-box">
-                    <img src="sample-download.jpg" alt="Sample Download" class="description-image">
-                    <p><strong>PPT/Word Only:</strong> You need to add your details and front pages.</p>
-                    <button onclick="payForDownload()">Download</button>
-                </div>
-                <div class="description-box">
-                    <img src="sample-order.jpg" alt="Sample Order Project" class="description-image">
-                    <p><strong>Full Project Book:</strong> Includes your name and delivery, if possible.</p>
-                    <button onclick="payForProject()">Order Project</button>
-                </div>
-            </div>
-
-            <!-- Project List -->
-            <ul class="project-list">
-                <li>
-                    <h3>1. Experimental Study on Increasing Soil Stabilization Using Crumb Rubber and Cement</h3>
-                    <button onclick="payForDownload(1, 'download')">Download Project Report</button>
-                    <button onclick="payForProject(1, 'order')">Order Full Project</button>
-                </li>
-                <li>
-                    <h3>2. Experimental Study on Clay Brick by Partial Replacement of Clay with Dolomite Powder</h3>
-                    <button onclick="payForDownload(2, 'download')">Download Project Report</button>
-                    <button onclick="payForProject(2, 'order')">Order Full Project</button>
-                </li>
-                <li>
-                    <h3>3. Experimental Study on High Performance Concrete by Partial Replacement of Cement with Silica Fume and Nano Silica</h3>
-                    <button onclick="payForDownload(3, 'download')">Download Project Report</button>
-                    <button onclick="payForProject(3, 'order')">Order Full Project</button>
-                </li>
-                <li>
-                    <h3>4. Planning, Analysis, Designing and Estimation of Prestressed Concrete Railway Bridge</h3>
-                    <button onclick="payForDownload(4, 'download')">Download Project Report</button>
-                    <button onclick="payForProject(4, 'order')">Order Full Project</button>
-                </li>
-                <li>
-                    <h3>5. Experimental Investigation on Coconut Fiber Reinforced Self-Compacting Concrete Incorporating Flyash and Metakaolin</h3>
-                    <button onclick="payForDownload(5, 'download')">Download Project Report</button>
-                    <button onclick="payForProject(5, 'order')">Order Full Project</button>
-                </li>
-                <li>
-                    <h3>6. Experimental Study on Strength Improvement of Structural Concrete by Using Granite Slurry Waste as Fine Aggregate</h3>
-                    <button onclick="payForDownload(6, 'download')">Download Project Report</button>
-                    <button onclick="payForProject(6, 'order')">Order Full Project</button>
-                </li>
-            </ul>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>CIVIL PROJECT REPORTS</th>
+                        <th>Word/PPT only (You need to add your name and front pages)</th>
+                        <th>Full project book (Includes your details: name, college) Home delivery (if possible)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DESIGN AND ESTIMATION OF HOSTEL BUILDING</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project1', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project1')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project2', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project2')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project3', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project3')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project4', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project4')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project5', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project5')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project6', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project6')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project7', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project7')">Order Project</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE</td>
+                        <td>
+                            <img src="img1.png" alt="Word/PPT Only" class="project-image">
+                            <button onclick="downloadProject('project8', 'ppt')">Download</button>
+                        </td>
+                        <td>
+                            <img src="img2.png" alt="Full Project Book" class="project-image">
+                            <button onclick="orderProject('project8')">Order Project</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
-    
+
     <!-- Footer Section -->
     <div id="footer-container"></div>
 
     <!-- JavaScript -->
     <script>
-        function payForDownload(projectId, type) {
-            const amount = 50; // Amount for download
-            window.location.href = `payment.html?projectId=${projectId}&amount=${amount}&type=${type}`;
+        function downloadProject(projectId, type) {
+            const amount = type === 'ppt' ? 50 : 100;
+            window.location.href = `download.html?projectId=${projectId}&amount=${amount}&type=${type}`;
         }
 
-        function payForProject(projectId, type) {
-            const amount = 100; // Amount for full project
-            window.location.href = `payment.html?projectId=${projectId}&amount=${amount}&type=${type}`;
+        function orderProject(projectId) {
+            window.location.href = `order.html?projectId=${projectId}&amount=500&type=order`;
         }
-    </script>   
+    </script>
+
+    <!-- External JS -->
+    <script src="header-footer.js"></script>
 </body>
-<script src="header-footer.js"></script>
+
 </html>
