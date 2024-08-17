@@ -9,23 +9,6 @@ body {
     min-height: 100vh;
 }
 
-/* Ensure all elements fit within the viewport */
-* {
-    box-sizing: border-box;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
-        padding: 20px; /* Adjust padding for mobile */
-    }
-
-    /* Mobile-specific adjustments */
-    .nav ul {
-        width: 100%; /* Ensure mobile menu takes full width */
-    }
-}
-
 .project-container {
     flex: 1;
 }
