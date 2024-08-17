@@ -16,7 +16,11 @@
     <!-- Contact Us Section -->
     <section class="contact-section">
         <div class="container">
-            <p><strong>Contact us:</strong> WhatsApp: <a href="https://wa.me/917603846096" target="_blank"><strong>+91 7603846096</strong></a></p>
+            <p><strong>Contact us:</strong></p>
+            <a href="https://wa.me/917603846096" target="_blank">
+                <img src="https://example.com/whatsapp-icon.png" alt="WhatsApp Contact" style="width: 50px; height: 50px;">
+            </a>
+            <p><strong>+91 7603846096</strong></p>
         </div>
     </section>
 
@@ -89,19 +93,4 @@
     <!-- JavaScript -->
     <script>
         function downloadProject(projectUrl) {
-            // Redirect to the specific download URL
-            window.location.href = projectUrl;
-        }
-
-        function orderProject(projectTitle) {
-            // Generate WhatsApp URL with the project title
-            const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
-            window.location.href = whatsappUrl;
-        }
-    </script>
-
-    <!-- External JS -->
-    <script src="header-footer.js"></script>
-
-</body>
-</html>
+            // Redirect to the specific download
