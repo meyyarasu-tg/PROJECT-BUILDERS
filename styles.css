@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 .project-container {
     flex: 1;
 }
@@ -17,9 +18,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px; /* Adjusted for better mobile fit */
+    padding: 20px;
     background-color: #221f1f;
-    width: 100%; /* Ensure header takes full width */
+    width: 100%;
 }
 
 /* Logo styling */
@@ -41,15 +42,15 @@ body {
 
 /* Default navigation styling */
 .nav ul {
-    list-style: none; /* Remove bullet points */
+    list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Align items horizontally */
+    display: flex;
 }
 
 .nav ul li {
     margin-left: 20px;
-    display: inline-block; /* Ensure items stay inline */
+    display: inline-block;
 }
 
 .nav ul li a {
@@ -84,44 +85,39 @@ body {
         justify-content: flex-start;
     }
 
-    /* Add this rule to prevent horizontal overflow */
+    /* Prevent body scrolling when menu is open */
     html, body {
         overflow-x: hidden;
     }
-}
-
 
     .nav.active ul {
-        transform: translateX(0); /* Slide the menu into view */
-        opacity: 1; /* Show the menu */
+        transform: translateX(0);
+        opacity: 1;
     }
 
     .nav ul li {
-        margin-bottom: 10px; /* Add bottom margin for spacing */
-        display: block; /* Stack items vertically */
-        text-align: center; /* Center text within each item */
+        margin-bottom: 10px;
+        display: block;
+        text-align: center;
     }
 
     .nav ul li a {
-        text-decoration: none;
-        color: #e6e6e6;
-        font-size: 18px;
-        transition: color 0.3s ease;
-        padding: 10px 20px; /* Add padding to make links look like buttons */
-        border-radius: 5px; /* Rounded corners for the links */
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: transparent; /* Ensure initial background is transparent */
     }
 
     .nav ul li a:hover {
         color: #ff5722;
-        background-color: #444; /* Darker background on hover */
+        background-color: #444;
     }
 
     .menu-toggle {
         flex-direction: column;
         cursor: pointer;
-        z-index: 1001; /* Ensure the menu toggle is above the menu */
-        position: relative; /* Ensure it doesn’t affect layout flow */
-        margin-left: auto; /* Align to the right */
+        z-index: 1001;
+        position: relative;
+        margin-left: auto;
     }
 
     .menu-toggle span {
@@ -131,11 +127,6 @@ body {
         margin: 4px 0;
         transition: 0.4s;
     }
-}
-
-/* Prevent body scrolling when menu is open */
-.no-scroll {
-    overflow: hidden;
 }
 
 /* Search Bar Section */
@@ -189,27 +180,27 @@ body {
 /* Request New Project and Others Section */
 .request-section {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    padding: 40px 20px; /* Adjust padding as needed */
-    background-color: #333; /* Dark background color */
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #333;
 }
 
 .request-form {
-    max-width: 600px; /* Adjust width as needed */
+    max-width: 600px;
     width: 100%;
-    background-color: #fff; /* White background for the form */
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-    margin: 0 auto; /* Center the form horizontally */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .request-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333; /* Darker text color for readability */
+    color: #333;
 }
 
 .request-form input,
@@ -219,12 +210,12 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background-color: #fafafa; /* Light background for input fields */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    background-color: #fafafa;
+    box-sizing: border-box;
 }
 
 .request-form textarea {
-    resize: vertical; /* Allow vertical resizing for textarea */
+    resize: vertical;
 }
 
 .request-btn {
@@ -240,7 +231,7 @@ body {
 
 .request-btn:hover {
     background-color: #e64a19;
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    transform: scale(1.05);
 }
 
 /* Service Section */
@@ -328,11 +319,10 @@ body {
     padding: 20px;
     background-color: #1f1f1f;
     text-align: center;
-    margin-top: auto; /* Push footer to the bottom */
+    margin-top: auto;
     width: 100%;
 }
 
-/* Ensure there is no extra margin or padding below the footer */
 html, body {
     margin: 0;
     padding: 0;
@@ -342,7 +332,7 @@ html, body {
 .social-links {
     list-style: none;
     padding: 25px;
-    margin: 10px 0 0 0; /* Remove bottom margin */
+    margin: 10px 0 0;
     display: flex;
     justify-content: center;
 }
@@ -363,11 +353,11 @@ html, body {
 }
 
 .social-links i {
-    margin-right: 8px; /* Adjust space between icon and text */
-    font-size: 18px; /* Set icon size */
+    margin-right: 8px;
+    font-size: 18px;
 }
 
-/* Style for the copyright text */
+/* Footer text */
 .footer-text {
     background-color: #181818;
     color: #cccccc;
@@ -379,14 +369,9 @@ html, body {
     margin-top: 20px;
 }
 
-/* Style for Project */
+/* Project Styling */
 .project-container {
     flex: 1;
-}
-
-ol {
-    counter-reset: item;
-    padding-left: 20px;
 }
 
 .project-item {
