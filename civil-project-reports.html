@@ -13,6 +13,13 @@
     <!-- Header Section -->
     <div id="header-container"></div>
 
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+        <div class="container">
+            <p><strong>Contact us:</strong> WhatsApp: <a href="https://wa.me/917603846096" target="_blank"><strong>+91 7603846096</strong></a></p>
+        </div>
+    </section>
+
     <section class="content-section">
         <div class="container">
             <h2>Civil Project Reports</h2>
@@ -33,7 +40,7 @@
                 <tbody>
                     <tr>
                         <td>1. DESIGN AND ESTIMATION OF HOSTEL BUILDING</td>
-                        <td><button onclick="downloadProject('https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL')">Download</button></td>
+                        <td><button onclick="downloadProject('https://example.com/download/project1')">Download</button></td>
                         <td><button onclick="orderProject('DESIGN AND ESTIMATION OF HOSTEL BUILDING')">Order Project</button></td>
                     </tr>
                     <tr>
@@ -88,7 +95,7 @@
 
         function orderProject(projectTitle) {
             // Generate WhatsApp URL with the project title
-            const whatsappUrl = `https://wa.me/9360438998?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
+            const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
             window.location.href = whatsappUrl;
         }
     </script>
