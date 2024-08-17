@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Civil Project Reports</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -22,13 +21,13 @@
 
     <!-- Project Images Section -->
     <section class="project-images-section">
-    <div class="container">
-        <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/o0bbgepytt38o0mp7qqz.jpg" alt="Word/PPT Only" class="project-image" onclick="openFullscreen(this)">
-        <p style="text-align:center;">Word/PPT only (You need to add your name and front pages)</p>
+        <div class="container">
+            <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/o0bbgepytt38o0mp7qqz.jpg" alt="Word/PPT Only" class="project-image" onclick="openFullscreen(this)">
+            <p style="text-align:center;">Word/PPT only (You need to add your name and front pages)</p>
 
-        <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/bfsmnbvwrbs4wx8a4ibi.jpg" alt="Full Project Book" class="project-image" onclick="openFullscreen(this)">
-        <p style="text-align:center;">Full project book (Includes your details: name, college) Home delivery (if possible)</p>
-    </div>
+            <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/bfsmnbvwrbs4wx8a4ibi.jpg" alt="Full Project Book" class="project-image" onclick="openFullscreen(this)">
+            <p style="text-align:center;">Full project book (Includes your details: name, college) Home delivery (if possible)</p>
+        </div>
     </section>
 
     <section class="content-section">
@@ -49,42 +48,42 @@
                 <tbody>
                     <tr>
                         <td>1. DESIGN AND ESTIMATION OF HOSTEL BUILDING</td>
-                        <td><button onclick="initiatePayment('project1')">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project1')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('DESIGN AND ESTIMATION OF HOSTEL BUILDING')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>2. EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN</td>
-                        <td><button onclick="initiatePayment('project2', 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project2')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>3. EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING</td>
-                        <td><button onclick="initiatePayment('project3', 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project3')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>4. EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER</td>
-                        <td><button onclick="initiatePayment('project4', 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project4')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>5. EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA</td>
-                        <td><button onclick="initiatePayment('project5', 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project5')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>6. EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT</td>
-                        <td><button onclick="initiatePayment('project6', 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project6')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>7. EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE</td>
-                        <td><button onclick="initiatePayment('project7', 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project7')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>8. PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE</td>
-                        <td><button onclick="initiatePayment('project8' 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiateUPIPayment('project8')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE')">Order Project</button></td>
                     </tr>
                 </tbody>
@@ -96,41 +95,77 @@
     <div id="footer-container"></div>
 
     <!-- JavaScript -->
-<script>
+    <script>
         // Function to open the image in fullscreen
-    function openFullscreen(img) {
-        const fullscreenContainer = document.createElement("div");
-        fullscreenContainer.classList.add("fullscreen-image");
+        function openFullscreen(img) {
+            const fullscreenContainer = document.createElement("div");
+            fullscreenContainer.classList.add("fullscreen-image");
 
-        const fullscreenImg = img.cloneNode();
-        fullscreenContainer.appendChild(fullscreenImg);
+            const fullscreenImg = img.cloneNode();
+            fullscreenContainer.appendChild(fullscreenImg);
 
-        document.body.appendChild(fullscreenContainer);
+            document.body.appendChild(fullscreenContainer);
 
-        fullscreenContainer.onclick = function () {
-            document.body.removeChild(fullscreenContainer);
-        };
-    }
+            fullscreenContainer.onclick = function () {
+                document.body.removeChild(fullscreenContainer);
+            };
+        }
 
-        // Function to initiate payment via Instamojo
-    function initiatePayment(projectID) {
-            // Instamojo payment link
-        const paymentLink = 'https://imjo.in/jEt7xD';
+        // Function to initiate payment via UPI
+        function initiateUPIPayment(projectID) {
+            const upiID = 'projectbuilders@upi'; // Your UPI ID
+            const amount = '100'; // Payment amount
+            const name = 'Meyyarasu A'; // Merchant name
+            const txnNote = 'Payment for Civil Project'; // Transaction note
+            const txnID = 'TXN' + Date.now(); // Unique transaction ID
 
-            // Redirect URL after payment with the project ID
-        const redirectURL = `https://prjctbuilds.unaux.com/handler.html?project=${projectID}`;
+            // Construct UPI Intent URL
+            const upiURL = `upi://pay?pa=${upiID}&pn=${name}&am=${amount}&tn=${txnNote}&cu=INR&tid=${txnID}`;
 
-            // Redirect to Instamojo with payment and redirect URL
-        window.location.href = `${paymentLink}?redirect_url=${encodeURIComponent(redirectURL)}`;
+            // Trigger UPI payment
+            window.location.href = upiURL;
+
+            // After payment, prompt user to enter the transaction ID manually
+            setTimeout(() => {
+                const userTxnID = prompt("Please enter the UPI transaction ID after your payment:");
+                if (userTxnID) {
+                    verifyPayment(userTxnID, projectID);
+                } else {
+                    alert("Transaction ID is required to proceed.");
+                }
+            }, 5000); // Wait for 5 seconds before prompting the user
+        }
+
+        // Function to send the transaction ID to the backend for verification
+        async function verifyPayment(transactionID, projectID) {
+            try {
+                const response = await fetch('https://your-backend-server.com/verify-upi-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ transactionID, projectID }),
+                });
+
+                if (response.ok) {
+                    alert('Payment verified successfully!');
+                    window.location.href = `handler.html?project=${projectID}`;
+                } else {
+                    alert('Payment verification failed. Please try again or contact support.');
+                }
+            } catch (error) {
+                alert('An error occurred during payment verification. Please try again later.');
+            }
         }
 
         // Function to order project via WhatsApp
-    function orderProject(projectTitle) {
-        const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
-        window.location.href = whatsappUrl;
-    }
-</script>
+        function orderProject(projectTitle) {
+            const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
 
-<script src="header-footer.js"></script>
+    <script src="header-footer.js"></script>
 </body>
+
 </html>
