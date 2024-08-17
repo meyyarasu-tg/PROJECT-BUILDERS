@@ -106,7 +106,7 @@ body {
     }
 
     .nav.active ul {
-        transform: translateX(0); /* Slide the menu into view */
+        transform: translateY(0); /* Slide the menu into view */
         opacity: 1; /* Show the menu */
     }
 
