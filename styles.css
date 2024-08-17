@@ -8,7 +8,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    padding-bottom: 60px; /* Ensure space for the fixed footer */
+}
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Ensure all elements fit within the viewport */
@@ -18,29 +20,15 @@ body {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-.footer, .header, .nav, .search-section, .request-section, .services-section, .departments-section {
-    width: 100vw;
-    overflow-x: hidden;
-}
-/* Mobile Specific Overrides */
-@media (max-width: 768px) {
-    body, html {
-        overflow-x: hidden; /* Prevent horizontal scrolling */
-        margin: 0;
-        padding: 0;
+    .header, .nav, .search-section, .request-section, .services-section, .departments-section {
+        padding: 20px; /* Adjust padding for mobile */
     }
 
-    .nav ul, .footer {
-        width: 100vw; /* Ensure full viewport width */
-    }
-
-    /* Footer fix */
-    .footer {
-        position: relative; /* Change from fixed to relative */
-        padding-bottom: 20px;
+    /* Mobile-specific adjustments */
+    .nav ul {
+        width: 100%; /* Ensure mobile menu takes full width */
     }
 }
-
 
 .project-container {
     flex: 1;
@@ -331,106 +319,119 @@ body {
 }
 
 .department-item {
-    background-color: #2a2a2a;
+    background-color: #282828;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .department-item:hover {
+    background-color: #333333;
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .department-item h3 {
-    font-size: 24px;
-    color: #ff5722;
-    margin-bottom: 15px;
-}
-
-.department-item p {
-    font-size: 16px;
-    color: #cccccc;
+    font-size: 20px;
+    color: #ffffff;
 }
 
 /* Footer Styling */
 .footer {
-    background-color: #1f1f1f;
-    color: #cccccc;
-    text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0; /* Align to the left edge */
-    width: 100%; /* Full viewport width */
-    box-sizing: border-box; /* Include padding and border in width */
-    z-index: 1000; /* Ensure footer is above other content */
+    background-color: #1f1f1f;
+    text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%;
 }
 
-.footer p {
+/* Ensure there is no extra margin or padding below the footer */
+html, body {
     margin: 0;
+    padding: 0;
 }
 
-/* Footer social links styling */
-.footer .social-links {
-    margin: 20px 0;
+/* Social Links Styling */
+.social-links {
+    list-style: none;
+    padding: 25px;
+    margin: 10px 0 0 0; /* Remove bottom margin */
+    display: flex;
+    justify-content: center;
 }
 
-.footer .social-links a {
-    color: #cccccc;
-    text-decoration: none;
+.social-links li {
     margin: 0 10px;
-    font-size: 20px;
+}
+
+.social-links li a {
+    color: #fcfcfb;
+    text-decoration: none;
+    font-size: 16px;
     transition: color 0.3s ease;
 }
 
-.footer .social-links a:hover {
+.social-links li a:hover {
+    color: #fafafa;
+}
+
+.social-links i {
+    margin-right: 8px; /* Adjust space between icon and text */
+    font-size: 18px; /* Set icon size */
+}
+
+/* Style for the copyright text */
+.footer-text {
+    background-color: #181818;
+    color: #cccccc;
+    font-size: 14px;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+/* Style for Project */
+.project-container {
+    flex: 1;
+}
+
+ol {
+    counter-reset: item;
+    padding-left: 20px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    list-style: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #ffffff;
+}
+
+.project-item:before {
+    counter-increment: item;
+    content: counter(item) ". ";
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.project-item:hover {
     color: #ff5722;
 }
 
-/* Payment Page Specific */
-.payment-section {
-    padding: 40px 20px;
-    background-color: #2a2a2a;
+.project-title {
+    flex: 1;
+    font-size: 18px;
+    margin-right: 20px;
 }
 
-.payment-form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.payment-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.payment-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+.project-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
     border-radius: 4px;
-}
-
-.payment-form button {
-    background-color: #ff5722;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.payment-form button:hover {
-    background-color: #e64a19;
 }
