@@ -453,19 +453,20 @@ html, body {
         }
 
 .contact-section {
-    background-color: #f8f9fa;
+    background-color: #007bff; /* Blue background */
     padding: 20px 0;
     text-align: center;
     font-size: 24px; /* Larger font size */
     font-weight: bold;
     margin-bottom: 20px; /* Space below the contact section */
+    color: #28a745; /* Green text */
 }
 
 .contact-section a {
-    color: #007bff;
+    color: #28a745; /* Green link color to match the text */
     text-decoration: none;
 }
 
 .contact-section a:hover {
-    color: #0056b3;
+    color: #218838; /* Darker green on hover */
 }
