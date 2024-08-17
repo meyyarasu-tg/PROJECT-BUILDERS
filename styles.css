@@ -383,82 +383,17 @@ html, body {
     margin-top: 20px;
 }
 
-/* Style for Project */
-/* Description Container */
-.description-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-}
-
-.description-box {
-    text-align: center;
-    padding: 20px;
-}
-
-.description-image {
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 15px;
-}
-
-.description-box button {
-    padding: 10px 20px;
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.description-box button:hover {
-    background-color: #e64a19;
-}
-
-/* Project List Styling */
-.project-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.project-list li {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-}
-
-.project-list li h3 {
-    margin-bottom: 10px;
-    font-size: 1.25rem;
-}
-
-.project-list li button {
-    padding: 10px 20px;
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-.project-list li button:hover {
-    background-color: #e64a19;
-}
 /* Custom styles for alternating rows */
         .project-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
         .project-table tr:nth-child(odd) {
-            background-color: #fff;
+            background-color: #e0e0e0;
         }
 
         .project-image {
-            max-width: 150px;
+            max-width: 120px;
             height: auto;
         }
 
@@ -477,17 +412,42 @@ html, body {
             margin-bottom: 20px;
         }
 
-        table, th, td {
+        th, td {
+            padding: 12px;
+            text-align: center;
             border: 1px solid #ddd;
-            padding: 10px;
         }
 
         th {
-            background-color: #4CAF50;
+            background-color: black;
             color: white;
             text-align: left;
         }
 
         td {
             text-align: center;
+            color: #333;
+        }
+
+        /* Resize the columns */
+        th:first-child, td:first-child {
+            width: 60%;
+            text-align: left;
+        }
+
+        th:nth-child(2), td:nth-child(2), th:nth-child(3), td:nth-child(3) {
+            width: 20%;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #555;
         }
