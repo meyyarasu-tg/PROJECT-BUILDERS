@@ -383,90 +383,119 @@ html, body {
     margin-top: 20px;
 }
 
-/* Custom styles for alternating rows */
-        .project-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+/* Table styling */
+.project-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
 
-        .project-table tr:nth-child(odd) {
-            background-color: #e0e0e0;
-        }
+.project-table th, .project-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #121212;
+    font-weight: bold;
+}
 
-        .project-image {
-            max-width: 120px;
-            height: auto;
-        }
+.project-table th {
+    background-color: #4caf50;
+    color: white;
+    text-align: left;
+}
 
-        .content-section {
-            padding: 20px;
-        }
+.project-table th:first-child, .project-table td:first-child {
+    width: 60%;
+    text-align: left;
+}
 
-        .container {
-            margin: auto;
-            max-width: 900px;
-        }
+.project-table th:nth-child(2), .project-table td:nth-child(2), 
+.project-table th:nth-child(3), .project-table td:nth-child(3) {
+    width: 20%;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+.project-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
+.project-table tr:nth-child(odd) {
+    background-color: #e0e0e0;
+}
 
-        th {
-            background-color: #4caf50;
-            color: white;
-            text-align: left;
-        }
+/* Section and container */
+.content-section {
+    padding: 0 20px;
+}
 
-        td {
-            text-align: center;
-            color: #333;
-        }
+.container {
+    width: 100%;
+    margin: auto;
+}
 
-        /* Resize the columns */
-        th:first-child, td:first-child {
-            width: 60%;
-            text-align: left;
-        }
+/* Button styling */
+button {
+    padding: 8px 12px;
+    background-color: #ed250e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
 
-        th:nth-child(2), td:nth-child(2), th:nth-child(3), td:nth-child(3) {
-            width: 20%;
-        }
+button:hover {
+    background-color: #ed250e;
+}
 
-        button {
-            padding: 8px 12px;
-            background-color: #ed250e;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        button:hover {
-            background-color: #ed250e;
-        }
-
+/* Contact section styling */
 .contact-section {
-    background-color: #007bff; /* Blue background */
+    background-color: #007bff;
     padding: 20px 0;
     text-align: center;
-    font-size: 24px; /* Larger font size */
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px; /* Space below the contact section */
-    color: #ffffff; /* White text */
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .contact-section a {
-    color: #ffffff; /* White link color to match the text */
+    color: #ffffff;
     text-decoration: none;
 }
 
 .contact-section a:hover {
-    color: #f8f9fa; /* Slightly lighter white on hover */
+    color: #f8f9fa;
+}
+/* Styling for the images */
+.project-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* This will make the image shorter */
+    cursor: pointer; /* Make it clear the image is clickable */
+    margin: 20px 0;
+    display: inline-block;
+    position: 0 20px;
+}
+
+/* Fullscreen styling for the image */
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fullscreen-image img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.fullscreen-image:active,
+.fullscreen-image img:active {
+    cursor: zoom-out; /* Show the zoom-out cursor */
 }

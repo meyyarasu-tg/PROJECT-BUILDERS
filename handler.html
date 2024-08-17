@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Project</title>
+</head>
+<body>
+    <h1>Thank you for your payment!</h1>
+    <p>Your download will start automatically.</p>
+    <a id="downloadLink" href="#">Click here if the download doesn't start automatically.</a>
+
+    <script>
+        // Function to get query parameters
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Map project IDs to Google Drive folder URLs
+        const projectFiles = {
+            'project1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
+            'project2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
+            'project3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
+            'project4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
+            'project5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
+            'project6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
+            'project7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
+            'project8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
+        };
+
+        // Get the project ID from the query parameter
+        let projectID = getQueryParam('project');
+        
+        // Find the correct download link based on the project ID
+        let downloadLink = projectFiles[projectID] || '#'; // Default to nothing if projectID not found
+
+        // Set the download link and trigger the download automatically
+        document.getElementById('downloadLink').href = downloadLink;
+        if (downloadLink !== '#') {
+            window.location.href = downloadLink;
+        }
+    </script>
+</body>
+</html>

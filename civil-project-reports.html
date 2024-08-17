@@ -20,6 +20,17 @@
         </div>
     </section>
 
+    <!-- Project Images Section -->
+    <section class="project-images-section">
+    <div class="container">
+        <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/o0bbgepytt38o0mp7qqz.jpg" alt="Word/PPT Only" class="project-image" onclick="openFullscreen(this)">
+        <p style="text-align:center;">Word/PPT only (You need to add your name and front pages)</p>
+
+        <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/bfsmnbvwrbs4wx8a4ibi.jpg" alt="Full Project Book" class="project-image" onclick="openFullscreen(this)">
+        <p style="text-align:center;">Full project book (Includes your details: name, college) Home delivery (if possible)</p>
+    </div>
+    </section>
+
     <section class="content-section">
         <div class="container">
             <h2>Civil Project Reports</h2>
@@ -28,11 +39,9 @@
                     <tr>
                         <th>CIVIL PROJECT REPORTS</th>
                         <th>
-                            <img src="https://drive.google.com/uc?export=view&id=15YIoVVBmZrHbprfuPd2qB1BtqmHVFAkI" alt="Word/PPT Only" class="project-image">
                             <p>Word/PPT only (You need to add your name and front pages)</p>
                         </th>
                         <th>
-                            <img src="https://drive.google.com/uc?export=view&id=15YjTjRtRHixFsHUIdS233OINlFR8ESG4" alt="Full Project Book" class="project-image">
                             <p>Full project book (Includes your details: name, college) Home delivery (if possible)</p>
                         </th>
                     </tr>
@@ -40,42 +49,42 @@
                 <tbody>
                     <tr>
                         <td>1. DESIGN AND ESTIMATION OF HOSTEL BUILDING</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project1')">Download</button></td>
+                        <td><button onclick="initiatePayment('project1')">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('DESIGN AND ESTIMATION OF HOSTEL BUILDING')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>2. EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project2')">Download</button></td>
+                        <td><button onclick="initiatePayment('project2', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>3. EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project3')">Download</button></td>
+                        <td><button onclick="initiatePayment('project3', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>4. EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project4')">Download</button></td>
+                        <td><button onclick="initiatePayment('project4', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>5. EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project5')">Download</button></td>
+                        <td><button onclick="initiatePayment('project5', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>6. EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project6')">Download</button></td>
+                        <td><button onclick="initiatePayment('project6', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>7. EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project7')">Download</button></td>
+                        <td><button onclick="initiatePayment('project7', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE')">Order Project</button></td>
                     </tr>
                     <tr>
                         <td>8. PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE</td>
-                        <td><button onclick="downloadProject('https://example.com/download/project8')">Download</button></td>
+                        <td><button onclick="initiatePayment('project8' 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE')">Order Project</button></td>
                     </tr>
                 </tbody>
@@ -87,22 +96,41 @@
     <div id="footer-container"></div>
 
     <!-- JavaScript -->
-    <script>
-        function downloadProject(projectUrl) {
-            // Redirect to the specific download URL
-            window.location.href = projectUrl;
+<script>
+        // Function to open the image in fullscreen
+    function openFullscreen(img) {
+        const fullscreenContainer = document.createElement("div");
+        fullscreenContainer.classList.add("fullscreen-image");
+
+        const fullscreenImg = img.cloneNode();
+        fullscreenContainer.appendChild(fullscreenImg);
+
+        document.body.appendChild(fullscreenContainer);
+
+        fullscreenContainer.onclick = function () {
+            document.body.removeChild(fullscreenContainer);
+        };
+    }
+
+        // Function to initiate payment via Instamojo
+    function initiatePayment(projectID) {
+            // Instamojo payment link
+        const paymentLink = 'https://imjo.in/jEt7xD';
+
+            // Redirect URL after payment with the project ID
+        const redirectURL = `https://prjctbuilds.unaux.com/handler.html?project=${projectID}`;
+
+            // Redirect to Instamojo with payment and redirect URL
+        window.location.href = `${paymentLink}?redirect_url=${encodeURIComponent(redirectURL)}`;
         }
 
-        function orderProject(projectTitle) {
-            // Generate WhatsApp URL with the project title
-            const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
-            window.location.href = whatsappUrl;
-        }
-    </script>
+        // Function to order project via WhatsApp
+    function orderProject(projectTitle) {
+        const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
+        window.location.href = whatsappUrl;
+    }
+</script>
 
-    <!-- External JS -->
-    <script src="header-footer.js"></script>
-
+<script src="header-footer.js"></script>
 </body>
-
 </html>
