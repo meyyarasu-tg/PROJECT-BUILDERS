@@ -1,10 +1,11 @@
+
 <html>
    <head>
       <title>PAYMENT</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <style type="text/css">
          * {
@@ -23,8 +24,7 @@
          left: 50%;
          transform: translate(-50% , -50%);
          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-         }
-         .head{
+         }.head{
          width: 100%;
          height: 70px;
          background: #236fed;
@@ -37,109 +37,74 @@
          object-fit: cover;
          margin-left:15px;
          margin-right: 10px;
-         }
-         .head h3{
+         }.head h3{
          color:#fff;
-         }
-         .text_bold{
+         }.text_bold{
          font-weight: bold;
+         padding-left: 15px;padding-top: 15px;
+         }.text{
+         color: #7a7a7a;padding-top: 7px;
          padding-left: 15px;
-         padding-top: 15px;
-         }
-         .text{
-         color: #7a7a7a;
-         padding-top: 7px;
-         padding-left: 15px;
-         }
-         .qr{
+         }.qr{
          width:150px;
          height: 150px;
          margin-top: 20px;
-         }
-         .or{
+         }.or{
          padding-top: 10px;
          margin: auto;
-         display: flex;
-         align-items: center;
-         justify-content: space-between;
+         display: flex;align-items: center;justify-content: space-between;
          width: 150px;
          margin: auto;
-         }
-         .line{
+         }.line{
          width:50px;
          height: 1px;
          background: #7a7a7a;
-         }
-         .or p{
+         }.or p{
          padding: 0;
-         }
-         .app_ a{
-         text-decoration: none;
-         display: flex;
-         width: 45%;
-         align-items: center;
-         padding: 10px;
+         }.app_ a{text-decoration: none;
+         display: flex;width: 45%;align-items: center;padding: 10px;
          border:1px solid #e4e4e4;
-         }
-         .app_logo{
+         }.app_logo{
          height: 30px;
-         }
-         .upi_apps{
+         }.upi_apps{
          margin-top: 20px;
          padding: 0 15px;
-         }
-         .app_{
-         justify-content: center;
-         display: flex;
-         margin-top: 5px;
-         }
-         .space{
+         }.app_{justify-content: center;
+         display: flex;margin-top: 5px;
+         }.space{
          min-width: 5px!important;
-         }
-         .app_ a p{
-         padding-left: 5px;
-         font-weight: bold;
-         }
-         .body{
-         height: calc(100vh - 240px);
-         }
-         .btm{
-         height: 70px;
-         box-shadow: rgba(149, 157, 165, 0.2) 6px -3px 20px;
-         display: flex;
-         align-items: center;
-         justify-content: space-between;
-         padding: 0 15px;
-         }
-         .btm p{
-         padding: 0;
-         }
-         .btm button{
-         border-radius: 5px;
-         border:none;
-         outline: none;
-         height: 40px;
-         padding: 0 40px;
-         color: #fff;
-         font-weight: bold;
-         cursor: pointer;
-         background: #236fed;
-         }
-         .btm span{
-         color: #fff
-         }
+         }.app_ a p{
+         padding-left: 5px;font-weight: bold;
+         }.body{
+            height: calc(100vh - 240px);
+         }.btm{
+            height: 70px;
+            box-shadow: rgba(149, 157, 165, 0.2) 6px -3px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+         }.btm p{
+            padding: 0;
+         }.btm button{
+            border-radius: 5px;
+            border:none;
+            outline: none;
+            height: 40px;
+            padding: 0 40px;color: #fff;
+            font-weight: bold;cursor: pointer;background: #236fed;
+         
+         }.btm span{color: #fff}
          @media only screen and (max-width: 500px) {
+
             .cont{
-               position: fixed;
-               display: flex;
-               flex-direction: column;
+               position: fixed;display: flex;flex-direction: column;
                top:0;
                width: 100%;
-               height: 100%;
-               transform: unset;
+               height: 100%;transform: unset;
                left:0;
-            }
-            .body{
+
+            }.body{
                flex: 1;
             }
          }
@@ -157,7 +122,8 @@
             <p class="text_bold">Pay with UPI QR</p>
             <p class="text">Scan the QR Code with any UPI app.</p>
             <center>
-               <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=projectbuilders@upi%26pn=Mr%20ONKAR%20%20JHA%26cu=INR%26am=10%26tn=Payment%20From%20Gateway%26mc=7372%26aid=uGICAgKCUn6nifw%26ver=01%26mode=01%26tr=BCR2DN7TVS2YXTCE" class="qr">
+               <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=9064973840@okbizaxis%26pn=Mr%20ONKAR%20%20JHA%26cu=INR%26am=10%26tn=Payment From Gateway%26mc=7372%26aid=uGICAgKCUn6nifw%26ver=01%26mode=01%26tr=BCR2DN7TVS2YXTCE" class="qr">
+               
             </center>
             <div class="or">
                <div class="line"></div>
@@ -166,23 +132,23 @@
             </div>
             <div class="upi_apps">
                <div class="app_">
-                  <a href="gpay://upi/pay?pa=projectbuilders@upi&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment%20From%20Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
+                  <a href="gpay://upi/pay?pa=9064973840@okbizaxis&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment From Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
                      <img src="https://1000logos.net/wp-content/uploads/2020/04/Google-Pay-Logo.jpg" class="app_logo">
                      <p>GPay</p>
                   </a>
                   <div class="space"></div>
-                  <a href="paytmmp://pay?pa=projectbuilders@upi&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment%20From%20Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
+                  <a href="paytmmp://pay?pa=9064973840@okbizaxis&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment From Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvkvpH2vYwIUoijFNnQ3OWx6zbXrxY2jyATg&s" class="app_logo">
                      <p>Paytm</p>
                   </a>
                </div>
                <div class="app_">
-                  <a href="phonepe://pay?pa=projectbuilders@upi&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment%20From%20Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
+                  <a href="phonepe://pay?pa=9064973840@okbizaxis&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment From Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
                      <img src="https://i.pinimg.com/originals/dd/53/85/dd5385fb5b726cb74171930c4db4ca5b.png" class="app_logo">
                      <p>PhonePe</p>
                   </a>
                   <div class="space"></div>
-                  <a href="upi://pay?pa=projectbuilders@upi&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment%20From%20Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
+                  <a href="upi://pay?pa=9064973840@okbizaxis&pn=Mr%20ONKAR%20%20JHA&cu=INR&am=10&tn=Payment From Gateway&mc=7372&aid=uGICAgKCUn6nifw&ver=01&mode=01&tr=BCR2DN7TVS2YXTCE">
                      <img src="https://png.pngtree.com/png-vector/20190225/ourmid/pngtree-concept-banking-logo-png-image_712961.jpg" class="app_logo">
                      <p>Other</p>
                   </a>
