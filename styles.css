@@ -459,7 +459,7 @@ html, body {
     font-size: 24px; /* Larger font size */
     font-weight: bold;
     margin-bottom: 20px; /* Space below the contact section */
-    color: #28a745; /* Green text */
+    color: #cccccc; /* Green text */
 }
 
 .contact-section a {
