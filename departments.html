@@ -15,7 +15,7 @@
             <h2>Select Your Department</h2>
             <div class="departments-grid">
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-department="civil">CIVIL</a></h3>
+                    <h3><a href="views/project-report.ejs">CIVIL</a></h3>
                 </div>
                 <div class="department-item">
                     <h3><a href="#" class="department-link" data-department="mechanical">MECHANICAL</a></h3>
@@ -45,20 +45,14 @@
             link.addEventListener('click', function(event) {
                 event.preventDefault();
                 const department = this.getAttribute('data-department');
-                
-                // Check if 'service' query parameter exists in the URL
-                const urlParams = new URLSearchParams(window.location.search);
-                const service = urlParams.get('service'); // e.g., 'ppts'
-                
+
                 if (department) {
-                    // Construct the target file path based on the department and service
-                    let targetFile = `${department}-${service || 'services'}.html`; 
-                    
-                    // Redirect to the respective file
-                    window.location.href = targetFile;
+                    // Redirect to services page with department query parameter
+                    window.location.href = `/services.html?department=${department}`;
                 }
             });
         });
+
     </script>
 </body>
 <script src="header-footer.js"></script>

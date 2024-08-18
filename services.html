@@ -68,22 +68,21 @@
         const urlParams = new URLSearchParams(window.location.search);
         const department = urlParams.get('department');
 
-        // Populate services based on the selected department
         function populateServices() {
             const servicesList = document.getElementById('services-list');
             const departmentServices = services[department] || [];
 
-            // Clear previous services
-            servicesList.innerHTML = '';
+    // Clear previous services
+        servicesList.innerHTML = '';
 
-            // Add service items
-            departmentServices.forEach(service => {
-                const serviceItem = document.createElement('div');
-                serviceItem.classList.add('service-item');
-                serviceItem.innerHTML = `<h3><a href="${service.link}">${service.name}</a></h3>`;
-                servicesList.appendChild(serviceItem);
-            });
-        }
+    // Add service items
+        departmentServices.forEach(service => {
+            const serviceItem = document.createElement('div');
+            serviceItem.classList.add('service-item');
+            serviceItem.innerHTML = `<h3><a href="/reports/${department}/${service.name.toLowerCase().replace(/ /g, '-')}.html">${service.name}</a></h3>`;
+            servicesList.appendChild(serviceItem);
+        });
+    }
 
         // Populate the services on page load
         window.onload = populateServices;

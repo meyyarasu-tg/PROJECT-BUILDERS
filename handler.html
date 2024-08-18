@@ -11,12 +11,6 @@
     <a id="downloadLink" href="#">Click here if the download doesn't start automatically.</a>
 
     <script>
-        // Function to get query parameters
-        function getQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
         // Map project IDs to Google Drive folder URLs
         const projectFiles = {
             'project1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
@@ -29,11 +23,18 @@
             'project8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
         };
 
-        // Get the project ID from the query parameter
-        let projectID = getQueryParam('project');
-        
-        // Find the correct download link based on the project ID
-        let downloadLink = projectFiles[projectID] || '#'; // Default to nothing if projectID not found
+        // Get query parameters from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectID = urlParams.get('project');
+        const paymentID = urlParams.get('payment_id');
+
+        // Validate payment (if needed) and set the download link
+        if (projectID && projectLinks[projectID]) {
+            document.getElementById('download-link').href = projectLinks[projectID];
+        } else {
+            document.querySelector('h1').textContent = "Error: Project Not Found";
+            document.querySelector('p').textContent = "We couldn't find the project you're looking for.";
+        }
 
         // Set the download link and trigger the download automatically
         document.getElementById('downloadLink').href = downloadLink;
