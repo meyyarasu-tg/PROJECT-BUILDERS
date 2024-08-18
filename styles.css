@@ -427,7 +427,7 @@ html, body {
     padding: 0 20px;
 }
 
-.container {
+.container1 {
     width: 100%;
     margin: -50px 0;
 }
@@ -568,7 +568,7 @@ button:hover {
         position: relative; /* Relative positioning allows further adjustments if necessary */
         transition: transform 0.3s ease, top 0.3s ease; /* Smooth zoom effect and positioning */
     }
-    .container {
+    .container1 {
         font-size: 20;
     }
     
