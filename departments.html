@@ -41,18 +41,15 @@
 
     <!-- JavaScript -->
     <script>
-        document.querySelectorAll('.department-link').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const department = this.getAttribute('data-department');
+        // Get the service and department from the URL query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        const department = urlParams.get('department');
 
-                if (department) {
-                    // Redirect to services page with department query parameter
-                    window.location.href = `/services.html?department=${department}`;
-                }
-            });
-        });
-
+// Perform final redirection based on service and department
+        if (service && department) {
+            window.location.href = `/views/${department}-${service}.ejs`;
+        }
     </script>
 </body>
 <script src="header-footer.js"></script>

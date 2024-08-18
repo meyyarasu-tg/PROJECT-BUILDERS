@@ -10,7 +10,7 @@ const departments = {
     civil: {
         title: 'Civil',
         projects: [
-            { id: 'cproject1', title: 'DESIGN AND ESTIMATION OF HOSTEL BUILDING',gdriveLink: '' },
+            { id: 'cproject1', title: 'DESIGN AND ESTIMATION OF HOSTEL BUILDING' },
             { id: 'cproject2', title: 'EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN' },
             { id: 'cproject3', title: 'EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING' },
             { id: 'cproject4', title: 'EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER' },
@@ -94,6 +94,23 @@ const departments = {
     // Define other departments in a similar structure
 };
 
+// Route to render project-reports.ejs
+app.get('/views/project-reports.ejs', (req, res) => {
+    const department = req.query.department.toLowerCase();
+    
+    // Get the department data based on query parameter
+    const departmentData = departments[department];
+
+    if (!departmentData) {
+        return res.status(404).send('Department not found');
+    }
+
+    // Render the project-reports.ejs with department title and project list
+    res.render('project-reports', { 
+        departmentTitle: departmentData.title, 
+        projects: departmentData.projects 
+    });
+});
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
