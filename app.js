@@ -1,9 +1,10 @@
 const express = require('express');
+const path = require('path')
 const app = express();
 
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static(path.join(_dirname)));
 
 // Data for different departments
 const departments = {
