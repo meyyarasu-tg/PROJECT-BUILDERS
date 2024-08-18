@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= project.title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+    <div id="header-container"></div>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+        <div class="container">
+            <p><strong>Contact us:</strong> WhatsApp: <a href="https://wa.me/917603846096" target="_blank"><strong>+91 7603846096</strong></a></p>
+        </div>
+    </section>
+    <section class="img-section">
+        <div class="img">
+                <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/o0bbgepytt38o0mp7qqz.jpg" alt="Word/PPT Only" class="project-image" onclick="openFullscreen(this)">
+        </div>
+        <div class="img">
+                <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/bfsmnbvwrbs4wx8a4ibi.jpg" alt="Full Project Book" class="project-image" onclick="openFullscreen(this)">
+        </div>
+    </section>
+
+<body>
+    <h1><%= project.title %></h1>
+    <p><%= project.description %></p>
+    <h2>Details</h2>
+    <ul>
+        <% project.details.forEach(function(detail) { %>
+            <li><%= detail %></li>
+        <% }); %>
+    </ul>
+</body>
+</html>
