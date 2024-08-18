@@ -440,10 +440,11 @@ button {
     border: none;
     cursor: pointer;
     font-size: 14px;
+    transition: background-color 0.3s ease; /* Added transition for smooth hover effect */
 }
 
 button:hover {
-    background-color: #ed250e;
+    background-color: #ed250e; /* Darker red for hover effect */
 }
 
 /* Contact section styling */
@@ -453,28 +454,41 @@ button:hover {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
     color: #ffffff;
 }
 
 .contact-section a {
     color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease; /* Added transition for smooth color change */
 }
 
 .contact-section a:hover {
     color: #f8f9fa;
 }
+
 /* Styling for the images */
 .project-image {
     max-width: 100%;
     height: auto;
-    max-height: 200px; /* This will make the image shorter */
-    cursor: pointer; /* Make it clear the image is clickable */
-    margin: 20px 0;
-    display: inline-block;
-    position: 0 20px;
+    max-height: 400px;
+    cursor: pointer;
+    display: inline-block; /* Ensures the image takes up the full width available in its container */
+    position: relative; /* Relative positioning allows further adjustments if necessary */
+    transition: transform 0.3s ease, top 0.3s ease; /* Smooth zoom effect and positioning */
+    top: 0; /* Start with no vertical offset */
+    left: 63%;
+    margin-top: 10px;
+    margin-bottom: -60px;
+    margin-right: 8%;
 }
+
+/* Zoom and move up slightly on hover */
+.project-image:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    top: -5px; /* Move the image up by 5px on hover */
+}
+
 
 /* Fullscreen styling for the image */
 .fullscreen-image {
@@ -497,5 +511,41 @@ button:hover {
 
 .fullscreen-image:active,
 .fullscreen-image img:active {
-    cursor: zoom-out; /* Show the zoom-out cursor */
+    cursor: zoom-out;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .project-table th:first-child, .project-table td:first-child {
+        width: 60%;
+        text-align: left;
+    }
+
+    .project-table th:nth-child(2), .project-table td:nth-child(2), 
+    .project-table th:nth-child(3), .project-table td:nth-child(3) {
+        width: 20%;
+        text-align: center;
+    }
+
+    .contact-section {
+        font-size: 18px; /* Reduce font size on smaller screens */
+    }
+
+    .content-section {
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+    .project-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+        cursor: pointer;
+        margin: 0px 0;
+        display: inline-block; /* Ensures the image takes up the full width available in its container */
+        position: relative; /* Relative positioning allows further adjustments if necessary */
+        transition: transform 0.3s ease, top 0.3s ease; /* Smooth zoom effect and positioning */
+        top: 10px; /* Start with no vertical offset */
+        left: 55%;
+        margin-bottom: -50px;
+    }
+    
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Civil Project Reports</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 
 <body>
@@ -19,24 +19,19 @@
         </div>
     </section>
 
-    <!-- Project Images Section -->
-    <section class="project-images-section">
-    <div class="container">
-        <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/o0bbgepytt38o0mp7qqz.jpg" alt="Word/PPT Only" class="project-image" onclick="openFullscreen(this)">
-        <p style="text-align:center;">Word/PPT only (You need to add your name and front pages)</p>
-
-        <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/bfsmnbvwrbs4wx8a4ibi.jpg" alt="Full Project Book" class="project-image" onclick="openFullscreen(this)">
-        <p style="text-align:center;">Full project book (Includes your details: name, college) Home delivery (if possible)</p>
-    </div>
+    <!-- Project Images and Text Section -->
+    <section>
+                <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/o0bbgepytt38o0mp7qqz.jpg" alt="Word/PPT Only" class="project-image" onclick="openFullscreen(this)">
+                <img src="https://res.cloudinary.com/dqm6x3gnp/image/upload/v1723915098/PROJECT%20SAMPLE%20IMG/bfsmnbvwrbs4wx8a4ibi.jpg" alt="Full Project Book" class="project-image" onclick="openFullscreen(this)">
     </section>
 
+    <!-- Project Table Section -->
     <section class="content-section">
         <div class="container">
             <h2>Civil Project Reports</h2>
             <table class="project-table">
                 <thead>
-                    <tr>
-                        <th>CIVIL PROJECT REPORTS</th>
+                    <th>CIVIL PROJECT REPORTS</th>
                         <th>
                             <p>Word/PPT only (You need to add your name and front pages)</p>
                         </th>
@@ -83,7 +78,7 @@
                     </tr>
                     <tr>
                         <td>8. PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE</td>
-                        <td><button onclick="initiatePayment('project8' 100)">Download (Rs 100)</button></td>
+                        <td><button onclick="initiatePayment('project8', 100)">Download (Rs 100)</button></td>
                         <td><button onclick="orderProject('PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE')">Order Project</button></td>
                     </tr>
                 </tbody>
@@ -93,49 +88,50 @@
 
     <!-- Footer Section -->
     <div id="footer-container"></div>
-<script>
-    // Function to open the image in fullscreen
-    function openFullscreen(img) {
-        const fullscreenContainer = document.createElement("div");
-        fullscreenContainer.classList.add("fullscreen-image");
-    
-        const fullscreenImg = img.cloneNode();
-        fullscreenContainer.appendChild(fullscreenImg);
-    
-        document.body.appendChild(fullscreenContainer);
-    
-        fullscreenContainer.onclick = function () {
-            document.body.removeChild(fullscreenContainer);
-        };
-    }
-    
-    // Function to initiate payment via Instamojo
-    function initiatePayment(projectID) {
-        // Instamojo payment link
-        const paymentLink = 'payment.html';
-    
-        // Redirect URL after payment with the project ID, leading to handler.html
-        const redirectURL = `handler.html?project=${projectID}`;
-    
-        // Redirect to payment.html with payment and redirect URL
-        window.location.href = `${paymentLink}?redirect_url=${encodeURIComponent(redirectURL)}`;
-    }
-    
-    // Function to order project via WhatsApp
-    function orderProject(projectTitle) {
-        const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
-        window.location.href = whatsappUrl;
-    }
-    
-    // Add event listener for download button
-    document.querySelectorAll('.download-button').forEach(button => {
-        button.addEventListener('click', function () {
-            const projectID = this.getAttribute('data-project-id'); // Assuming each button has a data-project-id attribute
-            initiatePayment(projectID);
-        });
-    });
-</script>    
 
-<script src="header-footer.js"></script>
+    <script>
+        // Function to open the image in fullscreen
+        function openFullscreen(img) {
+            const fullscreenContainer = document.createElement("div");
+            fullscreenContainer.classList.add("fullscreen-image");
+
+            const fullscreenImg = img.cloneNode();
+            fullscreenContainer.appendChild(fullscreenImg);
+
+            document.body.appendChild(fullscreenContainer);
+
+            fullscreenContainer.onclick = function () {
+                document.body.removeChild(fullscreenContainer);
+            };
+        }
+
+        // Function to initiate payment via Instamojo
+        function initiatePayment(projectID) {
+            // Instamojo payment link
+            const paymentLink = 'payment.html';
+
+            // Redirect URL after payment with the project ID, leading to handler.html
+            const redirectURL = handler.html?project=$:{projectID};
+
+            // Redirect to payment.html with payment and redirect URL
+            window.location.href = `${paymentLink}?redirect_url=${encodeURIComponent(redirectURL)}`;
+        }
+
+        // Function to order project via WhatsApp
+        function orderProject(projectTitle) {
+            const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
+            window.location.href = whatsappUrl;
+        }
+
+        // Add event listener for download button
+        document.querySelectorAll('.download-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const projectID = this.getAttribute('data-project-id'); // Assuming each button has a data-project-id attribute
+                initiatePayment(projectID);
+            });
+        });
+    </script>
+
+    <script src="header-footer.js"></script>
 </body>
 </html>
