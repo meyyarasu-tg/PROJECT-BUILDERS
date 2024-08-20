@@ -15,7 +15,7 @@
             <h2>Select Your Department</h2>
             <div class="departments-grid">
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-departmen="civil">CIVIL</a></h3>
+                    <h3><a href="#" class="department-link" data-department="civil">CIVIL</a></h3>
                 </div>
                 <div class="department-item">
                     <h3><a href="#" class="department-link" data-department="mechanical">MECHANICAL</a></h3>
@@ -41,14 +41,29 @@
 
     <!-- JavaScript -->
     <script>
-        // Get the service and department from the URL query string
+        // Get the service from the URL query string
         const urlParams = new URLSearchParams(window.location.search);
-        const service = urlParams.get('service');
-        const department = urlParams.get('department');
+        const service = urlParams.get('service');  // Capture the service selected earlier
 
-// Perform final redirection based on service and department
-        if (service && department) {
-            window.location.href = `/views/${department}-${service}.ejs`;
+        // Ensure the service is present before attaching event listeners
+        if (service) {
+            // Attach click event listeners to department links
+            document.querySelectorAll('.department-link').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();  // Prevent the default link action
+
+                    // Get the selected department from data-department attribute
+                    const department = this.getAttribute('data-department');
+
+                    // Construct the final path based on the department and service
+                    const finalPath = `${department}-${service}.html`;
+
+                    // Redirect to the constructed path
+                    window.location.href = finalPath;
+                });
+            });
+        } else {
+            alert("Service not selected. Please select a service first.");
         }
     </script>
 </body>
