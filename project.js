@@ -40,16 +40,15 @@ let fullscreenContainer; // Define the fullscreen container globally
         };
 
 // Function to initiate payment via Razorpay
-function initiatePayment(projectID, amount = 100) {
+function initiatePayment(projectID, amount) {
     const options = {
         "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
-        "amount": amount * 100, // Amount in paise (100 INR = 10000 paise)
+        "amount": amount * 100, // Amount in paise
         "currency": "INR",
-        "name": "PROJECT BUILDERS",
+        "name": "Your Company Name",
         "description": `Payment for ${projectID}`,
-        "image": "https://your-logo-url.com", // Optional: Add your logo URL
+        "image": "https://your-logo-url.com", // Optional
         "handler": function (response) {
-            // Payment successful, redirect to handler.html with projectID and payment_id
             const redirectURL = `handler.html?project=${projectID}&payment_id=${response.razorpay_payment_id}`;
             window.location.href = redirectURL;
         },
@@ -59,25 +58,49 @@ function initiatePayment(projectID, amount = 100) {
             "contact": "9999999999"
         },
         "theme": {
-            "color": "#F37254" // Customize the theme color
+            "color": "#F37254"
         }
     };
 
     const rzp = new Razorpay(options);
-
-    // Open the Razorpay modal for payment
     rzp.open();
 
-    // Optional: Handle payment failure
     rzp.on('payment.failed', function (response) {
         alert("Payment failed. Please try again.");
         console.error(response.error);
     });
 }
 
+// Function to order a project via WhatsApp
+function orderProject(projectName) {
+    const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectName)}`;
+    window.location.href = whatsappUrl;
+}
 
-        // Function to order project via WhatsApp
-        function orderProject(projectTitle) {
-            const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
-            window.location.href = whatsappUrl;
-        }
+// Automatically assign project IDs and set up event listeners
+document.querySelectorAll('.project-table').forEach((table) => {
+    const department = table.getAttribute('data-department');  // Get the department name
+    const rows = table.querySelectorAll('tbody tr');  // Get all rows in the table
+
+    rows.forEach((row, index) => {
+        const paymentButton = row.querySelector('.payment-btn');
+        const orderButton = row.querySelector('.order-btn');
+        
+        // Automatically generate projectID based on department and row index
+        const projectID = `${department}project${index + 1}`;
+        const amount = paymentButton.getAttribute('data-amount');  // Get amount
+        
+        // Automatically get the project name from the first <td> of the row
+        const projectName = row.querySelector('td').innerText;
+
+        // Set up payment button click handler
+        paymentButton.addEventListener('click', function () {
+            initiatePayment(projectID, amount);
+        });
+
+        // Set up order button click handler for ordering project
+        orderButton.addEventListener('click', function () {
+            orderProject(projectName);
+        });
+    });
+});
