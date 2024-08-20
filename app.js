@@ -5,6 +5,7 @@ const app = express();
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(_dirname)));
+app.set('views', path.join(__dirname));
 
 // Data for different departments
 const departments = {
@@ -96,7 +97,7 @@ const departments = {
 };
 
 // Route to render project-reports.ejs
-app.get('/views/project-reports.ejs', (req, res) => {
+app.get('/project-reports.ejs', (req, res) => {
     const department = req.query.department.toLowerCase();
     
     // Get the department data based on query parameter

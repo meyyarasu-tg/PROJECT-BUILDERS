@@ -1,5 +1,4 @@
-{
-  "name": "project-builders",
+{ "name": "project-builders",
   "version": "1.0.0",
   "main": "header-footer.js",
   "scripts": {
