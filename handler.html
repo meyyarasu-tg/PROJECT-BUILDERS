@@ -13,14 +13,33 @@
     <script>
         // Map project IDs to Google Drive folder URLs
         const projectFiles = {
-            'project1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
-            'project2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
-            'project3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
-            'project4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
-            'project5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
-            'project6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
-            'project7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
-            'project8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
+            // Civil
+            'cproject1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
+            'cproject2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
+            'cproject3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
+            'cproject4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
+            'cproject5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
+            'cproject6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
+            'cproject7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
+            'cproject8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link',
+            // Mechanical
+            'mproject1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
+            'mproject2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
+            'mproject3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
+            'mproject4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
+            'mproject5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
+            'mproject6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
+            'mproject7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
+            'mproject8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
+            // CSE
+            'csproject1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
+            'csproject2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
+            'csproject3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
+            'csproject4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
+            'csproject5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
+            'csproject6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
+            'csproject7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
+            'csproject8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
         };
 
         // Get query parameters from URL

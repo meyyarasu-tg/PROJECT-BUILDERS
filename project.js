@@ -1,5 +1,4 @@
-
-        let fullscreenContainer; // Define the fullscreen container globally
+let fullscreenContainer; // Define the fullscreen container globally
 
         // Function to open the image in fullscreen
         function openFullscreen(img) {
@@ -40,12 +39,42 @@
             }
         };
 
-        // Function to initiate payment via Instamojo
-        function initiatePayment(projectID) {
-            const paymentLink = 'payment.html';
-            const redirectURL = `handler.html?project=${projectID}`;
-            window.location.href = `${paymentLink}?redirect_url=${encodeURIComponent(redirectURL)}`;
+// Function to initiate payment via Razorpay
+function initiatePayment(projectID, amount = 100) {
+    const options = {
+        "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
+        "amount": amount * 100, // Amount in paise (100 INR = 10000 paise)
+        "currency": "INR",
+        "name": "PROJECT BUILDERS",
+        "description": `Payment for ${projectID}`,
+        "image": "https://your-logo-url.com", // Optional: Add your logo URL
+        "handler": function (response) {
+            // Payment successful, redirect to handler.html with projectID and payment_id
+            const redirectURL = `handler.html?project=${projectID}&payment_id=${response.razorpay_payment_id}`;
+            window.location.href = redirectURL;
+        },
+        "prefill": {
+            "name": "Customer Name",
+            "email": "customer@example.com",
+            "contact": "9999999999"
+        },
+        "theme": {
+            "color": "#F37254" // Customize the theme color
         }
+    };
+
+    const rzp = new Razorpay(options);
+
+    // Open the Razorpay modal for payment
+    rzp.open();
+
+    // Optional: Handle payment failure
+    rzp.on('payment.failed', function (response) {
+        alert("Payment failed. Please try again.");
+        console.error(response.error);
+    });
+}
+
 
         // Function to order project via WhatsApp
         function orderProject(projectTitle) {
