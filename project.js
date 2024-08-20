@@ -79,16 +79,16 @@ function orderProject(projectName) {
 
 // Automatically assign project IDs and set up event listeners
 document.querySelectorAll('.project-table').forEach((table) => {
-    const department = table.getAttribute('data-department');  // Get the department name
+    const department = table.getAttribute('data-department');  // Get the department name (e.g., "civil", "cse")
     const rows = table.querySelectorAll('tbody tr');  // Get all rows in the table
 
     rows.forEach((row, index) => {
         const paymentButton = row.querySelector('.payment-btn');
         const orderButton = row.querySelector('.order-btn');
         
-        // Automatically generate projectID based on department and row index
-        const projectID = `${department}project${index + 1}`;
-        const amount = paymentButton.getAttribute('data-amount');  // Get amount
+        // Automatically generate projectID using the full department name and row index
+        const projectID = `${department}-project${index + 1}`;
+        const amount = paymentButton.getAttribute('data-amount');  // Get the amount
         
         // Automatically get the project name from the first <td> of the row
         const projectName = row.querySelector('td').innerText;
