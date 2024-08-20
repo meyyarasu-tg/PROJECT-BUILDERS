@@ -11,54 +11,38 @@
     <a id="downloadLink" href="#">Click here if the download doesn't start automatically.</a>
 
     <script>
-        // Map project IDs to Google Drive folder URLs
+        // Map dynamic project IDs to Google Drive folder URLs
         const projectFiles = {
-            // Civil
-            'cproject1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
-            'cproject2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
-            'cproject3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
-            'cproject4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
-            'cproject5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
-            'cproject6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
-            'cproject7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
-            'cproject8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link',
-            // Mechanical
-            'mproject1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
-            'mproject2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
-            'mproject3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
-            'mproject4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
-            'mproject5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
-            'mproject6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
-            'mproject7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
-            'mproject8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
-            // CSE
-            'csproject1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
-            'csproject2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
-            'csproject3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
-            'csproject4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
-            'csproject5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
-            'csproject6': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
-            'csproject7': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link',
-            'csproject8': 'https://drive.google.com/drive/folders/1nLROH-VOsmdk2qeNNh-KYsQMeBYxZS9d?usp=drive_link'
+            // Civil Projects
+            'civil-project1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
+            'civil-project2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
+            'civil-project3': 'https://drive.google.com/drive/folders/1h_2vzWwxZRhQMfpiup8s9mDPW4bIlNN3?usp=drive_link',
+            'civil-project4': 'https://drive.google.com/drive/folders/1JiLh6G9IJq9qGbuufGqdip2DbfEK_Od8?usp=drive_link',
+            'civil-project5': 'https://drive.google.com/drive/folders/1Z-pIGBJD8xwTDla2QRXgLZ6Jt7OTjd-5?usp=drive_link',
+            // Mechanical Projects
+            'mechanical-project1': 'https://drive.google.com/drive/folders/14DqgXwGlPGXneJD_4MVtpktC5n-44pCL?usp=drive_link',
+            'mechanical-project2': 'https://drive.google.com/drive/folders/1VmUt3SoM4eUoEg2U61aLw7iJlr6GsmJs?usp=drive_link',
+            // CSE Projects
+            'cse-project1': 'https://drive.google.com/drive/folders/1U51dwurKdkDIDZbTa-loJfXEbj1Iz8RO?usp=drive_link',
+            'cse-project2': 'https://drive.google.com/drive/folders/1ugovfwhu9XrHzfvD06-zB9GC1vEIXuLE?usp=drive_link'
         };
 
-        // Get query parameters from URL
+        // Get query parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const projectID = urlParams.get('project');
         const paymentID = urlParams.get('payment_id');
 
-        // Validate payment (if needed) and set the download link
-        if (projectID && projectLinks[projectID]) {
-            document.getElementById('download-link').href = projectLinks[projectID];
+        // Validate and set the download link
+        if (projectID && projectFiles[projectID]) {
+            const downloadLink = projectFiles[projectID];
+            document.getElementById('downloadLink').href = downloadLink;
+
+            // Automatically trigger the download
+            window.location.href = downloadLink;
         } else {
             document.querySelector('h1').textContent = "Error: Project Not Found";
             document.querySelector('p').textContent = "We couldn't find the project you're looking for.";
-        }
-
-        // Set the download link and trigger the download automatically
-        document.getElementById('downloadLink').href = downloadLink;
-        if (downloadLink !== '#') {
-            window.location.href = downloadLink;
+            document.getElementById('downloadLink').style.display = "none"; // Hide download link if not found
         }
     </script>
 </body>
