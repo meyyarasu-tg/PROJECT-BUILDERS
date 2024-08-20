@@ -79,7 +79,8 @@
         departmentServices.forEach(service => {
             const serviceItem = document.createElement('div');
             serviceItem.classList.add('service-item');
-            serviceItem.innerHTML = `<h3><a href="/views/project-reports.ejs?service=${service.name.toLowerCase().replace(/ /g, '-')}&department=${department}">${service.name}</a></h3>`;
+            serviceItem.innerHTML = `<h3><a href="${department.toLowerCase()}-project-reports.html">${service.name}</a></h3>`;
+
             servicesList.appendChild(serviceItem);
         });
     }
