@@ -387,7 +387,7 @@ html, body {
 .project-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .project-table th, .project-table td {
@@ -424,7 +424,7 @@ html, body {
 
 /* Section and container */
 .content-section {
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 .container1 {
