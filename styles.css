@@ -7,7 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    height: 100%;
 }
 /* Ensure all elements fit within the viewport */
 * {
@@ -26,16 +25,6 @@ body {
     padding: 20px; /* Adjusted for better mobile fit */
     background-color: #221f1f;
     width: 100%; /* Ensure header takes full width */
-}
-
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures the body takes the full height of the viewport */
-}
-
-#header-container, .content-section, .contact-section {
-    flex: 1; /* Ensures content takes available space */
 }
 
 /* Logo styling */
