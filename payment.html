@@ -7,3 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
+<body>
+    <form onsubmit="event.preventDefault(); initiatePayment('project3', 200);">
+        <!-- Form fields for user details -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button type="submit">Pay Rs 200</button>
+    </form>
+    
+</body>
