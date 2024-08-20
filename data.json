@@ -1,0 +1,86 @@
+{
+    "civil": {
+      "departmentTitle": "Civil Engineering",
+      "projects": [
+        { "id": "cproject1", "title": "DESIGN AND ESTIMATION OF HOSTEL BUILDING" },
+        { "id": "cproject2", "title": "EXPERIMENTAL INVESTIGATION ON COCONUT FIBER REINFORCED SELF-COMPACTING CONCRETE INCORPORATING WITH FLY ASH AND METAKAOLIN" },
+        { "id": "cproject3", "title": "EXPERIMENTAL INVESTIGATION ON IMPROVEMENT OF BEARING CAPACITY OF SANDY SOIL BY USING GROUTING" },
+        { "id": "cproject4", "title": "EXPERIMENTAL STUDY ON CLAY BRICK BY PARTIAL REPLACEMENT OF CLAY WITH DOLOMITE POWDER" },
+        { "id": "cproject5", "title": "EXPERIMENTAL STUDY ON HIGH PERFORMANCE CONCRETE BY PARTIAL REPLACEMENT OF CEMENT WITH SILICA FUME AND NANO SILICA" },
+        { "id": "cproject6", "title": "EXPERIMENTAL STUDY OF INCREASING SOIL STABILIZATION USING CRUMB RUBBER AND CEMENT" },
+        { "id": "cproject7", "title": "EXPERIMENTAL STUDY ON STRENGTH IMPROVEMENT OF STRUCTURAL CONCRETE BY USING GRANITE SLURRY WASTE AS FINE AGGREGATE" },
+        { "id": "cproject8", "title": "PLANNING, ANALYSIS, DESIGNING AND ESTIMATION OF PRE-STRESSED CONCRETE RAILWAY BRIDGE" }
+      ]
+    },
+    "mechanical": {
+      "departmentTitle": "Mechanical Engineering",
+      "projects": [
+        { "id": "mproject1", "title": "Example Project 1" },
+        { "id": "mproject2", "title": "Example Project 2" },
+        { "id": "mproject3", "title": "Example Project 3" },
+        { "id": "mproject4", "title": "Example Project 4" },
+        { "id": "mproject5", "title": "Example Project 5" },
+        { "id": "mproject6", "title": "Example Project 6" },
+        { "id": "mproject7", "title": "Example Project 7" },
+        { "id": "mproject8", "title": "Example Project 8" },
+        { "id": "mproject9", "title": "Example Project 9" }
+      ]
+    },
+    "cse": {
+      "departmentTitle": "Computer Science Engineering",
+      "projects": [
+        { "id": "csproject1", "title": "Example Project 1" },
+        { "id": "csproject2", "title": "Example Project 2" },
+        { "id": "csproject3", "title": "Example Project 3" },
+        { "id": "csproject4", "title": "Example Project 4" },
+        { "id": "csproject5", "title": "Example Project 5" },
+        { "id": "csproject6", "title": "Example Project 6" },
+        { "id": "csproject7", "title": "Example Project 7" },
+        { "id": "csproject8", "title": "Example Project 8" },
+        { "id": "csproject9", "title": "Example Project 9" }
+      ]
+    },
+    "eee": {
+      "departmentTitle": "Electrical and Electronics Engineering",
+      "projects": [
+        { "id": "eproject1", "title": "Example Project 1" },
+        { "id": "eproject2", "title": "Example Project 2" },
+        { "id": "eproject3", "title": "Example Project 3" },
+        { "id": "eproject4", "title": "Example Project 4" },
+        { "id": "eproject5", "title": "Example Project 5" },
+        { "id": "eproject6", "title": "Example Project 6" },
+        { "id": "eproject7", "title": "Example Project 7" },
+        { "id": "eproject8", "title": "Example Project 8" },
+        { "id": "eproject9", "title": "Example Project 9" }
+      ]
+    },
+    "ece": {
+      "departmentTitle": "Electronics and Communication Engineering",
+      "projects": [
+        { "id": "ecproject1", "title": "Example Project 1" },
+        { "id": "ecproject2", "title": "Example Project 2" },
+        { "id": "ecproject3", "title": "Example Project 3" },
+        { "id": "ecproject4", "title": "Example Project 4" },
+        { "id": "ecproject5", "title": "Example Project 5" },
+        { "id": "ecproject6", "title": "Example Project 6" },
+        { "id": "ecproject7", "title": "Example Project 7" },
+        { "id": "ecproject8", "title": "Example Project 8" },
+        { "id": "ecproject9", "title": "Example Project 9" }
+      ]
+    },
+    "nm": {
+      "departmentTitle": "Naan Mudhalvan",
+      "projects": [
+        { "id": "nmproject1", "title": "Example Project 1" },
+        { "id": "nmproject2", "title": "Example Project 2" },
+        { "id": "nmproject3", "title": "Example Project 3" },
+        { "id": "nmproject4", "title": "Example Project 4" },
+        { "id": "nmproject5", "title": "Example Project 5" },
+        { "id": "nmproject6", "title": "Example Project 6" },
+        { "id": "nmproject7", "title": "Example Project 7" },
+        { "id": "nmproject8", "title": "Example Project 8" },
+        { "id": "nmproject9", "title": "Example Project 9" }
+      ]
+    }
+  }
+  
