@@ -477,9 +477,9 @@ button:hover {
     position: relative; /* Relative positioning allows further adjustments if necessary */
     transition: transform 0.3s ease, top 0.3s ease; /* Smooth zoom effect and positioning */
     top: 0; /* Start with no vertical offset */
-    left: 65%;
+    left: 63%;
     margin-top: 10px;
-    margin-right: 100px;
+    margin-right: 75px;
     bottom: -55px;
 }
 .project-image {
