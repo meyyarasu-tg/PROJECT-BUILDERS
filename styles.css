@@ -479,7 +479,7 @@ button:hover {
     top: 0; /* Start with no vertical offset */
     left: 60%;
     margin-top: 10px;
-    margin-right: 75px;
+    margin-right: 70px;
     bottom: -55px;
 }
 .project-image {
@@ -555,7 +555,7 @@ button:hover {
         position: relative; /* Relative positioning allows further adjustments if necessary */
         transition: transform 0.3s ease, top 0.3s ease; /* Smooth zoom effect and positioning */
         top: 10px; /* Start with no vertical offset */
-        left: 55%;
+        left: 50%;
         margin-bottom: -50px;
     }
     .project-image {
