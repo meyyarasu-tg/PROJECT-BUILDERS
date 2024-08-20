@@ -68,9 +68,17 @@
         const urlParams = new URLSearchParams(window.location.search);
         const department = urlParams.get('department');
 
+        console.log('Department:', department); // Check if department is being retrieved correctly
+
         function populateServices() {
             const servicesList = document.getElementById('services-list');
-            const departmentServices = services[department] || [];
+
+            if (!department || !services[department]) {
+                servicesList.innerHTML = '<p>No services available for this department.</p>';
+                return; // Exit if the department is not valid
+            }
+
+            const departmentServices = services[department];
 
             // Clear previous services
             servicesList.innerHTML = '';
@@ -79,10 +87,10 @@
             departmentServices.forEach(service => {
                 const serviceItem = document.createElement('div');
                 serviceItem.classList.add('service-item');
-                
+
                 // Link should correctly redirect to the respective department file
                 serviceItem.innerHTML = `<h3><a href="${service.link}">${service.name}</a></h3>`;
-                
+
                 servicesList.appendChild(serviceItem);
             });
         }
