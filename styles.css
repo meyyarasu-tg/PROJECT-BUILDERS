@@ -527,3 +527,48 @@ html, body {
     background-color: #c82333;
 }
 
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 50px 1fr; /* Stack items into 2 columns */
+        gap: 15px; /* Reduce gap */
+    }
+
+    .project-item.header {
+        font-size: 18px; /* Adjust font size for smaller screens */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .project-item {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .project-item a {
+        font-size: 14px; /* Adjust link text size for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack all items in a single column */
+        gap: 10px; /* Reduce gap further */
+    }
+
+    .content-section h2 {
+        font-size: 24px; /* Reduce heading size */
+        margin-bottom: 20px; /* Reduce margin below heading */
+    }
+
+    .project-item {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .project-item.header {
+        font-size: 16px; /* Adjust font size for mobile */
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .project-item button {
+        padding: 8px 12px; /* Reduce button padding */
+    }
+}
