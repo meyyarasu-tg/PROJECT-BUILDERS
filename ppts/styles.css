@@ -52,3 +52,32 @@
 .project-item a:hover {
     text-decoration: underline;
 }
+/* Mobile view */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 50px 1fr; /* Reduce the size of the first column */
+        grid-template-rows: auto auto; /* Allow rows to auto-size */
+        gap: 10px;
+    }
+
+    .project-item strong {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack all items in a single column */
+        gap: 15px;
+    }
+
+    .project-item {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .project-item strong {
+        font-size: 14px; /* Further adjust font size */
+        padding: 10px; /* Further reduce padding */
+    }
+}
