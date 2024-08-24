@@ -283,11 +283,14 @@ html, body {
 }
 
 .project-item strong {
-    display: block;
-    font-size: 20px;
-    color: #ff5722;
-    margin-bottom: 10px;
-    text-align: center; /* Center text inside the strong element */
+    display: flex; /* Use Flexbox to center content */
+    background-color: #282828;
+    color: #ff5722; /* Changed to a more distinct color for headers */
+    font-weight: bold;
+    text-align: center; /* Center text horizontally */
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text vertically */
+    padding: 20px; /* Ensure padding is consistent with other items */
 }
 
 .project-item a {

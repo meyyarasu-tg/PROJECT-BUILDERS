@@ -20,46 +20,40 @@
         </div>
     </section>
 
-    <!-- Project Table Section -->
+    <!-- Project Section -->
     <section class="content-section">
         <div class="container">
             <h2>ECE Mini Project Reports</h2>
-            <table class="project-table" data-department="cse">
-                <thead>
-                    <tr>
-                        <th>S.No</th>
-                        <th>CSE Mini PROJECT REPORTS</th>
-                        <th>
-                            <p>Word/PPT only (You need to add your name and front pages)</p>
-                        </th>
-                        <th>
-                            <p>Full project book (Includes your details: name, college) Home delivery (if possible)</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Machine Learning Algorithms</td>
-                        <td><button class="payment-btn" data-amount="100">Download (Rs 100)</button></td>
-                        <td><button class="order-btn">Order Project</button></td>                   
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Blockchain and Security Systems</td>
-                        <td><button class="payment-btn" data-amount="100">Download (Rs 100)</button></td>
-                        <td><button class="order-btn">Order Project</button></td>                   
-                    </tr>
-                </tbody>
-            </table>
+            <div class="project-grid">
+                <!-- Header Row -->
+                <div class="project-item header"><strong>S.No</strong></div>
+                <div class="project-item header"><strong>ECE Mini PROJECT REPORTS</strong></div>
+                <div class="project-item header">
+                    <p>Word/PPT only (You need to add your name and front pages)</p>
+                </div>
+                <div class="project-item header">
+                    <p>Full project book (Includes your details: name, college) Home delivery (if possible)</p>
+                </div>
+
+                <!-- Project Rows -->
+                <div class="project-item">1</div>
+                <div class="project-item">Machine Learning Algorithms</div>
+                <div class="project-item"><button class="payment-btn" data-amount="100">Download (Rs 100)</button></div>
+                <div class="project-item"><button class="order-btn">Order Project</button></div>
+
+                <div class="project-item">2</div>
+                <div class="project-item">Blockchain and Security Systems</div>
+                <div class="project-item"><button class="payment-btn" data-amount="100">Download (Rs 100)</button></div>
+                <div class="project-item"><button class="order-btn">Order Project</button></div>
+
+                <!-- Add more items as needed -->
+            </div>
         </div>
     </section>
 
     <!-- Footer Section -->
     <div id="footer-container"></div>
-    
-
     <script src="header-footer.js"></script>
+    <script src="project.js"></script>
 </body>
-<script src="project.js"></script>
 </html>
