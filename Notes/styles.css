@@ -38,3 +38,15 @@
     border-radius: 3px;
     background-color: #4d3333;
 }
+/* Mobile view */
+@media (max-width: 768px) {
+    .semester-column {
+        flex: 1 1 calc(50% - 20px); /* 2 columns per row on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .semester-column {
+        flex: 1 1 100%; /* 1 column per row on smaller screens */
+    }
+}
