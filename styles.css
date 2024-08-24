@@ -422,7 +422,22 @@ html, body {
 .contact-section a:hover {
     color: #f8f9fa;
 }
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .contact-section {
+        font-size: 20px; /* Adjust font size */
+        padding: 15px; /* Adjust padding */
+        margin: 1% 20%; /* Adjust margins */
+    }
+}
 
+@media (max-width: 480px) {
+    .contact-section {
+        font-size: 18px; /* Further adjust font size */
+        padding: 10px; /* Further adjust padding */
+        margin: 1% 10%; /* Further adjust margins */
+    }
+}
 
 
 
