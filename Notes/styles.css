@@ -1,0 +1,40 @@
+/* Container for the entire page */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style for the semester table container */
+.semester-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #f34e17;
+}
+
+/* Style for each semester column */
+.semester-column {
+    flex: 1 1 calc(25% - 20px); /* 4 columns per row with space for gaps */
+    border: 1px solid #282828;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #282828;
+    color: white;
+}
+.semester-column h3 {
+    color: #f34e17;
+}
+.semester-column a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Style for each note */
+.note {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #f34e17;
+    border-radius: 3px;
+    background-color: #4d3333;
+}
