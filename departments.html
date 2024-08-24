@@ -30,7 +30,7 @@
                     <h3><a href="#" class="department-link" data-department="ece">ECE</a></h3>
                 </div>
                 <div class="department-item">
-                    <h3><a href="#" class="department-link" data-department="naan-mudhalvan">NAAN MUDHALVAN</a></h3>
+                    <h3><a href="#" class="department-link" data-department="nm">NAAN MUDHALVAN</a></h3>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     const department = this.getAttribute('data-department');
 
                     // Construct the final path based on the department and service
-                    const finalPath = `${department}-${service}.html`;
+                    const finalPath = `/${service}/${department}-${service}.html`;
 
                     // Redirect to the constructed path
                     window.location.href = finalPath;
