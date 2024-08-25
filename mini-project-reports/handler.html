@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Project</title>
+</head>
+<body>
+    <h1>Thank you for your payment!</h1>
+    <p>Your download will start automatically.</p>
+    <a id="downloadLink" href="#">Click here if the download doesn't start automatically.</a>
+
+    <script>
+        // Map dynamic project names to their corresponding file paths
+        const projectFiles = {
+            'ANALYSIS OF FORCES AND MOMENTS IN STATICALLY DETERMINATE STRUCTURES': '/civil/ANALYSIS OF FORCES AND MOMENTS IN STATICALLY DETERMINATE STRUCTURES.docx',
+            'BOUNDARY LAYERS CHARACTERIZED BY LAMINAR AND TURBULENT FLOW REGIMES': '/civil/BOUNDARY LAYERS CHARACTERIZED BY LAMINAR AND TURBULENT FLOW REGIMES.docx',
+            'CONSTRUCTION PLANNING': '/civil/CONSTRUCTION PLANNING.docx',
+            'CONTROL SURVEYING AND ADJUSTMENT': '/civil/CONTROL SURVEYING AND ADJUSTMENT.docx',
+            'DESIGN AND ANALYSIS OF A WATER DISTRIBUTION SYSTEM FOR A RESIDENTIAL AREA': '/civil/DESIGN AND ANALYSIS OF A WATER DISTRIBUTION SYSTEM FOR A RESIDENTIAL AREA.docx',
+            'DESIGN OF A SMALL-SCALE WASTEWATER TREATMENT PLANT FOR A RESIDENTIAL AREA': '/civil/DESIGN OF A SMALL-SCALE WASTEWATER TREATMENT PLANT FOR A RESIDENTIAL AREA.docx',
+            'FLOW MEASUREMENT TECHNIQUES': '/civil/FLOW MEASUREMENT TECHNIQUES.docx',
+            'GPS APPLICATIONS IN CIVIL ENGINEERING FROM SURVEYING TO SMART INFRASTRUCTURE': '/civil/GPS APPLICATIONS IN CIVIL ENGINEERING FROM SURVEYING TO SMART INFRASTRUCTURE.docx',
+            'KINEMATICS AND DYNAMICS OF PARTICLE MOTION': '/civil/KINEMATICS AND DYNAMICS OF PARTICLE MOTION.docx',
+            'SELECTION OF EQUIPMENT FOR EARTHWORK EXCAVATION, CONCRETING, MATERIAL HANDLING AND ERECTION OF STRUCTURES': '/civil/SELECTION OF EQUIPMENT FOR EARTHWORK EXCAVATION, CONCRETING, MATERIAL HANDLING AND ERECTION OF STRUCTURES.docx',
+            // Add more mappings as needed
+        };
+
+        // Get query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectID = urlParams.get('project');
+        const paymentID = urlParams.get('payment_id');
+
+        // Validate and set the download link
+        if (projectID && projectFiles[projectID]) {
+            const downloadLink = projectFiles[projectID];
+            document.getElementById('downloadLink').href = downloadLink;
+
+            // Automatically trigger the download
+            window.location.href = downloadLink;
+        } else {
+            document.querySelector('h1').textContent = "Error: Project Not Found";
+            document.querySelector('p').textContent = "We couldn't find the project you're looking for.";
+            document.getElementById('downloadLink').style.display = "none"; // Hide download link if not found
+        }
+    </script>
+</body>
+</html>

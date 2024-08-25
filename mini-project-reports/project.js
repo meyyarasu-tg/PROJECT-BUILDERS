@@ -17,7 +17,7 @@ function getProjectName(button) {
 document.querySelectorAll('.payment-btn').forEach(function(button) {
     button.addEventListener('click', function() {
         const projectName = getProjectName(this);
-        const amount = parseInt(this.getAttribute('data-amount')) * 100; // Convert to paise
+        const amount = parseInt(this.getAttribute('data-amount')) * 50; // Convert to paise
 
         const options = {
             "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
