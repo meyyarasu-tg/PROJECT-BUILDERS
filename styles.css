@@ -576,6 +576,7 @@ html, body {
 
     .project-item {
         padding: 10px; /* Further reduce padding */
+        text-align: center left;
 
     }
 
