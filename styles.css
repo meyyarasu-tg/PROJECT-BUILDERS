@@ -528,7 +528,9 @@ html, body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
+
 
 .project-item button:hover {
     background-color: #1a75d8;
@@ -606,4 +608,5 @@ html, body {
     .project-item button {
         padding: auto auto; /* Reduce button padding */
     }
+    
 }
