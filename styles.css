@@ -609,6 +609,7 @@ html, body {
     .project-items {
         padding: 10px; /* Further reduce padding */
         text-align: center;
+        align-item: centre;
 
     }
 
