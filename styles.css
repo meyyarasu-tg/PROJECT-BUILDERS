@@ -545,8 +545,7 @@ html, body {
 /* Mobile view adjustments */
 @media (max-width: 768px) {
     .project-grid {
-        display: grid;
-        grid-template: auto auto auto; /* Stack items into 2 columns */
+        grid-template-columns: auto auto; /* Stack items into 2 columns */
         gap: 15px; /* Reduce gap */
     }
 
@@ -566,8 +565,7 @@ html, body {
 
 @media (max-width: 480px) {
     .project-grid {
-        display: grid;
-        grid-template: auto auto auto; /* Stack all items in a single column */
+        grid-template-columns: auto auto; /* Stack all items in a single column */
         gap: 10px; /* Reduce gap further */
     }
 
@@ -578,6 +576,7 @@ html, body {
 
     .project-item {
         padding: 10px; /* Further reduce padding */
+
     }
 
     .project-item.header {
@@ -586,6 +585,6 @@ html, body {
     }
 
     .project-item button {
-        padding: 8px 12px; /* Reduce button padding */
+        padding: 8px 0px; /* Reduce button padding */
     }
 }
