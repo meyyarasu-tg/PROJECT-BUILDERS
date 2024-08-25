@@ -24,7 +24,7 @@
     background-color: #282828;
     padding: 20px;
     border-radius: 8px;
-    text-align: justify;
+    text-align: left;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
