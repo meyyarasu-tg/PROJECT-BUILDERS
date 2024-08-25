@@ -56,8 +56,9 @@
 /* Mobile view adjustments */
 @media (max-width: 768px) {
     .project-grid {
-        grid-template-columns: 50px 1fr; /* Reduce the size of the first column */
-        grid-template-rows: auto auto; /* Allow rows to auto-size */
+        display: grid;
+        grid-template-columns: auto auto auto; /* Reduce the size of the first column */
+        grid-template-rows: auto auto auto; /* Allow rows to auto-size */
         gap: 10px;
     }
 
@@ -70,8 +71,9 @@
 @media (max-width: 480px) {
     .project-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr; /* Stack all items in a single column */
-        gap: 15px;
+        grid-template-columns: auto auto auto; /* Stack all items in a single column */
+        grid-template-rows: auto auto;
+        gap: 10px;
     }
 
     .project-item {

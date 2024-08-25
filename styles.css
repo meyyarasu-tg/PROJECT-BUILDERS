@@ -480,7 +480,7 @@ html, body {
     background-color: #282828;
     padding: 20px;
     border-radius: 8px;
-    text-align: justify;
+    text-align: left;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -545,7 +545,8 @@ html, body {
 /* Mobile view adjustments */
 @media (max-width: 768px) {
     .project-grid {
-        grid-template-columns: 50px 1fr; /* Stack items into 2 columns */
+        display: grid;
+        grid-template: auto auto auto; /* Stack items into 2 columns */
         gap: 15px; /* Reduce gap */
     }
 
@@ -565,7 +566,8 @@ html, body {
 
 @media (max-width: 480px) {
     .project-grid {
-        grid-template-columns: 1fr; /* Stack all items in a single column */
+        display: grid;
+        grid-template: auto auto auto; /* Stack all items in a single column */
         gap: 10px; /* Reduce gap further */
     }
 
