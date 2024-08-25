@@ -617,7 +617,7 @@ html, body {
         padding: 10px; /* Further reduce padding */
     }
 
-    .project-items button {
+    .project-item button {
         padding: auto auto; /* Reduce button padding */
     }
     
