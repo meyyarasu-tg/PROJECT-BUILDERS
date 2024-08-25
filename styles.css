@@ -532,21 +532,8 @@ html, body {
     transition: background-color 0.3s ease;
     
 }
-.project-items button {
-    background-color: #1e90ff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    
-}
 
 .project-item button:hover {
-    background-color: #1a75d8;
-}
-.project-items button:hover {
     background-color: #1a75d8;
 }
 
@@ -558,11 +545,11 @@ html, body {
     background-color: #218838;
 }
 
-.project-items .order-btn {
+.project-item .order-btn {
     background-color: #dc3545;
 }
 
-.project-items .order-btn:hover {
+.project-item .order-btn:hover {
     background-color: #c82333;
 }
 
@@ -618,7 +605,7 @@ html, body {
         padding: 10px; /* Further reduce padding */
     }
 
-    .project-items button {
+    .project-item button {
         padding: auto auto; /* Reduce button padding */
     }
     
