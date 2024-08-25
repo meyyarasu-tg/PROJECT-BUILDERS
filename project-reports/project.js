@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function orderProject(button) {
         // Find the parent container with the project title
-        const projectItem = button.closest('.project-items');
+        const projectItem = button.closest('.project-item');
         const projectTitle = projectItem.textContent.trim();
 
         // Create WhatsApp URL
