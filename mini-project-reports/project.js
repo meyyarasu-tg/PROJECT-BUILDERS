@@ -1,58 +1,56 @@
-document.addEventListener('DOMContentLoaded', function() {
-            // Payment initiation function
-            function initiatePayment(projectID, amount) {
-                const options = {
-                    key: "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
-                    amount: 100 * amount,
-                    currency: "INR",
-                    name: "PROJECT BUILDERS",
-                    description: `Payment for ${projectID}`,
-                    image: "https://your-logo-url.com", // Replace with your logo URL
-                    handler: function (response) {
-                        const redirectURL = `handler.html?project=${projectID}&payment_id=${response.razorpay_payment_id}`;
-                        window.location.href = redirectURL;
-                    },
-                    prefill: {
-                        name: "Customer Name",
-                        email: "customer@example.com",
-                        contact: "9999999999"
-                    },
-                    theme: {
-                        color: "#F37254"
-                    }
-                };
+// Function to retrieve the project name based on the button's position in the DOM
+function getProjectName(button) {
+    // Start from the button's parent element
+    let projectItem = button.closest('.project-item');
 
-                const rzp = new Razorpay(options);
-                rzp.open();
+    // Traverse previous siblings to find the project name
+    while (projectItem) {
+        projectItem = projectItem.previousElementSibling;
+        if (projectItem && projectItem.classList.contains('project-item') && !projectItem.querySelector('button')) {
+            return projectItem.textContent.trim();
+        }
+    }
+    return 'Unknown Project';
+}
 
-                rzp.on("payment.failed", function (response) {
-                    alert("Payment failed. Please try again.");
-                    console.error(response.error);
-                });
+// Razorpay integration for Download buttons
+document.querySelectorAll('.payment-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const projectName = getProjectName(this);
+        const amount = parseInt(this.getAttribute('data-amount')) * 100; // Convert to paise
+
+        const options = {
+            "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+            "amount": amount,
+            "currency": "INR",
+            "name": projectName,
+            "description": "Civil Project Report Payment",
+            "handler": function (response){
+                alert("Payment successful for " + projectName);
+                // Implement download logic here if needed
+            },
+            "prefill": {
+                "name": "",
+                "email": "",
+                "contact": ""
+            },
+            "theme": {
+                "color": "#3399cc"
             }
+        };
 
-            // Project ordering function via WhatsApp
-            function orderProject(projectName) {
-                const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectName)}`;
-                window.location.href = whatsappUrl;
-            }
+        const rzp1 = new Razorpay(options);
+        rzp1.open();
+    });
+});
 
-            // Adding event listeners to buttons
-            document.querySelectorAll(".payment-btn").forEach((button, index) => {
-                const projectName = button.closest('.project-item').previousElementSibling.innerText;
-                const projectID = `project${index + 1}`;
-                const amount = button.getAttribute("data-amount");
-
-                button.addEventListener("click", function () {
-                    initiatePayment(projectID, amount);
-                });
-            });
-
-            document.querySelectorAll(".order-btn").forEach((button) => {
-                const projectName = button.closest('.project-item').previousElementSibling.innerText;
-
-                button.addEventListener("click", function () {
-                    orderProject(projectName);
-                });
-            });
-        });
+// WhatsApp redirect for Order Project buttons
+document.querySelectorAll('.order-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const projectName = getProjectName(this);
+        const whatsappNumber = "917603846096"; // WhatsApp number without '+' or spaces
+        const message = encodeURIComponent(`Hello, I would like to order the project: ${projectName}`);
+        const whatsappURL = `https://wa.me/${917603846096}?text=${message}`;
+        window.open(whatsappURL, '_blank');
+    });
+});
