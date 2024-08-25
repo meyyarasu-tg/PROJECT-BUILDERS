@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Payment initiation function
+    // Payment initiation function (for completeness, assuming it's used)
     function initiatePayment(projectID, amount) {
         const options = {
             key: "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.querySelectorAll(".order-btn").forEach((button, index) => {
+        // Adjust index calculations if necessary
         const projectName = button.closest('.project-grid').querySelectorAll('.project-item')[index * 4 + 1].innerText;
 
         button.addEventListener("click", function () {
