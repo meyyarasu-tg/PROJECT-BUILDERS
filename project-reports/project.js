@@ -1,48 +1,60 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle payment buttons
-    const paymentButtons = document.querySelectorAll('.payment-btn');
-    paymentButtons.forEach(button => {
+    // Function to initiate payment
+    function initiatePayment(projectID, amount) {
+        const options = {
+            key: "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
+            amount: 100 * amount,
+            currency: "INR",
+            name: "Your Company Name",
+            description: `Payment for ${projectID}`,
+            image: "https://your-logo-url.com", // Replace with your logo URL
+            handler: function(response) {
+                const redirectURL = `handler.html?project=${projectID}&payment_id=${response.razorpay_payment_id}`;
+                window.location.href = redirectURL;
+            },
+            prefill: {
+                name: "Customer Name",
+                email: "customer@example.com",
+                contact: "9999999999"
+            },
+            theme: {
+                color: "#F37254"
+            }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+
+        rzp.on("payment.failed", function(response) {
+            alert("Payment failed. Please try again.");
+            console.error(response.error);
+        });
+    }
+
+    // Function to handle the order project action
+    function orderProject(projectName) {
+        const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectName)}`;
+        console.log("WhatsApp URL:", whatsappUrl); // Debugging line
+        window.location.href = whatsappUrl;
+    }
+
+    // Add event listeners to all "Order Project" buttons
+    document.querySelectorAll('.order-btn').forEach(button => {
         button.addEventListener('click', function() {
-            const amount = this.getAttribute('data-amount');
-            const options = {
-                "key": "your_razorpay_key", // Enter the Key ID generated from the Razorpay Dashboard
-                "amount": amount * 100, // Razorpay accepts amount in paise (multiply by 100)
-                "currency": "INR",
-                "name": "Project Report",
-                "description": "Download Civil Project Report",
-                "handler": function (response) {
-                    alert("Payment successful! Transaction ID: " + response.razorpay_payment_id);
-                    // You can add further logic to download the file here
-                },
-                "prefill": {
-                    "name": "Your Name",
-                    "email": "your.email@example.com",
-                    "contact": "9999999999"
-                },
-                "theme": {
-                    "color": "#3399cc"
-                }
-            };
-            const rzp1 = new Razorpay(options);
-            rzp1.open();
+            console.log("Order button clicked"); // Debugging line
+            const projectItem = this.closest('.project-item');
+            const projectName = projectItem.textContent.split('\n')[1].trim();
+            console.log("Project Name:", projectName); // Debugging line
+            orderProject(projectName);
         });
     });
 
-    // Handle order buttons
-    const orderButtons = document.querySelectorAll('.order-btn');
-    orderButtons.forEach(button => {
+    // Add event listeners to all "Download" buttons
+    document.querySelectorAll('.payment-btn').forEach(button => {
         button.addEventListener('click', function() {
-            const projectName = this.closest('.project-item').textContent.trim();
-            const customerName = prompt("Enter your name:");
-            const customerCollege = prompt("Enter your college name:");
-            const customerAddress = prompt("Enter your delivery address:");
-
-            if (customerName && customerCollege && customerAddress) {
-                alert(`Order placed successfully for ${projectName}.\n\nDetails:\nName: ${customerName}\nCollege: ${customerCollege}\nAddress: ${customerAddress}`);
-                // Implement order submission logic here, e.g., sending data to a backend server
-            } else {
-                alert("Please provide all details to place the order.");
-            }
+            const projectID = `project${this.closest('.project-items').previousElementSibling.innerText.trim()}`;
+            const amount = this.getAttribute('data-amount');
+            initiatePayment(projectID, amount);
         });
     });
 });
