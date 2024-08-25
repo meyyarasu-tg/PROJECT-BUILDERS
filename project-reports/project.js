@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             console.log("Order button clicked"); // Debugging line
             const projectItem = this.closest('.project-item');
-            const projectName = projectItem.previousElementSibling.innerText.trim();
+            const projectName = projectItem.textContent.split('\n')[1].trim();
             console.log("Project Name:", projectName); // Debugging line
             orderProject(projectName);
         });
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listeners to all "Download" buttons
     document.querySelectorAll('.payment-btn').forEach(button => {
         button.addEventListener('click', function() {
-            const projectID = `project${this.closest('.project-item').previousElementSibling.innerText.trim()}`;
+            const projectID = `project${this.closest('.project-items').previousElementSibling.innerText.trim()}`;
             const amount = this.getAttribute('data-amount');
             initiatePayment(projectID, amount);
         });
