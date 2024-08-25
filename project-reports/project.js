@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Payment initiation function (for completeness, assuming it's used)
+    // Function to initiate payment
     function initiatePayment(projectID, amount) {
         const options = {
             key: "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
@@ -31,28 +31,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Project ordering function via WhatsApp
+    // Function to order project via WhatsApp
     function orderProject(projectName) {
         const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectName)}`;
         window.location.href = whatsappUrl;
     }
 
     // Adding event listeners to buttons
+    document.querySelectorAll(".project-item").forEach((item, index) => {
+        // Identifying the row index
+        if (item.querySelector(".order-btn")) {
+            const projectName = item.previousElementSibling.textContent.trim();
+            const orderButton = item.querySelector(".order-btn");
+
+            orderButton.addEventListener("click", function () {
+                orderProject(projectName);
+            });
+        }
+    });
+
     document.querySelectorAll(".payment-btn").forEach((button, index) => {
         const projectID = `project${index + 1}`;
         const amount = button.getAttribute("data-amount");
 
         button.addEventListener("click", function () {
             initiatePayment(projectID, amount);
-        });
-    });
-
-    document.querySelectorAll(".order-btn").forEach((button, index) => {
-        // Adjust index calculations if necessary
-        const projectName = button.closest('.project-grid').querySelectorAll('.project-item')[index * 4 + 1].innerText;
-
-        button.addEventListener("click", function () {
-            orderProject(projectName);
         });
     });
 });
