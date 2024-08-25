@@ -585,6 +585,6 @@ html, body {
     }
 
     .project-item button {
-        padding: 8px 0px; /* Reduce button padding */
+        padding: auto auto; /* Reduce button padding */
     }
 }
