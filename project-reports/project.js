@@ -38,24 +38,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Adding event listeners to buttons
-    document.querySelectorAll(".project-item").forEach((item, index) => {
-        // Identifying the row index
-        if (item.querySelector(".order-btn")) {
-            const projectName = item.previousElementSibling.textContent.trim();
-            const orderButton = item.querySelector(".order-btn");
+    document.querySelectorAll(".project-grid").forEach(grid => {
+        const rows = grid.querySelectorAll(".project-items");
 
-            orderButton.addEventListener("click", function () {
-                orderProject(projectName);
+        rows.forEach((row, index) => {
+            const orderButton = row.querySelector(".order-btn");
+            if (orderButton) {
+                const projectName = row.previousElementSibling.textContent.trim(); // Get the project name
+                orderButton.addEventListener("click", function () {
+                    orderProject(projectName);
+                });
+            }
+        });
+
+        const paymentButtons = grid.querySelectorAll(".payment-btn");
+        paymentButtons.forEach((button, index) => {
+            const projectID = `project${index + 1}`;
+            const amount = button.getAttribute("data-amount");
+
+            button.addEventListener("click", function () {
+                initiatePayment(projectID, amount);
             });
-        }
-    });
-
-    document.querySelectorAll(".payment-btn").forEach((button, index) => {
-        const projectID = `project${index + 1}`;
-        const amount = button.getAttribute("data-amount");
-
-        button.addEventListener("click", function () {
-            initiatePayment(projectID, amount);
         });
     });
 });
