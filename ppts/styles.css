@@ -24,7 +24,7 @@
     background-color: #282828;
     padding: 20px;
     border-radius: 8px;
-    text-align: justify; /* Center align the text inside each project-item */
+    text-align: justify;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -34,14 +34,14 @@
 }
 
 .project-item strong {
-    display: flex; /* Use Flexbox to center content */
+    display: flex;
     background-color: #282828;
-    color: #ff5722; /* Changed to a more distinct color for headers */
+    color: #ff5722;
     font-weight: bold;
-    text-align: center; /* Center text horizontally */
-    justify-content: center; /* Center text vertically */
-    align-items: center; /* Center text vertically */
-    padding: 20px; /* Ensure padding is consistent with other items */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .project-item a {
@@ -52,7 +52,8 @@
 .project-item a:hover {
     text-decoration: underline;
 }
-/* Mobile view */
+
+/* Mobile view adjustments */
 @media (max-width: 768px) {
     .project-grid {
         grid-template-columns: 50px 1fr; /* Reduce the size of the first column */
@@ -68,7 +69,8 @@
 
 @media (max-width: 480px) {
     .project-grid {
-        grid-template-columns: 1fr; /* Stack all items in a single column */
+        display: grid;
+        grid-template-columns: 10px 1fr 25px; /* Stack all items in a single column */
         gap: 15px;
     }
 
