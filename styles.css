@@ -484,6 +484,14 @@ html, body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.project-items {
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 .project-item:hover {
     background-color: #333333;
     transform: translateY(-5px);
@@ -557,6 +565,11 @@ html, body {
     .project-item {
         padding: 15px; /* Reduce padding for smaller screens */
     }
+    .project-items {
+        padding: 10px; /* Further reduce padding */
+        text-align: center;
+
+    }
 
     .project-item a {
         font-size: 14px; /* Adjust link text size for better readability */
@@ -576,7 +589,12 @@ html, body {
 
     .project-item {
         padding: 10px; /* Further reduce padding */
-        text-align: center left;
+        text-align: left;
+
+    }
+    .project-items {
+        padding: 10px; /* Further reduce padding */
+        text-align: center;
 
     }
 
