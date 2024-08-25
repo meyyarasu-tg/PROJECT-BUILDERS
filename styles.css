@@ -490,6 +490,7 @@ html, body {
     border-radius: 8px;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    align-items: center;
 }
 
 .project-item:hover {
@@ -609,8 +610,6 @@ html, body {
     .project-items {
         padding: 10px; /* Further reduce padding */
         text-align: center;
-        align-item: centre;
-
     }
 
     .project-item.header {
