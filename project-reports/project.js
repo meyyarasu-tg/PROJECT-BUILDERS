@@ -39,12 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Adding event listeners to buttons
     document.querySelectorAll(".project-grid").forEach(grid => {
-        const rows = grid.querySelectorAll(".project-items");
+        const rows = grid.querySelectorAll(".project-item");
 
         rows.forEach((row, index) => {
             const orderButton = row.querySelector(".order-btn");
             if (orderButton) {
-                const projectName = row.previousElementSibling.textContent.trim(); // Get the project name
+                // Get the project title from the adjacent item
+                const projectTitleElement = row.previousElementSibling.previousElementSibling;
+                const projectName = projectTitleElement ? projectTitleElement.textContent.trim() : "Unknown Project";
+                
                 orderButton.addEventListener("click", function () {
                     orderProject(projectName);
                 });
