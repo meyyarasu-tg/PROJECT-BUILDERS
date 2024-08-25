@@ -485,6 +485,7 @@ html, body {
 }
 
 .project-items {
+    display: grid;
     background-color: #282828;
     padding: 20px;
     border-radius: 8px;
