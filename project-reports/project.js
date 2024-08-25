@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function orderProject(button) {
         // Find the parent container with the project title
-        const projectItem = button.closest('.project-item');
+        const projectItem = button.closest('.project-items');
         const projectTitle = projectItem.textContent.trim();
 
         // Create WhatsApp URL
@@ -51,11 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Attach event listeners to payment buttons
     document.querySelectorAll('.payment-btn').forEach((button, index) => {
-        const projectID = `project${index + 1}`;
+        const projectItem = button.closest('.project-item');
+        const projectTitle = projectItem.textContent.trim();
         const amount = button.getAttribute("data-amount");
 
         button.addEventListener("click", function () {
-            initiatePayment(projectID, amount);
+            initiatePayment(projectTitle, amount);
         });
     });
 });
