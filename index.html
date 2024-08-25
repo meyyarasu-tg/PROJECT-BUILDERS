@@ -15,9 +15,13 @@
         <div class="container">
             <form class="search-form">
                 <input type="text" placeholder="Search for projects, notes, or PPTs..." class="search-input">
-                <button type="submit" class="search-btn">Search</button>
+                <button type="submit" class="search-btn" onclick="performSearch()">Search</button>
             </form>
         </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container" id="results"></div>
     </section>
 
     <!-- Request New Project and Others Section -->
@@ -85,4 +89,5 @@
     <div id="footer-container"></div>
 </body>
 <script src="header-footer.js"></script>
+<script src="search.js"></script>
 </html>
