@@ -33,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function orderProject(button) {
         // Find the project title
-        const projectItem = button.closest('.project-items').previousElementSibling;
-        const projectTitle = projectItem.textContent.trim();
+        const projectTitle = button.closest('.project-items').previousElementSibling.textContent.trim();
 
         // Create WhatsApp URL
         const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
