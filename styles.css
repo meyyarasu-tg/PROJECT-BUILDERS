@@ -530,7 +530,7 @@ html, body {
     transition: background-color 0.3s ease;
     
 }
-project-items button {
+.project-items button {
     background-color: #1e90ff;
     color: white;
     border: none;
