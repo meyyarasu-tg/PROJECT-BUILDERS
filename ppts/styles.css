@@ -70,7 +70,7 @@
 @media (max-width: 480px) {
     .project-grid {
         display: grid;
-        grid-template-columns: 10px 1fr 25px; /* Stack all items in a single column */
+        grid-template-columns: 12% 1fr 22%; /* Stack all items in a single column */
         gap: 15px;
     }
 
