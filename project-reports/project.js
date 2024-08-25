@@ -31,28 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to order project via WhatsApp
-    function orderProject(projectName) {
-        const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectName)}`;
-        window.location.href = whatsappUrl;
-    }
+   function orderProject(button) {
+    // Find the parent container with the project title
+    const projectItem = button.closest('.project-item');
+    const projectTitle = projectItem.querySelector('.project-title').textContent.trim();
 
-    // Adding event listeners to buttons
-    document.querySelectorAll(".project-grid").forEach(grid => {
-        const rows = grid.querySelectorAll(".project-item");
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/917603846096?text=I%20would%20like%20to%20order%20the%20project:%20${encodeURIComponent(projectTitle)}`;
 
-        rows.forEach((row, index) => {
-            const orderButton = row.querySelector(".order-btn");
-            if (orderButton) {
-                // Get the project title from the adjacent item
-                const projectTitleElement = row.previousElementSibling.previousElementSibling;
-                const projectName = projectTitleElement ? projectTitleElement.textContent.trim() : "Unknown Project";
-                
-                orderButton.addEventListener("click", function () {
-                    orderProject(projectName);
-                });
-            }
-        });
+    // Redirect to WhatsApp
+    window.location.href = whatsappUrl;
+}
+
+// Attach event listeners to all "Order Project" buttons
+document.querySelectorAll('.order-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        orderProject(this);
+    });
+});
 
         const paymentButtons = grid.querySelectorAll(".payment-btn");
         paymentButtons.forEach((button, index) => {
