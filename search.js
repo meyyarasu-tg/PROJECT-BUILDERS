@@ -1,8 +1,15 @@
 document.querySelector('.search-form').addEventListener('submit', performSearch);
+
 async function fetchContent(url) {
-    const response = await fetch(url);
-    const text = await response.text();
-    return (new DOMParser()).parseFromString(text, 'text/html');
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to load ${url}`);
+        const text = await response.text();
+        return (new DOMParser()).parseFromString(text, 'text/html');
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }
 
 async function performSearch(event) {
@@ -12,7 +19,6 @@ async function performSearch(event) {
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = ''; // Clear previous results
     
-    // Define the paths to search
     const pagesToSearch = [
         '/project-reports/civil-project-reports.html',
         '/project-reports/mechanical-project-reports.html',
@@ -36,17 +42,15 @@ async function performSearch(event) {
         '/notes/cse-notes.html',
         '/notes/eee-notes.html',
         '/notes/ece-notes.html'
-        // Add other paths as needed
     ];
     
     for (const page of pagesToSearch) {
         const doc = await fetchContent(page);
-        
-        // Search for project items and notes
+        if (!doc) continue;
+
         const projectItems = doc.querySelectorAll('.project-item');
         const semesterTables = doc.querySelectorAll('.semester-table');
         
-        // Search project items
         projectItems.forEach(item => {
             const text = item.textContent.toLowerCase();
             if (text.includes(query)) {
@@ -61,7 +65,6 @@ async function performSearch(event) {
             }
         });
         
-        // Search notes (semester tables)
         semesterTables.forEach(table => {
             const text = table.textContent.toLowerCase();
             if (text.includes(query)) {
