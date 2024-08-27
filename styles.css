@@ -213,6 +213,13 @@ body {
 .search-result-item a:hover {
     text-decoration: underline;
 }
+#results {
+    display: block;
+    visibility: visible;
+    padding: 20px;
+    background-color: #121212;
+    color: #ffffff;
+}
 
 
 /* Request New Project and Others Section */
