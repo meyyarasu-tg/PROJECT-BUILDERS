@@ -14,7 +14,8 @@
     <section class="search-section">
         <div class="container">
             <form class="search-form">
-                <input type="text" placeholder="Search for projects, notes, or PPTs..." class="search-input">
+                <!-- Added id attribute to match the original JavaScript selector -->
+                <input type="text" id="search-input" placeholder="Search for projects, notes, or PPTs..." class="search-input">
                 <button type="submit" class="search-btn" onclick="performSearch()">Search</button>
             </form>
         </div>
@@ -23,7 +24,7 @@
     <section class="results-section">
         <div class="container" id="results"></div>
     </section>
-
+    <script src="search.js"></script>
     <!-- Request New Project and Others Section -->
     <section class="request-section">
         <div class="container">
@@ -87,7 +88,7 @@
 
     <!-- Footer Section -->
     <div id="footer-container"></div>
-    <script src="search.js"></script>
+    
 </body>
 <script src="header-footer.js"></script>
 </html>

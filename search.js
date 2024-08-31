@@ -15,7 +15,7 @@ async function fetchContent(url) {
 async function performSearch(event) {
     event.preventDefault();
     
-    const query = document.getElementById('search-input').value.toLowerCase();
+    const query = document.querySelector('.search-input').value.toLowerCase();
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = ''; // Clear previous results
     
@@ -49,34 +49,32 @@ async function performSearch(event) {
         if (!doc) continue;
 
         const projectItems = doc.querySelectorAll('.project-item');
-        const semesterTables = doc.querySelectorAll('.semester-table');
+        const semesterTables = doc.querySelectorAll('.note');
         
         projectItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            if (text.includes(query)) {
-                const result = document.createElement('div');
-                result.className = 'search-result-item';
-                result.innerHTML = `
-                    <h3>${item.querySelector('h3') ? item.querySelector('h3').textContent : 'No title'}</h3>
-                    <p>${item.querySelector('p') ? item.querySelector('p').textContent : ''}</p>
-                    <a href="${page}#${item.id}" target="_blank">Go to project</a>
-                `;
-                resultsContainer.appendChild(result);
-            }
+            const title = item.querySelector('h3') ? item.querySelector('h3').textContent : 'Untitled Project';
+            const description = item.querySelector('p') ? item.querySelector('p').textContent : 'No description available';
+            const result = document.createElement('div');
+            result.className = 'search-result-item';
+            result.innerHTML = `
+                <h3>${title}</h3>
+                <p>${description}</p>
+                <a href="${page}#${item.id}" target="_blank">Go to project</a>
+            `;
+            resultsContainer.appendChild(result);
         });
         
         semesterTables.forEach(table => {
-            const text = table.textContent.toLowerCase();
-            if (text.includes(query)) {
-                const result = document.createElement('div');
-                result.className = 'search-result-item';
-                result.innerHTML = `
-                    <h3>${table.querySelector('h3') ? table.querySelector('h3').textContent : 'No title'}</h3>
-                    <p>${table.querySelector('p') ? table.querySelector('p').textContent : ''}</p>
-                    <a href="${page}#${table.id}" target="_blank">Go to notes</a>
-                `;
-                resultsContainer.appendChild(result);
-            }
+            const title = table.querySelector('h3') ? table.querySelector('h3').textContent : 'Untitled Notes';
+            const description = table.querySelector('p') ? table.querySelector('p').textContent : 'No description available';
+            const result = document.createElement('div');
+            result.className = 'search-result-item';
+            result.innerHTML = `
+                <h3>${title}</h3>
+                <p>${description}</p>
+                <a href="${page}#${table.id}" target="_blank">Go to notes</a>
+            `;
+            resultsContainer.appendChild(result);
         });
     }
     
